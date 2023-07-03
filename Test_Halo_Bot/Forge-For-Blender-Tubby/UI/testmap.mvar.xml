@@ -1,0 +1,237 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<?InfiniteVariantTool version="0.1.0.0"?>
+<struct>
+  <struct id="1">
+    <struct id="0">
+      <int32 id="0">-1449092339</int32>
+    </struct>
+    <struct id="1">
+      <struct id="0">
+        <blob id="0" type="uint8">G:\_Projects\Development\Software\Blender\ForgeTools\Halo-Infinite-Forge-For-Blender\UI\testmap.mvar.xml.blob_000</blob>
+      </struct>
+      <struct id="1">
+        <list id="0" type="struct">
+          <struct>
+            <bool id="0">true</bool>
+            <list id="1" type="int32">
+              <int32>749</int32>
+              <int32>749</int32>
+              <int32>749</int32>
+              <int32>749</int32>
+              <int32>749</int32>
+              <int32>749</int32>
+              <int32>749</int32>
+              <int32>749</int32>
+              <int32>749</int32>
+              <int32>749</int32>
+              <int32>749</int32>
+              <int32>749</int32>
+              <int32>749</int32>
+              <int32>749</int32>
+              <int32>749</int32>
+              <int32>749</int32>
+              <int32>749</int32>
+              <int32>749</int32>
+            </list>
+          </struct>
+          <struct>
+            <bool id="0">true</bool>
+            <list id="1" type="int32">
+              <int32>124</int32>
+              <int32>161</int32>
+              <int32>196</int32>
+              <int32>242</int32>
+              <int32>288</int32>
+              <int32>333</int32>
+              <int32>389</int32>
+              <int32>425</int32>
+              <int32>468</int32>
+              <int32>510</int32>
+              <int32>124</int32>
+              <int32>542</int32>
+              <int32>609</int32>
+              <int32>124</int32>
+              <int32>124</int32>
+              <int32>673</int32>
+              <int32>124</int32>
+              <int32>710</int32>
+            </list>
+          </struct>
+        </list>
+      </struct>
+    </struct>
+    <int32 id="3">0</int32>
+    <int32 id="4">1</int32>
+    <struct id="21" />
+    <list id="24" type="struct">
+      <struct />
+      <struct />
+      <struct />
+      <struct />
+      <struct />
+      <struct />
+      <struct />
+      <struct />
+      <struct />
+      <struct />
+      <struct />
+      <struct />
+      <struct />
+      <struct />
+      <struct />
+      <struct />
+      <struct />
+      <struct />
+      <struct />
+      <struct />
+      <struct />
+      <struct />
+      <struct />
+      <struct />
+      <struct />
+      <struct />
+      <struct />
+      <struct />
+      <struct />
+      <struct />
+      <struct />
+    </list>
+    <struct id="28">
+      <int32 id="0">1120495519</int32>
+    </struct>
+    <struct id="29">
+      <int32 id="0">-205205340</int32>
+    </struct>
+    <struct id="30" />
+    <struct id="31" />
+    <struct id="32" />
+    <struct id="33" />
+    <struct id="34" />
+    <struct id="39">
+      <float id="0">8</float>
+      <struct id="2">
+        <float id="0">110</float>
+        <float id="1">58</float>
+      </struct>
+      <float id="3">0.6</float>
+      <float id="5">0.95</float>
+      <struct id="9">
+        <float id="0">70.353226</float>
+        <float id="1">57.499226</float>
+        <float id="2">-42.279633</float>
+      </struct>
+      <float id="10">6</float>
+      <bool id="13">true</bool>
+      <float id="14">0.01</float>
+      <float id="16">0.1</float>
+      <float id="17">30</float>
+      <float id="23">1</float>
+      <float id="24">0.5</float>
+      <float id="32">100</float>
+      <float id="34">120</float>
+      <float id="35">1</float>
+      <float id="36">1</float>
+      <float id="37">10</float>
+      <float id="38">1</float>
+    </struct>
+    <struct id="41">
+      <struct id="0" />
+      <struct id="1" />
+      <struct id="2" />
+      <struct id="3" />
+      <bool id="5">true</bool>
+    </struct>
+    <list id="47" type="int32">
+      <int32>1</int32>
+      <int32>1</int32>
+      <int32>1</int32>
+      <int32>0</int32>
+      <int32>1</int32>
+    </list>
+  </struct>
+  <list id="3" type="struct">
+    <struct>
+      <struct id="2">
+        <int32 id="0">1759788903</int32>
+      </struct>
+      <struct id="3">
+        <float id="0">-129.31674</float>
+        <float id="1">53.448593</float>
+        <float id="2">14.683927</float>
+      </struct>
+      <struct id="4">
+        <float id="2">1</float>
+      </struct>
+      <struct id="5">
+        <float id="0">3.5762787E-07</float>
+        <float id="1">0.9999999</float>
+      </struct>
+      <uint8 id="7">1</uint8>
+      <struct id="8">
+        <list id="0" type="struct">
+          <struct>
+            <int32 id="1">2</int32>
+            <struct id="13" />
+          </struct>
+        </list>
+        <list id="1" type="struct">
+          <struct>
+            <list id="0" type="struct">
+              <struct>
+                <int32 id="0">0</int32>
+              </struct>
+            </list>
+            <bool id="13">true</bool>
+          </struct>
+        </list>
+        <list id="24" type="struct">
+          <struct>
+            <int32 id="0">1</int32>
+            <struct id="1">
+              <int32 id="0">497576961</int32>
+            </struct>
+            <int32 id="2">2</int32>
+          </struct>
+        </list>
+      </struct>
+      <struct id="9" />
+      <struct id="10" />
+    </struct>
+  </list>
+  <struct id="6">
+    <list id="0" type="struct">
+      <struct>
+        <uint32 id="0">1</uint32>
+        <list id="1" type="struct">
+          <struct>
+            <uint32 id="1">2</uint32>
+            <wstring id="2">My Subfolder</wstring>
+            <uint32 id="5">1</uint32>
+            <uint32 id="6">4294967295</uint32>
+            <struct id="9" />
+          </struct>
+          <struct>
+            <int32 id="0">1</int32>
+            <uint32 id="1">3</uint32>
+            <wstring id="2">Primitive Block</wstring>
+            <uint32 id="5">1</uint32>
+            <uint32 id="6">4294967295</uint32>
+            <uint16 id="8">0</uint16>
+            <struct id="9">
+              <int32 id="0">1872646464</int32>
+            </struct>
+            <uint32 id="10">0</uint32>
+          </struct>
+        </list>
+        <wstring id="2">My Folder</wstring>
+        <struct id="5" />
+      </struct>
+    </list>
+    <uint32 id="1">1</uint32>
+    <list id="3" type="uint32">
+      <uint32>4</uint32>
+    </list>
+  </struct>
+  <struct id="7" />
+  <struct id="10" />
+</struct>

@@ -3,7 +3,7 @@
           {
                "itemId": -319219211,
                "objectName": "FLOOR_HALF_B_final.687",
-               "positionX": 0.0,
+               "positionX": 0.69,
                "positionY": 0.0,
                "positionZ": 300.0,
                "rotationX": 0.0,
@@ -17,7 +17,7 @@
           {
                "itemId": -319219211,
                "objectName": "FLOOR_HALF_B_final.688",
-               "positionX": 150.0,
+               "positionX": 150.69,
                "positionY": 0.0,
                "positionZ": 300.0,
                "rotationX": -0.0,
@@ -31,7 +31,7 @@
           {
                "itemId": -319219211,
                "objectName": "FLOOR_HALF_B_final.689",
-               "positionX": -150.0,
+               "positionX": -150.69,
                "positionY": 0.0,
                "positionZ": 300.0,
                "rotationX": -0.0,

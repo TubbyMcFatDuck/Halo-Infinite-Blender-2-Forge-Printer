@@ -1,0 +1,88 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>InfiniteForgePacker</name>
+    </assembly>
+    <members>
+        <!-- Badly formed XML comment ignored for member "P:BondReader.Schemas.Items.ItemSchema.StaticDynamicFlagUnknown" -->
+        <member name="P:BondReader.Schemas.Items.ItemSchema.SettingsContainer">
+            <summary>
+            Unknown (changes from 21 when static to 1 when dynamic)
+            </summary>
+        </member>
+        <member name="M:BondReader.Schemas.Items.ItemSchema.VariantSettings.#ctor(System.Int32,System.Int32,System.Int32)">
+            <summary>
+            
+            </summary>
+            <param name="staticDynamicFlag"> 2 when static 1 when dynamic </param>
+            <param name="scriptBrainFlag"> 1 for objects 2 on script brain</param>
+        </member>
+        <member name="P:BondReader.Schemas.Items.ItemSchema.VariantSettings.StaticDynamicFlag">
+            <summary>
+            2 when static 1 when dynamic 
+            </summary>
+        </member>
+        <member name="P:BondReader.Schemas.Items.ItemSchema.VariantSettings.ScriptBrainFlag">
+            <summary>
+            1 on objects, 2 on scripting brain and dynamic object), I think this determines if an object is static or dynamic
+            </summary>
+        </member>
+        <member name="M:BondReader.Schemas.Items.ItemSettingsContainer.#ctor(InfiniteForgeConstants.ObjectSettings.GameObject)">
+            <summary>
+            Potentially change this constructor to take settings instead of gameObject
+            </summary>
+        </member>
+        <member name="M:BondReader.Schemas.Items.ItemSettingsContainer.UnnamedDynamicObjectDataContainer.#ctor(System.Int32,System.Boolean)">
+            <summary>
+            
+            </summary>
+            <param name="unknownId0Int"> this is 0 for dynamic</param>
+            <param name="unknowDynamicBool"> this is true for dynamic</param>
+        </member>
+        <member name="P:BondReader.Schemas.Items.ItemSettingsContainer.ScriptIndexSettings22.AttachedScriptIndex">
+            <summary>
+            The index of what scripts are attached to this (possibly only on brains)
+            </summary>
+        </member>
+        <member name="P:BondReader.Schemas.Items.ItemSettingsContainer.ItemSettings0ObjectPhysics.ObjectPhysicsMode">
+            <summary>
+            Unknown but its seems to be related to dynamic / static items
+            (0 Normal, 1 Fixed, 2 Phased)
+            </summary>
+        </member>
+        <member name="P:BondReader.Schemas.MapSchema.MapLightingSettings.DirectionalSkyLight">
+            <summary>
+            overrides in order
+            Top , Bottom , North, South,
+            Ease , West
+            </summary>
+        </member>
+        <member name="P:BondReader.Schemas.MapSchema.MapLightingSettings.WindDirection">
+            <summary> x = yaw, y = pitch, z = unknown (maybe roll?) </summary>
+        </member>
+        <member name="P:BondReader.Schemas.MapSchema.MapLightingSettings.id18int">
+            <summary>Might Be fog related </summary>
+        </member>
+        <member name="P:BondReader.Schemas.MapSchema.MapLightingSettings.id19int">
+            <summary>Might Be fog related </summary>
+        </member>
+        <member name="P:BondReader.Schemas.MapSchema.MapLightingSettings.id20int">
+            <summary>Might Be fog related </summary>
+        </member>
+        <member name="P:BondReader.Schemas.MapSchema.MapLightingSettings.id21IntList">
+            <summary>Might Be fog related </summary>
+        </member>
+        <member name="P:BondReader.Schemas.MapSchema.MapLightingSettings.id22Int">
+            <summary>Might Be fog related </summary>
+        </member>
+        <member name="P:BondReader.Schemas.MapSchema.MapLightingSettings.id26Int">
+            <summary> Unknown (Seems to come after every color)</summary>
+        </member>
+        <member name="P:BondReader.Schemas.MapSchema.MapLightingSettings.id29Int">
+            <summary> Unknown (Seems to come after every color)</summary>
+        </member>
+        <member name="P:BondReader.Schemas.MapSchema.MapLightingSettings.id40Int">
+            <summary> Unknown (Seems to come after every color)</summary>
+        </member>
+    </members>
+</doc>
