@@ -40,6 +40,14 @@ To use the bot:
 1. Build your map in Blender using the Forge assets.
 2. When you're ready to export, separate assets into folders based on their object type. The bot can only place one object type per run in Halo Infinite.
 3. It is recommended to keep each batch around 150 objects. The bot quick saves at the end of each batch.
+4. Open Halo infinite in windowed mode.
+5. Place the inital object you will be exporting - REMEMBER the bot can only place run with one object type at a time so make sure the json reflects that
+6. Open all menues in object property - insure the placed object was the last item highlighted in the object browser
+7. Press 0 to reset the objects rotation
+8. Highlight object name inside the property windowed
+9. RUN BOT
+10.!!!!!!!!!!!Do not click else where while bot is running - Only click stop and quit on the bot menue else the bot will start spamming keystrokes EVERYWHERE.!!!!!!!!!!!!!
+
 
 Contributing
 ------------
