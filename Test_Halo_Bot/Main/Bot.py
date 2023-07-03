@@ -13,9 +13,11 @@ key_count = 0
 key_to_count = 'itemId'
 
 position_only = True if sys.argv[3].lower() == 'true' else False
+low_performance = True if sys.argv[4].lower() == 'true' else False  # Add this line to get the low_performance value
 
-def process_execute(item_List, key_count, stop_flag, position_only):
-    key_count = Keymolester.process_objects(item_List, key_count, stop_flag, position_only=position_only)
+
+def process_execute(item_List, key_count, stop_flag, position_only, low_performance):
+    key_count = Keymolester.process_objects(item_List, key_count, stop_flag, position_only=position_only, low_performance=low_performance)
     return
 
 with open(path, "r") as f:
@@ -111,6 +113,8 @@ print(len(response_json.keys()))
 print(response_json.keys())
 print(subkeys)
 print(f"The value of position_only is: {position_only}")
+print(f"The value of low_performance is: {low_performance}")  # Add this line to print the value of low_performance
+
 sys.stdout.flush()
 
 for object_name in item_List:
@@ -123,7 +127,7 @@ print('-' * 20)
 stop_flag = False 
 
 while key_count is not None and key_count > 0:
-    key_count = process_execute(item_List, key_count, stop_flag, position_only)
+    key_count = process_execute(item_List, key_count, stop_flag, position_only, low_performance)
 
 
 ##TO DO##

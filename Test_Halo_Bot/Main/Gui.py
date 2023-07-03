@@ -7,7 +7,7 @@ import sys
 import json
 ####IMPORTANT######
 ######pyinstaller --onefile --add-data "Main;Main" --hidden-import pyautogui --hidden-import pydirectinput --hidden-import pyperclip --icon=Main/halo_bot_icon.ico Main/Gui.py#######
-##Version1.1.8
+##Version1.1.8.1
 ###To-Do###
 # Display object list size from DcJson when its selected onto the Gui
 #
@@ -21,6 +21,7 @@ bot_path = os.path.join("Main", "Bot.py")
 
 class Application(tk.Frame):
     def __init__(self, master=None):
+        self.low_performance_var = tk.BooleanVar(value=False)
         self.bot_process = None
         self.stop_flag = False
         super().__init__(master)
@@ -83,11 +84,14 @@ class Application(tk.Frame):
         self.quit_button.pack(side="left", anchor="center", padx=5, pady=5)
 
         self.object_count_label = tk.Label(options_frame, text="Objects in Json file: 0")
-        self.object_count_label.pack(side="left",anchor="e", padx=50, pady=10)
+        self.object_count_label.pack(side="top",anchor="center", padx=50, pady=10)
 
         self.position_only_var = tk.BooleanVar(value=False)
         self.position_only_checkbox = tk.Checkbutton(options_frame, text="Position Only", variable=self.position_only_var)
-        self.position_only_checkbox.pack(side="left", anchor="w", padx=50, pady=10)
+        self.position_only_checkbox.pack(side="top", anchor="center", padx=50, pady=10)
+
+        self.low_performance_checkbox = tk.Checkbutton(options_frame, text="Low Performance (Slower Keystrokes)", variable=self.low_performance_var)
+        self.low_performance_checkbox.pack(side="top", anchor="center", padx=50, pady=10)
 
         self.clear_button = tk.Button(log_frame, text="Clear Log", command=self.clear_log)
         self.clear_button.pack(side="top", fill="x", padx=100, pady=5)
@@ -120,9 +124,10 @@ class Application(tk.Frame):
     def run_bot(self):
         path = self.file_path_var.get()
         stop_flag = bool(self.stop_flag)
-        position_only = self.position_only_var.get() 
-        print(f"The value of position_only is: {position_only}") # Get the value of the checkbox
-        self.bot_process = subprocess.Popen(["python", bot_path, path, str(stop_flag), str(position_only)], stdout=subprocess.PIPE, stderr=subprocess.STDOUT, bufsize=1)
+        position_only = self.position_only_var.get()
+        low_performance = self.low_performance_var.get()  # Get the value of the checkbox
+        print(f"The value of low_performance is: {low_performance}")
+        self.bot_process = subprocess.Popen(["python", bot_path, path, str(stop_flag), str(position_only), str(low_performance)], stdout=subprocess.PIPE, stderr=subprocess.STDOUT, bufsize=1)
 
         # Start a thread to read the bot process output
         self.bot_output_thread = Thread(target=self.read_bot_output)
@@ -153,7 +158,7 @@ class Application(tk.Frame):
                 f.write(self.log_text.get("1.0", "end"))
 
 
-root.title("TubbyMcFatDuck's Halo Bot v1.1.8")  # Set the title of the application window
+root.title("TubbyMcFatDuck's Halo Bot v1.1.8.1")  # Set the title of the application window
 app = Application(master=root)
 app.pack(fill="both", expand=True)
 root.geometry("1000x750")

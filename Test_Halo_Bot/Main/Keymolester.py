@@ -13,7 +13,7 @@ key_to_count = 'itemId'
 
 
 
-def process_objects(item_list, key_count=0, stop_flag=False, position_only=None):
+def process_objects(item_list, key_count=0, stop_flag=False, position_only=None, low_performance=None):
     for object_name in item_list:
 
         print(f"Processing object '{object_name['objectName']}'")
@@ -22,7 +22,7 @@ def process_objects(item_list, key_count=0, stop_flag=False, position_only=None)
         if position_only:
             start_position(object_name, position_only)
         else:
-            start(object_name, position_only)
+            start(object_name, position_only, low_performance)
 
         key_count -= 1
         print(f"There are {key_count} objects left to process in the JSON file.")
@@ -98,8 +98,9 @@ def get_Property():
 
 
 
-def start(object_name, position_only):
-    pydirectinput.PAUSE=0.012
+def start(object_name, position_only, low_performance):
+    pydirectinput.PAUSE = 0.02 if low_performance else 0.012
+    print('low performance is ({low_performance})')
     print(f"processing({object_name}) Scale")
     sys.stdout.flush()
     pydirectinput.press(['down'],presses= 3)
