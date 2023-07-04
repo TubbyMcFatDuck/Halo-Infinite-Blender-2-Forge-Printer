@@ -3,8 +3,6 @@ import Keymolester
 import sys
 import time
 
-Keymolester.focus_Halo()
-time.sleep(0.5)
 
 # Read the path to the JSON file from the command line
 path = sys.argv[1]
@@ -13,7 +11,7 @@ key_count = 0
 key_to_count = 'itemId'
 
 position_only = True if sys.argv[3].lower() == 'true' else False
-low_performance = True if sys.argv[4].lower() == 'true' else False  # Add this line to get the low_performance value
+low_performance = float(sys.argv[4])
 
 
 def process_execute(item_List, key_count, stop_flag, position_only, low_performance):
