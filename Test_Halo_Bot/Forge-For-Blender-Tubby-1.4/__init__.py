@@ -155,21 +155,21 @@ def export_item_data(context, filepath):
             itemData.rotationY = round(-math.degrees(rot.y), 3)
             itemData.rotationZ = round(math.degrees(rot.z), 3)
 
-            if itemData.rotationX > 360 or itemData.rotationX < -360:
+            if itemData.rotationX > 180 or itemData.rotationX < -180:
                 itemData.rotationX = (itemData.rotationX % 360)
                 if itemData.rotationX > 180:
                     itemData.rotationX -= 360
                 elif itemData.rotationX < -180:
                     itemData.rotationX += 360
 
-            if itemData.rotationY > 360 or itemData.rotationY < -360:
+            if itemData.rotationY > 180 or itemData.rotationY < -180:
                 itemData.rotationY = (itemData.rotationY % 360)
                 if itemData.rotationY > 180:
                     itemData.rotationY -= 360
                 elif itemData.rotationY < -180:
-                    itemData.rotationY += 360            
+                    itemData.rotationY += 360          
 
-            if itemData.rotationZ > 360 or itemData.rotationZ < -360:
+            if itemData.rotationZ > 180 or itemData.rotationZ < -180:
                 itemData.rotationZ = (itemData.rotationZ % 360)
                 if itemData.rotationZ > 180:
                     itemData.rotationZ -= 360
