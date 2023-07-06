@@ -2,11 +2,11 @@
 # naming and formating might be scuffed
 
 bl_info = {
-    "name": "Forge Data Exporter",
+    "name": "Tubbys Forge Data Exporter",
     "author": "Original by DerrikCreates modified by TubbyMcFatDuck",
     "description": "export forge items for processing into Tubbys Forge Bot",
     "blender": (3, 3, 0),
-    "version": (0, 1, 2),
+    "version": (0, 1, 4),
     "location": "View3D",
     "warning": "",
     "category": "Generic"
