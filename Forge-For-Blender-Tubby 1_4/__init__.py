@@ -1,5 +1,6 @@
 # this file needs god. im not a python dev
 # naming and formating might be scuffed
+# im and idiot and don't know if this has been pushed yet.
 
 bl_info = {
     "name": "Forge Data Exporter",
