@@ -116,9 +116,9 @@ def export_item_data(context, filepath):
             itemData.scaleY = round((scale.y * 10), 3)
             itemData.scaleZ = round((scale.z * 10), 3)
 
-            nme = evalObject.name
+            nme = evalObject.name.replace("°", "Deg").replace("/", "-")
 
-            itemData.objectName = object.name
+            itemData.objectName = nme
 
             itemData.collection = Collect
             
