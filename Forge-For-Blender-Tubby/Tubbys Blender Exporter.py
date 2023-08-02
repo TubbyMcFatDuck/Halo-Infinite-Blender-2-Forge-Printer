@@ -1,23 +1,22 @@
 # this file needs god. im not a python dev
 # naming and formating might be scuffed
-# im and idiot and don't know if this has been pushed yet.
 
 bl_info = {
-    "name": "Forge Data Exporter",
-    "author": "Original by DerrikCreates modified by TubbyMcFatDuck",
-    "description": "export forge items for processing into Tubbys Forge Bot",
+    "name": "Tubbys Blender to Forge Data Exporter",
+    "author": "TubbyMcFatDuck",
+    "description": "Export forge assets for processing into Tubbys Forge Bot",
     "blender": (3, 3, 0),
-    "version": (0, 1, 3),
+    "version": (0, 1, 7),
     "location": "View3D",
     "warning": "",
-    "category": "Generic"
+    "category": "Halo Infinite"
 }
 
 import math
 import bpy
 import json
 from types import SimpleNamespace
-from typing import List
+from typing import Collection, List
 from bpy_extras.io_utils import ExportHelper
 from mathutils import Vector
 from bpy.props import StringProperty, BoolProperty, EnumProperty
@@ -52,6 +51,9 @@ def export_item_data(context, filepath):
         if object.forge_export_toggle == True:
 
             itemData = ItemData()
+            
+            Collect = object.users_collection[0].name
+
             evalObject = object.evaluated_get(depsgraph)
 
             print("checking object " + evalObject.name)
@@ -118,6 +120,8 @@ def export_item_data(context, filepath):
 
             itemData.objectName = object.name
 
+            itemData.collection = Collect
+            
             print(evalObject.forge_object_id)
             itemData.itemId = evalObject.forge_object_id
 
@@ -172,6 +176,7 @@ class ItemData:
     itemId = None
 
     objectName = None
+    collection= None
 
     scaleX = None
     scaleY = None
@@ -198,6 +203,85 @@ class MapData:
     def toJSON(self):
         return json.dumps(self, default=lambda o: o.__dict__,
                           sort_keys=True, indent=5)
+
+
+class forgeObjectProperties(Panel):
+    """Tools to Change object properties"""
+    bl_label = "Object Properties"
+    bl_idname = "OBJECT_PT_properties"
+    bl_space_type = "VIEW_3D"
+    bl_region_type = "UI"
+
+    bl_category = "Object Properties"
+
+    def draw(self, context):
+        layout = self.layout
+
+class forgeObjectProperties_Visuals(Panel):
+    """Tools to Change object properties"""
+    bl_label = "Visuals"
+    bl_idname = "OBJECT_PT_properties_Visuals"
+    bl_space_type = "VIEW_3D"
+    bl_region_type = "UI"
+    bl_parent_id = "OBJECT_PT_properties"
+
+    def draw(self, context):
+        layout = self.layout
+
+class forgeObjectProperties_Visuals_Region1(Panel):
+    """Tools to Change object properties"""
+    bl_label = "Region1"
+    bl_idname = "OBJECT_PT_properties_Visuals_Region1"
+    bl_space_type = "VIEW_3D"
+    bl_region_type = "UI"
+    bl_parent_id = "OBJECT_PT_properties_Visuals"
+
+    def draw(self, context):
+        layout = self.layout
+
+class forgeObjectProperties_Visuals_Region2(Panel):
+    """Tools to Change object properties"""
+    bl_label = "Region2"
+    bl_idname = "OBJECT_PT_properties_Visuals_Region2"
+    bl_space_type = "VIEW_3D"
+    bl_region_type = "UI"
+    bl_parent_id = "OBJECT_PT_properties_Visuals"
+
+    def draw(self, context):
+        layout = self.layout
+
+class forgeObjectProperties_Visuals_Region3(Panel):
+    """Tools to Change object properties"""
+    bl_label = "Region3"
+    bl_idname = "OBJECT_PT_properties_Visuals_Region3"
+    bl_space_type = "VIEW_3D"
+    bl_region_type = "UI"
+    bl_parent_id = "OBJECT_PT_properties_Visuals"
+
+    def draw(self, context):
+        layout = self.layout
+
+class forgeObjectProperties_Visuals_ScratchandGrime(Panel):
+    """Tools to Change object properties"""
+    bl_label = "Scratch and Grime"
+    bl_idname = "OBJECT_PT_properties_Visuals_ScratchandGrime"
+    bl_space_type = "VIEW_3D"
+    bl_region_type = "UI"
+    bl_parent_id = "OBJECT_PT_properties_Visuals"
+
+    def draw(self, context):
+        layout = self.layout
+
+class forgeObjectProperties_Gameplay(Panel):
+    """Tools to Change object properties"""
+    bl_label = "Gameplay"
+    bl_idname = "OBJECT_PT_properties_Gameplay"
+    bl_space_type = "VIEW_3D"
+    bl_region_type = "UI"
+    bl_parent_id = "OBJECT_PT_properties"
+
+    def draw(self, context):
+        layout = self.layout
 
 
 class ForgeMapPanel(Panel):
@@ -358,6 +442,13 @@ def register():
     bpy.utils.register_class(ExportItemToForge)
     bpy.utils.register_class(ForgeMapPanel)
     bpy.utils.register_class(LoadForgeObejcts)
+    bpy.utils.register_class(forgeObjectProperties)
+    bpy.utils.register_class(forgeObjectProperties_Visuals)
+    bpy.utils.register_class(forgeObjectProperties_Visuals_Region1)
+    bpy.utils.register_class(forgeObjectProperties_Visuals_Region2)
+    bpy.utils.register_class(forgeObjectProperties_Visuals_Region3)
+    bpy.utils.register_class(forgeObjectProperties_Visuals_ScratchandGrime)
+    bpy.utils.register_class(forgeObjectProperties_Gameplay)
     bpy.types.TOPBAR_MT_file_export.append(menu_func_export)
 
     # Properties
