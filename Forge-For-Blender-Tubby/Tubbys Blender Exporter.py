@@ -6,7 +6,7 @@ bl_info = {
     "author": "TubbyMcFatDuck",
     "description": "Export forge assets for processing into Tubbys Forge Bot",
     "blender": (3, 3, 0),
-    "version": (0, 1, 7),
+    "version": (0, 1, 8),
     "location": "View3D",
     "warning": "",
     "category": "Halo Infinite"
