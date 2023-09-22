@@ -1,5 +1,5 @@
 # Blender to Halo Infinite Forge Bot
-This Github repository hosts the necessary files and programs to build their maps in Blender 3.x, and have that map built for them in Halo Infinite Forge automatically via Direct Input.
+This Github repository hosts the necessary files and programs to build maps in Blender 3.x, and then export in Halo Infinite Forge automatically via Keystrokes.
 
 ### Overview
 `Halo Infinite Forge Bot`
