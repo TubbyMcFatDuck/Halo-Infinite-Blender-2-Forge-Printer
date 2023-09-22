@@ -1,4 +1,30 @@
-*** BOT CODE VERSION 0.9.3 ***
+*** BOT CODE VERSION HIFB RELEASE TEST ***
+
+
+### HOW TO INSTALL BLENDER ADD ON
+1. Make sure you have the latest version of Blender Installed
+2. In Blender, Under Edit click preferences 
+3. Click Add-Ons
+4. Click Install and point at the HIFB Blender Export.Zip
+5. Click refresh then restart Blender
+
+#### HOW TO INSTALL THE ASSET LIBRARY
+1. In Blender, Under Edit click preferences 
+2. Click File Paths
+3. Add a new Asset library by clicking the +
+4. Unzip the Forge For Infinite Asset Pack
+4. Point at the Forge For Infinite Asset Pack folder
+
+#### HOW TO INSTALL HIFB
+1. Install the necessary python packages
+Open the command line prompt and COPY & PASTE the following lines one by one:
+pip install pyautogui
+pip install PyQt5
+pip install pydirectinput
+pip install keyboard
+
+2. Launch HIFB.exe
+
 
 ##### HOW TO RUN THE BOT IN-GAME
 1. Open the Object Browser
