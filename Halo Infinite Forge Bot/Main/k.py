@@ -2,7 +2,18 @@ classic_stylesheet = """
 /* Classic Theme Styles */
 
 """
+classic_stylesheet += """
 
+QPushButton#startButton {
+    background-color: green;
+    color: #FFFFFF;
+}
+
+QPushButton#stopButton {
+    background-color: red;
+    color: #FFFFFF;
+}
+"""
 
 dark_stylesheet = """
 /* Dark Theme Styles */
@@ -43,12 +54,12 @@ QPushButton#jsonSelectorButton {
 }
 
 QPushButton#startButton {
-    background-color: #225263;
+    background-color: green;
     color: #FFFFFF;
 }
 
 QPushButton#stopButton {
-    background-color: #225263;
+    background-color: red;
     color: #FFFFFF;
 }
 
@@ -79,6 +90,26 @@ QTextEdit#logBoxTextBrowser {
 
 QScrollArea#collectionsScrollArea {
     background-color: #222222;
+    color: #FFFFFF;
+}
+
+QWidget#menuBar QMenu::item:selected {
+    background-color: #225263;
+    color: #FFFFFF;
+}
+
+QWidget#menuBar QMenu::item:hover {
+    background-color: #225263;
+    color: #FFFFFF;
+}
+
+QWidget#menuBar QAction:selected {
+    background-color: #225263;
+    color: #FFFFFF;
+}
+
+QWidget#menuBar QAction:hover {
+    background-color: #225263;
     color: #FFFFFF;
 }
 """
@@ -123,12 +154,12 @@ QPushButton#jsonSelectorButton {
 }
 
 QPushButton#startButton {
-    background-color: #89472D;
+    background-color: green;
     color: #FFFFFF;
 }
 
 QPushButton#stopButton {
-    background-color: #89472D;
+    background-color: red;
     color: #FFFFFF;
 }
 
@@ -160,6 +191,23 @@ QTextEdit#logBoxTextBrowser {
 QScrollArea#collectionsScrollArea {
     background-color: #222222;
     color: #FFFFFF;
+}
+
+QWidget#menuBar QMenu::item:selected {
+    background-color: #89472D;
+}
+
+QWidget#menuBar QMenu::item:hover {
+    background-color: #89472D;
+}
+
+QWidget#menuBar QAction:selected {
+    background-color: #89472D;
+    color: #FFFFFF;
+}
+
+QWidget#menuBar QAction:hover {
+    background-color: #89472D;
 }
 """
 
@@ -202,12 +250,12 @@ QPushButton#jsonSelectorButton {
 }
 
 QPushButton#startButton {
-    background-color: #EC5766;
+    background-color: green;
     color: #FFFFFF;
 }
 
 QPushButton#stopButton {
-    background-color: #EC5766;
+    background-color: red;
     color: #FFFFFF;
 }
 
@@ -239,6 +287,22 @@ QTextEdit#logBoxTextBrowser {
 QScrollArea#collectionsScrollArea {
     background-color: #222222;
     color: #FFFFFF;
+}
+
+QWidget#menuBar QMenu::item:selected {
+    background-color: #EC5766;
+}
+
+QWidget#menuBar QMenu::item:hover {
+    background-color: #EC5766;
+}
+
+QWidget#menuBar QAction:selected {
+    background-color: #EC5766;
+}
+
+QWidget#menuBar QAction:hover {
+    background-color: #EC5766;
 }
 """
 
@@ -281,12 +345,12 @@ QPushButton#jsonSelectorButton {
 }
 
 QPushButton#startButton {
-    background-color: #F8805F;
+    background-color: green;
     color: #FFFFFF;
 }
 
 QPushButton#stopButton {
-    background-color: #F8805F;
+    background-color: red;
     color: #FFFFFF;
 }
 
@@ -318,6 +382,22 @@ QTextEdit#logBoxTextBrowser {
 QScrollArea#collectionsScrollArea {
     background-color: #222222;
     color: #FFFFFF;
+}
+
+QWidget#menuBar QMenu::item:selected {
+    background-color: #d29179;
+}
+
+QWidget#menuBar QMenu::item:hover {
+    background-color: #d29179;
+}
+
+QWidget#menuBar QAction:selected {
+    background-color: #d29179;
+}
+
+QWidget#menuBar QAction:hover {
+    background-color: #d29179;
 }
 """
 
@@ -360,12 +440,12 @@ QPushButton#jsonSelectorButton {
 }
 
 QPushButton#startButton {
-    background-color: #81856F;
+    background-color: green;
     color: #FFFFFF;
 }
 
 QPushButton#stopButton {
-    background-color: #81856F;
+    background-color: red;
     color: #FFFFFF;
 }
 
@@ -397,6 +477,22 @@ QTextEdit#logBoxTextBrowser {
 QScrollArea#collectionsScrollArea {
     background-color: #222222;
     color: #FFFFFF;
+}
+
+QWidget#menuBar QMenu::item:selected {
+    background-color: #81856F;
+}
+
+QWidget#menuBar QMenu::item:hover {
+    background-color: #81856F;
+}
+
+QWidget#menuBar QAction:selected {
+    background-color: #81856F;
+}
+
+QWidget#menuBar QAction:hover {
+    background-color: #81856F;
 }
 """
 
@@ -439,12 +535,12 @@ QPushButton#jsonSelectorButton {
 }
 
 QPushButton#startButton {
-    background-color: #4F1271;
+    background-color: green;
     color: #FFFFFF;
 }
 
 QPushButton#stopButton {
-    background-color: #4F1271;
+    background-color: red;
     color: #FFFFFF;
 }
 
@@ -476,6 +572,22 @@ QTextEdit#logBoxTextBrowser {
 QScrollArea#collectionsScrollArea {
     background-color: #222222;
     color: #FFFFFF;
+}
+
+QWidget#menuBar QMenu::item:selected {
+    background-color: #4F1271;
+}
+
+QWidget#menuBar QMenu::item:hover {
+    background-color: #4F1271;
+}
+
+QWidget#menuBar QAction:selected {
+    background-color: #4F1271;
+}
+
+QWidget#menuBar QAction:hover {
+    background-color: #4F1271;
 }
 """
 
@@ -518,12 +630,12 @@ QPushButton#jsonSelectorButton {
 }
 
 QPushButton#startButton {
-    background-color: #3A3A3A;
+    background-color: green;
     color: #FFFFFF;
 }
 
 QPushButton#stopButton {
-    background-color: #3A3A3A;
+    background-color: red;
     color: #FFFFFF;
 }
 
@@ -555,6 +667,22 @@ QTextEdit#logBoxTextBrowser {
 QScrollArea#collectionsScrollArea {
     background-color: #222222;
     color: #FFFFFF;
+}
+
+QWidget#menuBar QMenu::item:selected {
+    background-color: #3A3A3A;
+}
+
+QWidget#menuBar QMenu::item:hover {
+ background-color: #3A3A3A;
+}
+
+QWidget#menuBar QAction:selected {
+    background-color: #3A3A3A;
+}
+
+QWidget#menuBar QAction:hover {
+    background-color: #3A3A3A;
 }
 """
 #k

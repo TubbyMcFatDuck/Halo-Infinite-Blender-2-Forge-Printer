@@ -20,7 +20,7 @@ import random
 #This is the Repo Information and this codes current version, This is used for version checking and not inclusive of all code contributors.
 repo_owner = "TubbyMcFatDuck"
 repo_name = "Halo-Infinite-Forge-Bot"
-current_version = "Release-TEST"
+current_version = "Release-TEST.1"
 
 
 objCounter = 0
@@ -108,7 +108,7 @@ class mainUI (QMainWindow):
         self.timer.start(15 * 1000)  # 60 seconds * 1000 ms = 1 minute
 
         #Variables
-        self.low_performance_var = 0.021
+        self.low_performance_var = 0.014
         self.bot_process = None
         self.stop_flag = False
         self.stop_window_monitor = False
@@ -444,6 +444,9 @@ class mainUI (QMainWindow):
         objCounter = 0
         colCounter = 0
         colOffset = False
+        self.startButton.hide()
+        self.stopButton.show()
+
         self.collectionProgressLabel.setText("Printing Collection:")
         path = self.file_path
         Keymanager.focus_Halo()
@@ -465,6 +468,7 @@ class mainUI (QMainWindow):
         print (collectionFinal)
         print(f"The value of low_performance is: {low_performance}")
         self.bot_process = subprocess.Popen(["python", bot_path, path, str(stop_flag), str(position_only), str(float(low_performance)), str(int(start_index)), str(int(stop_me)), str(int(x_bump)), str(int(y_bump)), str(int(z_bump)), str(int(upper_limit)), str(upper_limit_check), str(int(save_interval)), str(save_interval_check), str(verbose_log), str(collection_master)] + collectionFinal, stdout=subprocess.PIPE, stderr=subprocess.STDOUT, bufsize=1)
+        
         self.bot_output_thread = BotOutputThread(self)
         self.bot_output_thread.bot_process = self.bot_process
         self.bot_output_thread.finished.connect(self.bot_output_thread.deleteLater)
@@ -504,6 +508,8 @@ class mainUI (QMainWindow):
             self.feedback_signal.emit(objCounter)
         if curString == 'thisprinthasconcluded.':
             self.stop_btn_action()
+        if curString[0:14] == 'printcompleted':
+            self.stop_btn_action()
         #print(curString[0:18])
         if curString[0:18] == 'skippingcollection':
             if colOffset == False:
@@ -521,23 +527,31 @@ class mainUI (QMainWindow):
         self.stop_flag = True
         self.stop_window_monitor = True
         self.stopWatchRunning = False
+        self.startButton.show()
+        self.stopButton.hide()
         if self.bot_process is not None:
             self.bot_process.terminate()
             self.bot_process = None
             self.log_to_gui("Bot process terminated.")
 
         if hasattr(self, "BotOutputThread"):
+            print("BotOutputThread exists")
             if BotOutputThread.isRunning():
+                print("BotOutputThread is running now stopping it")
                 BotOutputThread.quit()  # Stop the thread event loop
                 BotOutputThread.wait()
 
         if hasattr(self, "WindowMonitorThread"):
+            print("WindowMonitorThread exists")
             if WindowMonitorThread.isRunning():
+                print("WindowMonitorThread is running now stopping it")
                 WindowMonitorThread.quit()  # Stop the thread event loop
                 WindowMonitorThread.wait()
 
         if hasattr(self, "stopWatchThread"):
+            print("stopWatchThread exists")
             if stopWatchThread.isRunning():
+                print("stopWatchThread is running now stopping it")
                 stopWatchThread.quit()  # Stop the thread event loop
                 stopWatchThread.wait()
         
@@ -567,7 +581,23 @@ class mainUI (QMainWindow):
  
     #Log Functions   
     def clear_log(self):
-        self.logBoxTextBrowser.clear()
+        msg_box = QMessageBox()
+        msg_box.setWindowTitle("HIFB Clear Log")
+        msg_box.setText(f"Are you sure you want to clear the log?")
+        msg_box.setWindowIcon(self.windowIcon())  # Set the same icon as the main app
+        confirm_clear_button = msg_box.addButton("Clear Log", QMessageBox.ActionRole)
+        ignore_button = msg_box.addButton("Nevermined", QMessageBox.ActionRole)
+        msg_box.exec_()
+
+        # Check which button was clicked
+        clicked_button = msg_box.clickedButton()
+        if msg_box.clickedButton() == confirm_clear_button:
+            self.logBoxTextBrowser.clear()
+        elif clicked_button == ignore_button:
+            print("You have chosen to not clear the log")
+
+
+
 
     def export_log(self):
         import datetime
@@ -589,8 +619,14 @@ class mainUI (QMainWindow):
         global totalCount
 
         objectListSizes = []
+        previous_file_path = self.file_path
         file_path, _ = QFileDialog.getOpenFileName(self, 'Open file', "", "DCjson files (*.DCjson);;json files (*.json);;All files (*)")
-        self.file_path = file_path
+        if file_path:
+            self.file_path = file_path
+        else:
+            if previous_file_path:
+                self.file_path = previous_file_path
+
         # Display object count
         if file_path:
             try:
@@ -770,6 +806,6 @@ if __name__ == '__main__':
     app = QApplication(sys.argv)
     ui = mainUI()
     ui.show()
-    ui.change_theme("Classic")
+    ui.change_theme("Dark")
     app.exec_()
 #https://stackoverflow.com/questions/13674792/qobjectconnect-cannot-queue-arguments-of-type-qtextcursor
