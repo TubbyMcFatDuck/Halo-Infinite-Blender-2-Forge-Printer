@@ -20,12 +20,20 @@ import random
 #This is the Repo Information and this codes current version, This is used for version checking and not inclusive of all code contributors.
 repo_owner = "TubbyMcFatDuck"
 repo_name = "Halo-Infinite-Forge-Bot"
-current_version = "Release-TEST.1"
+current_version = "Release-TEST.2"
+
+#This is used for dev mode functionality - TURNS OFF WINDOW MONITOR STOP ACTION
+devMode = False
+# DO NOT LEAVE THIS TRUE WHEN DEPLOYING - It will make Okom upset
+# DO NOT LEAVE THIS TRUE WHEN DEPLOYING
+# DO NOT LEAVE THIS TRUE WHEN DEPLOYING
+# DO NOT LEAVE THIS TRUE WHEN DEPLOYING
+
 
 
 objCounter = 0
 objectList = []
-new_list_with_counts = []
+collection_counts = []
 collectionChecks = []
 hours, minutes, seconds = 0,0,0
 colOffset = False
@@ -70,6 +78,7 @@ class BotOutputThread(QThread):
 
 class WindowMonitorThread(QThread):
     log_signal = pyqtSignal(str)
+    global devMode
     def __init__(self, main_ui):
         super(WindowMonitorThread, self).__init__()
         self.main_ui = main_ui
@@ -79,9 +88,9 @@ class WindowMonitorThread(QThread):
         while not self.main_ui.stop_window_monitor:
             try:
                 active_window_title = pyautogui.getActiveWindowTitle()
-                if active_window_title != "Halo Infinite":
-                    self.main_ui.log_to_gui("\nWARNING: Halo Infinite is not the active window. Proceed with caution!\n")
-                    #self.main_ui.stop_processing()
+                if active_window_title != "Halo Infinite" and devMode == False:
+                    self.main_ui.log_to_gui("\nWARNING: Halo Infinite is not the active window. STOPPING BOT!\n")
+                    self.main_ui.stop_btn_action()
                     break
             except pyautogui.FailSafeException:
                 pass
@@ -93,7 +102,7 @@ class mainUI (QMainWindow):
     stopwatch_signal = pyqtSignal(str, str, str)
     log_signal = pyqtSignal(str)
     feedback_signal = pyqtSignal(int)
-
+    windowMonitor_signal = pyqtSignal()
     def __init__(self):
         super(mainUI, self).__init__()
         loadUi("Main/Gui.ui",self)
@@ -115,14 +124,14 @@ class mainUI (QMainWindow):
         self.stopWatchRunning = False
         self.position_only_var = False
         self.upper_limit_check_var = False
-        self.save_interval_var = False
+        self.save_interval_var = True
         self.upper_limit = 0
         self.start_index_var = 0
         self.stop_me_var = 0
         self.x_bump = 0
         self.y_bump = 0
         self.z_bump = 0
-        self.save_interval = 0
+        self.save_interval = 50
         self.verbose_log_var = False
         self.collectionTF = False
 
@@ -191,6 +200,8 @@ class mainUI (QMainWindow):
             #signals - Need to find a better spot for these
         self.feedback_signal.connect(self.feedback)
         self.stopwatch_signal.connect(self.stopWatchUpdate)
+        self.windowMonitor_signal.connect(self.stop_btn_action_2)
+
             #Menus
         self.menuThemesClassic.triggered.connect(lambda: self.change_theme(theme = "Classic"))
         self.menuThemesDark.triggered.connect(lambda: self.change_theme(theme = "Dark"))
@@ -510,6 +521,13 @@ class mainUI (QMainWindow):
             self.stop_btn_action()
         if curString[0:14] == 'printcompleted':
             self.stop_btn_action()
+        if curString[0:23] == 'emergencystopkeypressed':
+            self.stop_btn_action()
+        if curString[0:18] == 'skippingcollection':
+            if colOffset == False:
+                colOffset = True
+            else:
+                colCounter += 1
         #print(curString[0:18])
         if curString[0:18] == 'skippingcollection':
             if colOffset == False:
@@ -527,8 +545,7 @@ class mainUI (QMainWindow):
         self.stop_flag = True
         self.stop_window_monitor = True
         self.stopWatchRunning = False
-        self.startButton.show()
-        self.stopButton.hide()
+        self.windowMonitor_signal.emit()
         if self.bot_process is not None:
             self.bot_process.terminate()
             self.bot_process = None
@@ -559,22 +576,30 @@ class mainUI (QMainWindow):
         self.stop_window_monitor = False
         self.stopWatchRunning = False
 
+    @pyqtSlot()
+    def stop_btn_action_2(self):
+        self.startButton.show()
+        self.stopButton.hide()
+
     @pyqtSlot(int)
     def feedback(self):
         global objCounter
         global runtimeCount
         global totalCount
+
+        newobjCounter = objCounter + int(self.start_index_var)
+
         previousObjCounter = None  # Store the previous value of objCounter
 
         # Check if the value of objCounter has changed
         if objCounter != previousObjCounter:
             previousObjCounter = objCounter
             if self.collectionTF:
-                self.objectsProgressLabel.setText("Objects Processed: {} / {}".format(objCounter, runtimeCount))
-                self.totalProgressBar.setValue(objCounter)
+                self.objectsProgressLabel.setText("Objects Processed: {} / {}".format(newobjCounter, runtimeCount))
+                self.totalProgressBar.setValue(newobjCounter)
             else:
-                self.objectsProgressLabel.setText("Objects Processed: {} / {}".format(objCounter, totalCount))
-                self.totalProgressBar.setValue(objCounter)
+                self.objectsProgressLabel.setText("Objects Processed: {} / {}".format(newobjCounter, totalCount))
+                self.totalProgressBar.setValue(newobjCounter)
             
         # Update the collectionProgressLabel
         self.collectionProgressLabel.setText("Printing Collection: {}".format(objectList[colCounter]))
@@ -586,7 +611,7 @@ class mainUI (QMainWindow):
         msg_box.setText(f"Are you sure you want to clear the log?")
         msg_box.setWindowIcon(self.windowIcon())  # Set the same icon as the main app
         confirm_clear_button = msg_box.addButton("Clear Log", QMessageBox.ActionRole)
-        ignore_button = msg_box.addButton("Nevermined", QMessageBox.ActionRole)
+        ignore_button = msg_box.addButton("Never Mind", QMessageBox.ActionRole)
         msg_box.exec_()
 
         # Check which button was clicked
@@ -602,7 +627,7 @@ class mainUI (QMainWindow):
     def export_log(self):
         import datetime
         exptime = datetime.datetime.now()
-        exptime = 'HIFB ' + exptime.strftime('%m-%d-%y %H:%M:%S') + ' LOG'
+        exptime = 'HIFB ' + exptime.strftime('%m-%d-%y %H_%M %Z') + ' LOG'
         file_path, _  = QFileDialog.getSaveFileName(self, 'Save file', exptime, "txt files (*.txt)")   
         if file_path:
             with open(file_path, "w") as f:
@@ -612,7 +637,7 @@ class mainUI (QMainWindow):
     def browse_json_file(self):
         self.checkbox_states = {}
         self.object_name_count = 0
-        global new_list_with_counts
+        global collection_counts
         global objectList
         global collectionChecks
         global objectListSizes
@@ -644,9 +669,18 @@ class mainUI (QMainWindow):
                     self.objectsProgressLabel.setText(f"Objects Processed: 0 / {object_name_count}")
                     self.totalProgressBar.setMaximum(object_name_count)
                 size = len(json_data['itemList'])
+
+                # Clear existing layout items
+                layout = self.scrollAreaWidgetContents.layout()
+                while layout.count():
+                    item = layout.takeAt(0)
+                    widget = item.widget()
+                    if widget is not None:
+                        widget.deleteLater()
+
                 objectListSizes = []
                 objectList = []
-                new_list_with_counts = []
+                collection_counts = []
                 del objectList [0:len(objectList)]
                 
                 layout = self.scrollAreaWidgetContents.layout()
@@ -656,56 +690,31 @@ class mainUI (QMainWindow):
                     if widget is not None:
                         widget.deleteLater()
 
+                collection_counts = {}
+                objectList = set()
 
-                try: 
-                    for x in range(size):
-                        collection = str({json_data['itemList'][x]['collection']}).replace("'", "").replace("{","").replace("}","") 
-                        for x in range(len(objectList)):
-                            internalCounter = 0
-                            for y in range(size):
-                                if (str({json_data['itemList'][y]['collection']}).replace("'", "").replace("{","").replace("}","")) == objectList[x]:
-                                    internalCounter += 1
-                            objectListSizes.append(internalCounter)
 
-                        if collection not in objectList:
-                            objectList.append(collection)
-                            checkbox = QCheckBox(collection)
-                            layout = self.scrollAreaWidgetContents.layout()
-                            layout.addWidget(checkbox)
+                for item in object_list:
+                    collection = item.get('collection', '')
+                    if collection:
+                        collection_counts[collection] = collection_counts.get(collection, 0) + 1
+                        objectList.add(collection)
 
-                            # Connect the checkbox's stateChanged signal to a slot function
-                            checkbox.stateChanged.connect(self.checkbox_state_changed)
+                checkboxes = [QCheckBox(collection) for collection in objectList]
+                layout = self.scrollAreaWidgetContents.layout()
+                for checkbox in checkboxes:
+                    layout.addWidget(checkbox)
+                    checkbox.stateChanged.connect(self.checkbox_state_changed)
+                    self.checkbox_states[checkbox] = False
 
-                            self.checkbox_states[checkbox] = False
-
-                            # Store the checkbox in a list or dictionary if you need to access it later
-                            # checkbox_list.append(checkbox)
-                            # checkbox_dict[collection] = checkbox
-                            # Create a new list with collections and their respective sizes
-                    # Create a new list with unique collection names and the total number of objects that share each collection
-                    
-                    for item in object_list:
-                        collection = item.get('collection', '')
-                        if not any(collection == entry[0] for entry in new_list_with_counts):
-                            count = sum(1 for obj in object_list if obj.get('collection') == collection)
-                            new_list_with_counts.append((collection, count))
-
-                    # Print the new list with counts
-                    print(new_list_with_counts)
-                            
-                except KeyError:
-                    self.log_to_gui("ERROR: The selected DCjson does not have a 'Collection' key:value pair. Please export again with updated Blender Exporter.\nYou may still print, by all collection-related features will be disabled.")
-
-                if object_name_count >= 500:
-                    choice = pyautogui.confirm("WARNING: Halo Infinite is very likely to crash after printing 500 objects.", title="HIFB {}".format(current_version), buttons=("Let me go past 500 objects", "Warn me every 500 objects", "Stop me at 500 objects"))
-                    if choice == "Let me go past 500 objects":
-                        print ('Ok')
-                    elif choice == "Stop me at 500 objects":
-                        self.stop_me_var = (500)
+                # Print the collection names and their respective counts
+                print(collection_counts)
+            except KeyError:
+                self.log_to_gui("ERROR: The selected DCjson does not have a 'Collection' key:value pair. Please export again with updated Blender Exporter.\nYou may still print, but all collection-related features will be disabled.")
             except FileNotFoundError as e:
                 # Handle the file not found error
-                    print("File not found:", file_path)
-                    print("Error:", str(e))
+                print("File not found:", file_path)
+                print("Error:", str(e))
 
     def checkbox_state_changed(self, state):
         checkbox = self.sender()  # Get the checkbox that emitted the signal
@@ -780,7 +789,7 @@ class mainUI (QMainWindow):
     def updateValues(self):
         global objectListSizes
         global runtimeCount
-        global new_list_with_counts
+        global collection_counts
         updatedValue = 0
         print("Updating values")
         print(list(map(str, self.checkbox_states.values())))
@@ -788,17 +797,19 @@ class mainUI (QMainWindow):
         checkbox_keys = list(self.checkbox_states.keys())  # Convert dict_keys object to a list
 
         for x, value in enumerate(self.checkbox_states.values()):
-            if bool(value) == True:  # Check if the checkbox state is True
-                collection = str(checkbox_keys[x].text())  # Get the collection from the checkbox
-                for entry in new_list_with_counts:
-                    if entry[0] == collection:  # Check if the collection matches
-                        count = entry[1]  # Get the count from new_list_with_counts
-                        updatedValue += count  # Add the count to updatedValue
+            if bool(value) == True: 
+                collection = str(checkbox_keys[x].text())
+                if collection in collection_counts:
+                    count = collection_counts[collection]
+                    updatedValue += count
 
         runtimeCount = updatedValue
 
+            
         if self.collectionTF == True:
             self.objectsProgressLabel.setText("Objects Processed: 0 / {}".format(updatedValue))
+            if updatedValue == 0:
+                updatedValue = 999
             self.totalProgressBar.setMaximum(updatedValue)
 
 
