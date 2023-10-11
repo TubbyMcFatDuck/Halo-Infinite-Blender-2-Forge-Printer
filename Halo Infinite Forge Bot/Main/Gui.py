@@ -7,7 +7,6 @@ import pyautogui
 import time
 import webbrowser
 import re
-from k import classic_stylesheet, dark_stylesheet, leather_stylesheet, rose_stylesheet, warm_stylesheet, swamp_stylesheet, cyber_stylesheet, custom_stylesheet
 import Keymanager
 import math
 from PyQt5.QtWidgets import QMessageBox, QApplication,QMainWindow, QSlider, QLabel,QCheckBox, QToolTip, QPushButton, QFileDialog, QTextEdit, QTextBrowser, QSpinBox, QLineEdit, QMenu, QAction, QScrollArea, QProgressBar
@@ -16,20 +15,19 @@ from PyQt5.uic import loadUi
 from PyQt5 import QtGui, QtCore
 from PyQt5.QtGui import QTextCursor
 import random
+import configparser
 
 #This is the Repo Information and this codes current version, This is used for version checking and not inclusive of all code contributors.
 repo_owner = "TubbyMcFatDuck"
 repo_name = "Halo-Infinite-Forge-Bot"
-current_version = "Release-TEST.2"
+current_version = "Release-TEST.3"
 
 #This is used for dev mode functionality - TURNS OFF WINDOW MONITOR STOP ACTION
 devMode = False
 # DO NOT LEAVE THIS TRUE WHEN DEPLOYING - It will make Okom upset
-# DO NOT LEAVE THIS TRUE WHEN DEPLOYING
-# DO NOT LEAVE THIS TRUE WHEN DEPLOYING
-# DO NOT LEAVE THIS TRUE WHEN DEPLOYING
-
-
+# DO NOT LEAVE THIS TRUE WHEN DEPLOYING - It will make people cry
+# DO NOT LEAVE THIS TRUE WHEN DEPLOYING - It will make keyboards explode
+# DO NOT LEAVE THIS TRUE WHEN DEPLOYING - It will make TubbyMcFatDuck annoyed
 
 objCounter = 0
 objectList = []
@@ -203,14 +201,14 @@ class mainUI (QMainWindow):
         self.windowMonitor_signal.connect(self.stop_btn_action_2)
 
             #Menus
-        self.menuThemesClassic.triggered.connect(lambda: self.change_theme(theme = "Classic"))
-        self.menuThemesDark.triggered.connect(lambda: self.change_theme(theme = "Dark"))
-        self.menuThemesLeather.triggered.connect(lambda: self.change_theme(theme = "Leather"))
-        self.menuThemesRose.triggered.connect(lambda: self.change_theme(theme = "Rose"))
-        self.menuThemesWarm.triggered.connect(lambda: self.change_theme(theme = "Warm"))
-        self.menuThemesSwamp.triggered.connect(lambda: self.change_theme(theme = "Swamp"))
-        self.menuThemesCyber.triggered.connect(lambda: self.change_theme(theme = "Cyber"))
-        self.menuThemesCustom.triggered.connect(lambda: self.change_theme(theme = "Custom"))
+        self.menuThemesClassic.triggered.connect(lambda: self.change_theme(theme = "ClassicTheme"))
+        self.menuThemesDark.triggered.connect(lambda: self.change_theme(theme = "DarkTheme"))
+        self.menuThemesLeather.triggered.connect(lambda: self.change_theme(theme = "LeatherTheme"))
+        self.menuThemesRose.triggered.connect(lambda: self.change_theme(theme = "RoseTheme"))
+        self.menuThemesWarm.triggered.connect(lambda: self.change_theme(theme = "WarmTheme"))
+        self.menuThemesSwamp.triggered.connect(lambda: self.change_theme(theme = "SwampTheme"))
+        self.menuThemesCyber.triggered.connect(lambda: self.change_theme(theme = "CyberTheme"))
+        self.menuThemesCustom.triggered.connect(lambda: self.change_theme(theme = "CustomTheme"))
         self.menuHelpFaq.triggered.connect(lambda: webbrowser.open('https://discord.com/channels/1132093550553747518/1140483269570347078'))
             #slider
         self.printSpeedSlider.valueChanged.connect(self.printSpeedSlider_Slider_action)
@@ -360,22 +358,56 @@ class mainUI (QMainWindow):
                 self.elapsedTimeLabel.setText(f"Elapsed Time: " + hourString + ":" + minuteString + ":" + secondString)
         #Theme Functions
     def change_theme(self, theme):
-            if theme == "Classic":
-                self.setStyleSheet(classic_stylesheet)
-            if theme == "Dark":
-                self.setStyleSheet(dark_stylesheet)
-            if theme == "Leather":
-                self.setStyleSheet(leather_stylesheet)
-            if theme == "Rose":
-                self.setStyleSheet(rose_stylesheet)
-            if theme == "Warm":
-                self.setStyleSheet(warm_stylesheet)
-            if theme == "Swamp":
-                self.setStyleSheet(swamp_stylesheet)
-            if theme == "Cyber":
-                self.setStyleSheet(cyber_stylesheet)
-            if theme == "Custom":
-                self.setStyleSheet(custom_stylesheet)
+        # Create a ConfigParser object
+        config = configparser.RawConfigParser()
+
+        # Read the INI file
+        config.read(os.path.join("Main", "Settings.ini"))
+
+        # Initialize styles with an empty string
+        styles = ""
+
+        try:
+            # Get the styles for the selected theme
+            styles = config.get(theme, 'stylesheet').strip('|"""')
+            print('1Theme is:',styles)
+        except (configparser.NoSectionError, configparser.NoOptionError):
+            # Handle the case when the specified theme or stylesheet is not found
+            print("Invalid theme or stylesheet1")
+            pass
+
+        # If the styles are a reference to another section
+        if theme == "DefaultTheme":
+            try:
+                # Get the referenced theme for the default theme
+                referenced_theme = config.get(theme, 'DefaultTheme').strip('|"""')
+                print('2Theme is:',styles)
+            except (configparser.NoOptionError, configparser.NoSectionError):
+                # Handle the case when the referenced theme is not found
+                print("Invalid referenced theme2")
+                pass
+            else:
+                # Get the styles for the referenced theme
+                try:
+                    styles = config.get(referenced_theme, 'stylesheet').strip('|"""')
+                    print('3Theme is:',styles)
+                except (configparser.NoSectionError, configparser.NoOptionError):
+                    # Handle the case when the styles for the referenced theme are not found
+                    print("Invalid referenced theme styles3")
+                    return
+                
+        # Update the default theme in the INI file
+        if theme != "DefaultTheme":
+            config.set("DefaultTheme", "defaultTheme", theme)
+            print('Default Them is now:',styles)
+
+        # Save the changes to the INI file
+        with open(os.path.join("Main", "Settings.ini"), "w") as config_file:
+            config.write(config_file)
+
+
+        # Apply the styles to the GUI
+        self.setStyleSheet(styles)
 
     #Discord Functions
     def discord_btn_action(self):
@@ -528,12 +560,6 @@ class mainUI (QMainWindow):
                 colOffset = True
             else:
                 colCounter += 1
-        #print(curString[0:18])
-        if curString[0:18] == 'skippingcollection':
-            if colOffset == False:
-                colOffset = True
-            else:
-                colCounter += 1
         if curString[0:18] == 'printingcollection':
             if colOffset == False:
                 colOffset = True
@@ -586,6 +612,13 @@ class mainUI (QMainWindow):
         global objCounter
         global runtimeCount
         global totalCount
+        global colCounter
+
+        if colCounter < len(collection_counts):
+            collections = list(collection_counts.keys())
+            collection = collections[colCounter]
+        else:
+            print("No collection found for the given index")
 
         newobjCounter = objCounter + int(self.start_index_var)
 
@@ -602,7 +635,7 @@ class mainUI (QMainWindow):
                 self.totalProgressBar.setValue(newobjCounter)
             
         # Update the collectionProgressLabel
-        self.collectionProgressLabel.setText("Printing Collection: {}".format(objectList[colCounter]))
+        self.collectionProgressLabel.setText("Printing Collection: {}".format(collection))
  
     #Log Functions   
     def clear_log(self):
@@ -700,7 +733,7 @@ class mainUI (QMainWindow):
                         collection_counts[collection] = collection_counts.get(collection, 0) + 1
                         objectList.add(collection)
 
-                checkboxes = [QCheckBox(collection) for collection in objectList]
+                checkboxes = [QCheckBox(collection) for collection in collection_counts.keys()]
                 layout = self.scrollAreaWidgetContents.layout()
                 for checkbox in checkboxes:
                     layout.addWidget(checkbox)
@@ -817,6 +850,6 @@ if __name__ == '__main__':
     app = QApplication(sys.argv)
     ui = mainUI()
     ui.show()
-    ui.change_theme("Dark")
+    ui.change_theme("DefaultTheme")
     app.exec_()
 #https://stackoverflow.com/questions/13674792/qobjectconnect-cannot-queue-arguments-of-type-qtextcursor
