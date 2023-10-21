@@ -238,6 +238,13 @@ color: rgb(255, 255, 255);</string>
              </property>
             </widget>
            </item>
+           <item>
+            <widget class="QLabel" name="saveCounterLabel2">
+             <property name="text">
+              <string>Disabled</string>
+             </property>
+            </widget>
+           </item>
            <item alignment="Qt::AlignHCenter">
             <widget class="QSpinBox" name="saveCounterSpin">
              <property name="sizePolicy">
@@ -775,8 +782,8 @@ color: rgb(0, 0, 0);</string>
                    <rect>
                     <x>0</x>
                     <y>0</y>
-                    <width>81</width>
-                    <height>28</height>
+                    <width>238</width>
+                    <height>144</height>
                    </rect>
                   </property>
                   <property name="sizePolicy">
@@ -1025,6 +1032,21 @@ color: rgb(0, 0, 0);</string>
     <property name="title">
      <string>Themes</string>
     </property>
+    <widget class="QMenu" name="menuCustom">
+     <property name="title">
+      <string>Custom</string>
+     </property>
+     <widget class="QMenu" name="menuTheme_Editor">
+      <property name="title">
+       <string>Theme Editor</string>
+      </property>
+      <addaction name="actionTheme_Editor_2"/>
+      <addaction name="actionTheme_Editor_3"/>
+      <addaction name="actionTheme_Editor_4"/>
+     </widget>
+     <addaction name="menuTheme_Editor"/>
+     <addaction name="Custom_2"/>
+    </widget>
     <addaction name="Classic"/>
     <addaction name="Dark"/>
     <addaction name="Leather"/>
@@ -1032,7 +1054,7 @@ color: rgb(0, 0, 0);</string>
     <addaction name="Warm"/>
     <addaction name="Swamp"/>
     <addaction name="Cyber"/>
-    <addaction name="Custom"/>
+    <addaction name="menuCustom"/>
    </widget>
    <widget class="QMenu" name="menuHelp">
     <property name="title">
@@ -1096,14 +1118,29 @@ color: rgb(0, 0, 0);</string>
     <string>Cyber</string>
    </property>
   </action>
-  <action name="Custom">
-   <property name="text">
-    <string>Custom</string>
-   </property>
-  </action>
   <action name="Contributors">
    <property name="text">
     <string>Contributors</string>
+   </property>
+  </action>
+  <action name="Custom_2">
+   <property name="text">
+    <string>Custom Theme</string>
+   </property>
+  </action>
+  <action name="actionTheme_Editor_2">
+   <property name="text">
+    <string>Background</string>
+   </property>
+  </action>
+  <action name="actionTheme_Editor_3">
+   <property name="text">
+    <string>Buttons</string>
+   </property>
+  </action>
+  <action name="actionTheme_Editor_4">
+   <property name="text">
+    <string>Text</string>
    </property>
   </action>
  </widget>
@@ -1122,12 +1159,12 @@ color: rgb(0, 0, 0);</string>
    <slot>setVisible(bool)</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>144</x>
-     <y>352</y>
+     <x>241</x>
+     <y>304</y>
     </hint>
     <hint type="destinationlabel">
-     <x>334</x>
-     <y>264</y>
+     <x>639</x>
+     <y>295</y>
     </hint>
    </hints>
   </connection>
@@ -1190,8 +1227,8 @@ color: rgb(0, 0, 0);</string>
      <y>324</y>
     </hint>
     <hint type="destinationlabel">
-     <x>168</x>
-     <y>385</y>
+     <x>215</x>
+     <y>370</y>
     </hint>
    </hints>
   </connection>
@@ -1206,8 +1243,8 @@ color: rgb(0, 0, 0);</string>
      <y>75</y>
     </hint>
     <hint type="destinationlabel">
-     <x>168</x>
-     <y>385</y>
+     <x>215</x>
+     <y>370</y>
     </hint>
    </hints>
   </connection>
@@ -1224,6 +1261,54 @@ color: rgb(0, 0, 0);</string>
     <hint type="destinationlabel">
      <x>247</x>
      <y>104</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>MainWindow</sender>
+   <signal>windowTitleChanged(QString)</signal>
+   <receiver>saveCounterLabel2</receiver>
+   <slot>hide()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>324</x>
+     <y>312</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>267</x>
+     <y>154</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>saveIntervalCheckBox</sender>
+   <signal>toggled(bool)</signal>
+   <receiver>saveCounterLabel2</receiver>
+   <slot>setHidden(bool)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>490</x>
+     <y>85</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>267</x>
+     <y>154</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>saveIntervalCheckBox</sender>
+   <signal>toggled(bool)</signal>
+   <receiver>saveCounterSpin</receiver>
+   <slot>setVisible(bool)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>490</x>
+     <y>85</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>188</x>
+     <y>154</y>
     </hint>
    </hints>
   </connection>

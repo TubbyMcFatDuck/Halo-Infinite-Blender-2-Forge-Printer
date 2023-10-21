@@ -9,18 +9,18 @@ import webbrowser
 import re
 import Keymanager
 import math
-from PyQt5.QtWidgets import QMessageBox, QApplication,QMainWindow, QSlider, QLabel,QCheckBox, QToolTip, QPushButton, QFileDialog, QTextEdit, QTextBrowser, QSpinBox, QLineEdit, QMenu, QAction, QScrollArea, QProgressBar
+from PyQt5.QtWidgets import QMessageBox, QColorDialog, QApplication,QMainWindow, QSlider, QLabel,QCheckBox, QToolTip, QPushButton, QFileDialog, QTextEdit, QTextBrowser, QSpinBox, QLineEdit, QMenu, QAction, QScrollArea, QProgressBar
 from PyQt5.QtCore import Qt, QThread, pyqtSignal, pyqtSlot, QTimer, QCoreApplication
 from PyQt5.uic import loadUi
 from PyQt5 import QtGui, QtCore
-from PyQt5.QtGui import QTextCursor
+from PyQt5.QtGui import QTextCursor, QColor
 import random
 import configparser
 
 #This is the Repo Information and this codes current version, This is used for version checking and not inclusive of all code contributors.
 repo_owner = "TubbyMcFatDuck"
 repo_name = "Halo-Infinite-Forge-Bot"
-current_version = "Release-TEST.3"
+current_version = "1.0.0"
 
 #This is used for dev mode functionality - TURNS OFF WINDOW MONITOR STOP ACTION
 devMode = False
@@ -43,8 +43,11 @@ UGCData = []
 UGCDataIndex = 0
 UGCLink = ""
 
+# Used for Ini File
+config = configparser.RawConfigParser()
+# Set the current working directory
 main_dir = os.path.abspath(os.path.dirname(__file__))
-
+# Set the path to the Bot
 bot_path = os.path.join("Main", "Bot.py")
 
 
@@ -59,8 +62,6 @@ class stopWatchThread (QThread):
             time.sleep(1)
             self.main_ui.stopWatchUpdate()
     
-
-
 class BotOutputThread(QThread):
     log_signal = pyqtSignal(str)
 
@@ -145,8 +146,12 @@ class mainUI (QMainWindow):
         self.menuThemesWarm = self.findChild(QAction, "Warm")
         self.menuThemesSwamp = self.findChild(QAction, "Swamp")
         self.menuThemesCyber = self.findChild(QAction, "Cyber")
-        self.menuThemesCustom = self.findChild(QAction, "Custom")
+        self.menuThemesCustom = self.findChild(QAction, "Custom_2")
         self.menuHelpFaq = self.findChild(QAction, "FAQ")
+        self.menuThemesCustomCreator = self.findChild(QAction, "actionTheme_Editor_2")
+        self.menuThemesCustomCreatorButtons = self.findChild(QAction, "actionTheme_Editor_3")
+        self.menuThemesCustomCreatorText = self.findChild(QAction, "actionTheme_Editor_4")
+
 
             #Slider
         self.printSpeedSlider = self.findChild(QSlider, "printSpeedSlider")
@@ -209,6 +214,9 @@ class mainUI (QMainWindow):
         self.menuThemesSwamp.triggered.connect(lambda: self.change_theme(theme = "SwampTheme"))
         self.menuThemesCyber.triggered.connect(lambda: self.change_theme(theme = "CyberTheme"))
         self.menuThemesCustom.triggered.connect(lambda: self.change_theme(theme = "CustomTheme"))
+        self.menuThemesCustomCreator.triggered.connect(self.themeCreator)
+        self.menuThemesCustomCreatorButtons.triggered.connect(self.themeCreatorButtons)
+        self.menuThemesCustomCreatorText.triggered.connect(self.themeCreatorText)
         self.menuHelpFaq.triggered.connect(lambda: webbrowser.open('https://discord.com/channels/1132093550553747518/1140483269570347078'))
             #slider
         self.printSpeedSlider.valueChanged.connect(self.printSpeedSlider_Slider_action)
@@ -359,7 +367,7 @@ class mainUI (QMainWindow):
         #Theme Functions
     def change_theme(self, theme):
         # Create a ConfigParser object
-        config = configparser.RawConfigParser()
+        global config
 
         # Read the INI file
         config.read(os.path.join("Main", "Settings.ini"))
@@ -408,6 +416,130 @@ class mainUI (QMainWindow):
 
         # Apply the styles to the GUI
         self.setStyleSheet(styles)
+
+    def themeCreator(self):
+        global config
+
+        # Create a QColorDialog to choose a color
+        color_dialog = QColorDialog()
+
+        # Set the current color to the current color value of "CustomTheme"
+        custom_theme_color = config.get("CustomTheme", "stylesheet").strip('|"""').splitlines()[3].split(":")[1].strip()
+        current_color = QColor(custom_theme_color)
+        color_dialog.setCurrentColor(current_color)
+
+        # Open the QColorDialog for the user to select a color
+        if color_dialog.exec_() == QColorDialog.Accepted:
+            # Get the selected color
+            selected_color = color_dialog.selectedColor()
+
+            # Convert the selected color to a string in hexadecimal format
+            selected_color_hex = selected_color.name()
+
+            # Update the color value of "CustomTheme" in the INI file
+            custom_theme_stylesheet = config.get("CustomTheme", "stylesheet").strip('|"""')
+            custom_theme_stylesheet = custom_theme_stylesheet.replace(custom_theme_color, selected_color_hex + ";")
+
+            # Calculate a shade lighter of the selected color
+            selected_color_rgb = selected_color.red(), selected_color.green(), selected_color.blue()
+            lighter_color_rgb = tuple(min(255, int(c * 1.2)) for c in selected_color_rgb)
+            lighter_color_hex = '#{:02x}{:02x}{:02x}'.format(*lighter_color_rgb)
+
+            menu_item_ids = ["menuBar QMenu::item:selected", "menuBar QMenu::item:hover", "menuBar QAction:selected", "menuBar QAction:hover"]
+            for menu_item_id in menu_item_ids:
+                menu_item_selector = f"QWidget#{menu_item_id} {{"
+                start_index = custom_theme_stylesheet.find(menu_item_selector)
+                end_index = custom_theme_stylesheet.find("}", start_index)
+                menu_item_styles = custom_theme_stylesheet[start_index:end_index + 1]
+                current_background_color_match = re.search(r"background-color:\s*(#(?:[0-9a-fA-F]{3}){1,2})", menu_item_styles)
+                if current_background_color_match:
+                    current_background_color = current_background_color_match.group(1)
+
+                    # Replace the current background-color value with the shade lighter color
+                    menu_item_styles = menu_item_styles.replace(current_background_color, lighter_color_hex)
+                    custom_theme_stylesheet = custom_theme_stylesheet[:start_index] + menu_item_styles + custom_theme_stylesheet[end_index + 1:]
+                
+            custom_theme_stylesheet = '|"""' + custom_theme_stylesheet + '"""|'
+            config.set("CustomTheme", "stylesheet", custom_theme_stylesheet)
+
+            # Save the changes to the INI file
+            with open(os.path.join("Main", "Settings.ini"), "w") as config_file:
+                config.write(config_file)
+
+            # Load the updated theme
+            self.change_theme(theme="CustomTheme")
+    
+
+    def themeCreatorButtons(self):
+        global config
+        # Create a QColorDialog to choose a color
+        color_dialog = QColorDialog()
+
+        # Set the current color to the current color value of "CustomTheme"
+        custom_theme_color = config.get("CustomTheme", "stylesheet").strip('|"""').splitlines()[3].split(":")[1].strip()
+        current_color = QColor(custom_theme_color)
+        color_dialog.setCurrentColor(current_color)
+
+        # Open the QColorDialog for the user to select a color
+        if color_dialog.exec_() == QColorDialog.Accepted:
+            # Get the selected color
+            selected_color = color_dialog.selectedColor()
+
+            # Convert the selected color to a string in hexadecimal format
+            selected_color_hex = selected_color.name()
+
+            # Get the current background-color values of the buttons
+            stylesheet = config.get("CustomTheme", "stylesheet").strip('|"""')
+
+            # Find the current background-color values of the buttons
+            button_ids = ["jsonSelectorButton", "logClearButton", "logExportButton", "discordButton", "ugcButton"]
+            for button_id in button_ids:
+                button_selector = f"QPushButton#{button_id} {{"
+                start_index = stylesheet.find(button_selector)
+                end_index = stylesheet.find("}", start_index)
+                button_styles = stylesheet[start_index:end_index + 1]
+                current_background_color = re.search(r"background-color:\s*(#(?:[0-9a-fA-F]{3}){1,2})", button_styles).group(1)
+
+                # Replace the current background-color value with the selected color
+                button_styles = button_styles.replace(current_background_color, selected_color_hex)
+                stylesheet = stylesheet[:start_index] + button_styles + stylesheet[end_index + 1:]
+
+            # Update the stylesheet value in the INI file
+            config.set("CustomTheme", "stylesheet", '|"""' + stylesheet + '|"""')
+
+            # Save the changes to the INI file
+            with open(os.path.join("Main", "Settings.ini"), "w") as config_file:
+                config.write(config_file)
+
+            # Load the updated theme
+            self.change_theme(theme="CustomTheme")
+
+    def themeCreatorText(self):
+        global config
+        # Create a QColorDialog to choose a color
+        color_dialog = QColorDialog()
+
+        # Set the current color to the current color value of "CustomTheme"
+        custom_theme_stylesheet = config.get("CustomTheme", "stylesheet").strip('|"""')
+
+        # Open the QColorDialog for the user to select a color
+        if color_dialog.exec_() == QColorDialog.Accepted:
+            # Get the selected color
+            selected_color = color_dialog.selectedColor()
+
+            # Update the color value in the stylesheet
+            custom_theme_stylesheet = re.sub(r"(?<!background-)color:\s*#[0-9a-fA-F]{6};", rf"color: {selected_color.name()};", custom_theme_stylesheet)
+
+            # Update the stylesheet value in the INI file
+            custom_theme_stylesheet = '|"""' + custom_theme_stylesheet + '"""|'
+            config.set("CustomTheme", "stylesheet", custom_theme_stylesheet)
+
+            # Save the changes to the INI file
+            with open(os.path.join("Main", "Settings.ini"), "w") as config_file:
+                config.write(config_file)
+
+            # Load the updated theme
+            self.change_theme(theme="CustomTheme")
 
     #Discord Functions
     def discord_btn_action(self):
@@ -714,8 +846,8 @@ class mainUI (QMainWindow):
                 objectListSizes = []
                 objectList = []
                 collection_counts = []
-                del objectList [0:len(objectList)]
-                
+                del objectList[0:len(objectList)]
+
                 layout = self.scrollAreaWidgetContents.layout()
                 while layout.count():
                     item = layout.takeAt(0)
@@ -726,16 +858,17 @@ class mainUI (QMainWindow):
                 collection_counts = {}
                 objectList = set()
 
-
                 for item in object_list:
                     collection = item.get('collection', '')
                     if collection:
                         collection_counts[collection] = collection_counts.get(collection, 0) + 1
                         objectList.add(collection)
 
-                checkboxes = [QCheckBox(collection) for collection in collection_counts.keys()]
+                checkboxes = []
                 layout = self.scrollAreaWidgetContents.layout()
-                for checkbox in checkboxes:
+                for collection, count in collection_counts.items():
+                    checkbox = QCheckBox(f"{collection} ({count})")
+                    checkboxes.append(checkbox)
                     layout.addWidget(checkbox)
                     checkbox.stateChanged.connect(self.checkbox_state_changed)
                     self.checkbox_states[checkbox] = False
@@ -831,14 +964,13 @@ class mainUI (QMainWindow):
 
         for x, value in enumerate(self.checkbox_states.values()):
             if bool(value) == True: 
-                collection = str(checkbox_keys[x].text())
+                collection = str(checkbox_keys[x].text()).split(" (")[0]  # Remove the count from the collection name
                 if collection in collection_counts:
                     count = collection_counts[collection]
                     updatedValue += count
 
         runtimeCount = updatedValue
 
-            
         if self.collectionTF == True:
             self.objectsProgressLabel.setText("Objects Processed: 0 / {}".format(updatedValue))
             if updatedValue == 0:
