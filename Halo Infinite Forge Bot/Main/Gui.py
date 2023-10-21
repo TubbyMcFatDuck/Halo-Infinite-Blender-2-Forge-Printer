@@ -19,7 +19,7 @@ import configparser
 
 #This is the Repo Information and this codes current version, This is used for version checking and not inclusive of all code contributors.
 repo_owner = "TubbyMcFatDuck"
-repo_name = "Halo-Infinite-Forge-Bot"
+repo_name = "Halo-Infinite-Blender-2-Forge"
 current_version = "1.0.0"
 
 #This is used for dev mode functionality - TURNS OFF WINDOW MONITOR STOP ACTION

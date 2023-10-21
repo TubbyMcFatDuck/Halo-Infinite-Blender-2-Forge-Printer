@@ -76,7 +76,7 @@ if vLog == True:
     print("vLOG: Bot.py: End metadata print.")
     sys.stdout.flush()
 
-print("CODE VERSION: v0.9.3") 
+print("BOT CODE VERSION: v1.0.0") 
 
 sys.stdout.flush()
 
