@@ -27,6 +27,7 @@ This tool allows for the use of Blenders tool set to enhance the map building an
 This folder hosts all of the source code for the HI: Blender 2 Forge Printer
 
 Codieum AI was used to assist in the development of the inital code and the current GUI
+
 Current lower level modules are maintained by Bpsherwo
 
 ### `Dependencies`
@@ -63,5 +64,5 @@ This folder contains the images found in this .Md file
 
 ### Legal <3 :
 
-Halo Infinite © Microsoft Corporation. Halo Infinite Forge Bot was created under Microsoft's "Game Content Usage Rules"using assets fromHalo Infinite, and it is not endorsed by or affiliated with Microsoft.
+Halo Infinite © Microsoft Corporation. Halo Infinite Forge Bot was created under Microsoft's "Game Content Usage Rules"using assets from Halo Infinite, and it is not endorsed by or affiliated with Microsoft.
 https://www.xbox.com/en-us/developers/rules
