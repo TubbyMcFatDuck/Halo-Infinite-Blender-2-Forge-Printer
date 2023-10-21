@@ -1,8 +1,8 @@
 ### Features
 
-- Includes 145 printable assets from Halo Infinite - 895(Complete Forge library planned);
-- Blender addon to build and export maps in Blender versions 3.3+;
-- UGC content scroller for maps built with B2FP;
+- Includes 145 printable assets from Halo Infinite - (Complete Forge library planned)
+- Blender addon to build and export maps in Blender versions 3.3+
+- UGC content scroller for maps built with B2FP
 - Custom UI color editor
 - Multiple users capable of printing at the same time during a single Forge session
 
@@ -25,6 +25,7 @@ This tool allows for the use of Blenders tool set to enhance the map building an
 
 ## `Halo Infinite Forge Bot`
 This folder hosts all of the source code for the HI: Blender 2 Forge Printer
+
 Codieum AI was used to assist in the development of the inital code and the current GUI
 Current lower level modules are maintained by Bpsherwo
 
@@ -50,10 +51,10 @@ This folder contains the images found in this .Md file
 ### `Images`
 
 ![test](https://raw.githubusercontent.com/TubbyMcFatDuck/Halo-Infinite-Blender-2-Forge-Printer/main/Images/Blockout1.png "test")
-> Blockout of BreakPoint In Blender By Okom1
+> Blockout of Boneyard In Blender By Okom1
 
 ![](https://raw.githubusercontent.com/TubbyMcFatDuck/Halo-Infinite-Blender-2-Forge-Printer/main/Images/Blockout2.jpeg)
-> BreakPoint imported into Halo Infinite using B2FP
+> Boneyard imported into Halo Infinite using B2FP
 
 ![](https://raw.githubusercontent.com/TubbyMcFatDuck/Halo-Infinite-Blender-2-Forge-Printer/main/Images/Blockout3.jpeg)
 > WIP arting by Okom1
