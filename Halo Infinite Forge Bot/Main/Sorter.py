@@ -647,8 +647,15 @@ obj_TEAM_BLOCKER_8X8X8 = 0
 ## Game Modes
 ## Launchers / Lifts
 ## Match Flow
+obj_MAP_INTRO_CAMERA = 0
+obj_TEAM_INTRO_ARROW_FRONT = 0
+obj_TEAM_INTRO_LINE_LEFT = 0
+obj_TEAM_INTRO_LINE_RIGHT = 0
+obj_WINNING_TEAM_OUTRO = 0
 ## Nav Mesh
 ## Player Spawning
+obj_INITIAL_SPAWN = 0
+obj_RESPAWN_POINT = 0
 ## Sandbox
 ## Scripting
 ## Teleporters
@@ -1668,8 +1675,15 @@ def resetSorter():
     ## Game Modes
     ## Launchers / Lifts
     ## Match Flow
+    global obj_MAP_INTRO_CAMERA
+    global obj_TEAM_INTRO_ARROW_FRONT
+    global obj_TEAM_INTRO_LINE_LEFT
+    global obj_TEAM_INTRO_LINE_RIGHT
+    global obj_WINNING_TEAM_OUTRO
     ## Nav Mesh
     ## Player Spawning
+    global obj_INITIAL_SPAWN
+    global obj_RESPAWN_POINT
     ## Sandbox
     ## Scripting
     ## Teleporters
@@ -2686,8 +2700,15 @@ def resetSorter():
     ## Game Modes
     ## Launchers / Lifts
     ## Match Flow
+    obj_MAP_INTRO_CAMERA = 0
+    obj_TEAM_INTRO_ARROW_FRONT = 0
+    obj_TEAM_INTRO_LINE_LEFT = 0
+    obj_TEAM_INTRO_LINE_RIGHT = 0
+    obj_WINNING_TEAM_OUTRO = 0
     ## Nav Mesh
     ## Player Spawning
+    obj_INITIAL_SPAWN = 0
+    obj_RESPAWN_POINT = 0
     ## Sandbox
     ## Scripting
     ## Teleporters
@@ -3743,8 +3764,15 @@ def initSorter(item_List, start_index, vLog):
     ## Game Modes
     ## Launchers / Lifts
     ## Match Flow
+    global obj_MAP_INTRO_CAMERA
+    global obj_TEAM_INTRO_ARROW_FRONT
+    global obj_TEAM_INTRO_LINE_LEFT
+    global obj_TEAM_INTRO_LINE_RIGHT
+    global obj_WINNING_TEAM_OUTRO
     ## Nav Mesh
     ## Player Spawning
+    global obj_INITIAL_SPAWN
+    global obj_RESPAWN_POINT
     ## Sandbox
     ## Scripting
     ## Teleporters
@@ -5816,8 +5844,27 @@ def initSorter(item_List, start_index, vLog):
         ## Game Modes
         ## Launchers / Lifts
         ## Match Flow
+        if str({object['itemId']}).find("1980827929") == True:
+            obj_MAP_INTRO_CAMERA += 1
+            
+        if str({object['itemId']}).find("1006238451") == True:
+            obj_TEAM_INTRO_ARROW_FRONT += 1
+
+        if str({object['itemId']}).find("-173177076") == True:
+            obj_TEAM_INTRO_LINE_LEFT += 1
+            
+        if str({object['itemId']}).find("1747684183") == True:
+            obj_TEAM_INTRO_LINE_RIGHT += 1
+
+        if str({object['itemId']}).find("298581842") == True:
+            obj_WINNING_TEAM_OUTRO += 1
         ## Nav Mesh
         ## Player Spawning
+        if str({object['itemId']}).find("-361555940") == True:
+            obj_INITIAL_SPAWN += 1
+
+        if str({object['itemId']}).find("-1533673853") == True:
+            obj_RESPAWN_POINT += 1
         ## Sandbox
         ## Scripting
         ## Teleporters

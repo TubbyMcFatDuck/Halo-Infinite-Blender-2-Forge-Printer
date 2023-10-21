@@ -7,6 +7,8 @@ import Sorter
 import mirvTranslator
 import keyboard
 
+pydirectinput.FAILSAFE = False
+
 ##### Execution of Object Processing Functions Start
 
 key_count = 0
@@ -60,23 +62,25 @@ def process_objects(item_list, path, stop_me, vLog, start_index, end_index, end_
                 #Arena Octagon Cover
                 mirvTranslator.objTranslation(sorted_item_list[ticker:Sorter.obj_ARENA_OCTAGON_COVER+ticker], ticker, vLog, stop_me, start_index, end_index, end_index_check, save_interval, save_interval_check, listLength, low_performance, position_only, 2, 3, 4)
                 ticker += Sorter.obj_ARENA_OCTAGON_COVER
-            ## Barrels 4
-            ## Barrels MP 5
-            ## Bazaar 6
+            ## Banished 4
+            ## Banished MP 5 
+            ## Barrels 6
+            ## Barrels MP 7
+            ## Bazaar 8
             elif str({object['itemId']}).find("622020449") == True:
                 #Dirty Bucket
-                mirvTranslator.objTranslationStartsDynamicAndFixed(sorted_item_list[ticker:Sorter.obj_DIRTY_BUCKET+ticker], ticker, vLog, stop_me, start_index, end_index, end_index_check, save_interval, save_interval_check, listLength, low_performance, position_only, 2, 6, 1)
+                mirvTranslator.objTranslationStartsDynamicAndFixed(sorted_item_list[ticker:Sorter.obj_DIRTY_BUCKET+ticker], ticker, vLog, stop_me, start_index, end_index, end_index_check, save_interval, save_interval_check, listLength, low_performance, position_only, 2, 8, 1)
                 ticker += Sorter.obj_DIRTY_BUCKET
 
             elif str({object['itemId']}).find("-1647107999") == True:
                 #Tire Bald
-                mirvTranslator.objTranslation(sorted_item_list[ticker:Sorter.obj_TIRE_BALD+ticker], ticker, vLog, stop_me, start_index, end_index, end_index_check, save_interval, save_interval_check, listLength, low_performance, position_only, 2, 6, 2)
+                mirvTranslator.objTranslation(sorted_item_list[ticker:Sorter.obj_TIRE_BALD+ticker], ticker, vLog, stop_me, start_index, end_index, end_index_check, save_interval, save_interval_check, listLength, low_performance, position_only, 2, 8, 2)
                 ticker += Sorter.obj_TIRE_BALD
-            ## Bazaar MP 7
-            ## Bodies 8
-            ## City Props 9
-            ## City Props MP 10
-            ## Cover 11
+            ## Bazaar MP 9
+            ## Bodies 10
+            ## City Props 11
+            ## City Props MP 12
+            ## Cover 13
             elif str({object['itemId']}).find("1622837419") == True:
                 #Concrete Barrier Long
                 mirvTranslator.objTranslation(sorted_item_list[ticker:Sorter.obj_CONCRETE_BARRIER_LONG+ticker], ticker, vLog, stop_me, start_index, end_index, end_index_check, save_interval, save_interval_check, listLength, low_performance, position_only, 2, 11, 0)
@@ -136,10 +140,10 @@ def process_objects(item_list, path, stop_me, vLog, start_index, end_index, end_
                 #UNSC Deployable Cover Small
                 mirvTranslator.objTranslation(sorted_item_list[ticker:Sorter.obj_UNSC_DEPLOYABLE_COVER_SMALL+ticker], ticker, vLog, stop_me, start_index, end_index, end_index_check, save_interval, save_interval_check, listLength, low_performance, position_only, 2, 11, 11)
                 ticker += Sorter.obj_UNSC_DEPLOYABLE_COVER_SMALL
-            ## Cover MP 12
-            ## Crates 13
-            ## Crates MP 14
-            ## Destructibles 15
+            ## Cover MP 14
+            ## Crates 15
+            ## Crates MP 16
+            ## Destructibles 17
             elif str({object['itemId']}).find("-1482624315") == True:
                 #Plastic Crate Empty
                 mirvTranslator.objTranslation(sorted_item_list[ticker:Sorter.obj_PLASTIC_CRATE_EMPTY+ticker], ticker, vLog, stop_me, start_index, end_index, end_index_check, save_interval, save_interval_check, listLength, low_performance, position_only, 2, 15, 31)
@@ -147,13 +151,13 @@ def process_objects(item_list, path, stop_me, vLog, start_index, end_index, end_
             
             elif str({object['itemId']}).find("792418577") == True:
                 #Soda Crate Empty
-                mirvTranslator.objTranslationStartsDynamicAndFixed(sorted_item_list[ticker:Sorter.obj_SODA_CRATE_EMPTY+ticker], ticker, vLog, stop_me, start_index, end_index, end_index_check, save_interval, save_interval_check, listLength, low_performance, position_only, 2, 15, 35)
+                mirvTranslator.objTranslationStartsDynamicAndFixed(sorted_item_list[ticker:Sorter.obj_SODA_CRATE_EMPTY+ticker], ticker, vLog, stop_me, start_index, end_index, end_index_check, save_interval, save_interval_check, listLength, low_performance, position_only, 2, 17, 35)
                 ticker += Sorter.obj_SODA_CRATE_EMPTY
-            ## Destructibles MP 16
-            ## Ducts 17
-            ## Fences 18
-            ## Fences MP 19
-            ## Forerunner 20
+            ## Destructibles MP 18
+            ## Ducts 19
+            ## Fences 20
+            ## Fences MP 21
+            ## Forerunner 22
             elif str({object['itemId']}).find("-1445440002") == True:
                 #Forerunner 24x60x24 Angled Support
                 mirvTranslator.objTranslation(sorted_item_list[ticker:Sorter.obj_FORERUNNER_24_X_60_X_24_ANGLED_SUPPORT+ticker], ticker, vLog, stop_me, start_index, end_index, end_index_check, save_interval, save_interval_check, listLength, low_performance, position_only, 2, 20, 0)
@@ -583,7 +587,7 @@ def process_objects(item_list, path, stop_me, vLog, start_index, end_index, end_
                 #Forerunner Totem Ring Debris
                 mirvTranslator.objTranslation(sorted_item_list[ticker:Sorter.obj_FORERUNNER_TOTEM_RING_DEBRIS+ticker], ticker, vLog, stop_me, start_index, end_index, end_index_check, save_interval, save_interval_check, listLength, low_performance, position_only, 2, 20, 85)
                 ticker += Sorter.obj_FORERUNNER_TOTEM_RING_DEBRIS
-            ## Forerunner MP 21
+            ## Forerunner MP 23
             elif str({object['itemId']}).find("1647775476") == True:
                 #Forerunner Beam A MP
                 mirvTranslator.objTranslation(sorted_item_list[ticker:Sorter.obj_FORERUNNER_BEAM_A_MP+ticker], ticker, vLog, stop_me, start_index, end_index, end_index_check, save_interval, save_interval_check, listLength, low_performance, position_only, 2, 21, 0)
@@ -938,7 +942,7 @@ def process_objects(item_list, path, stop_me, vLog, start_index, end_index, end_
                 #Hacking Terminal MP
                 mirvTranslator.objTranslation(sorted_item_list[ticker:Sorter.obj_HACKING_TERMINAL_MP+ticker], ticker, vLog, stop_me, start_index, end_index, end_index_check, save_interval, save_interval_check, listLength, low_performance, position_only, 2, 21, 70)
                 ticker += Sorter.obj_HACKING_TERMINAL_MP
-            ## Garbage 22
+            ## Garbage 24
             elif str({object['itemId']}).find("1184267755") == True:
                 #Civilian Dumpster
                 mirvTranslator.objTranslation(sorted_item_list[ticker:Sorter.obj_CIVILIAN_DUMPSTER+ticker], ticker, vLog, stop_me, start_index, end_index, end_index_check, save_interval, save_interval_check, listLength, low_performance, position_only, 2, 22, 0)
@@ -958,13 +962,13 @@ def process_objects(item_list, path, stop_me, vLog, start_index, end_index, end_
                 #Trash Can Closed
                 mirvTranslator.objTranslation(sorted_item_list[ticker:Sorter.obj_TRASH_CAN_CLOSED+ticker], ticker, vLog, stop_me, start_index, end_index, end_index_check, save_interval, save_interval_check, listLength, low_performance, position_only, 2, 22, 3)
                 ticker += Sorter.obj_TRASH_CAN_CLOSED
-            ## Garbage MP 23
-            ## Glass 24
+            ## Garbage MP 25
+            ## Glass 26
             elif str({object['itemId']}).find("1004559525") == True:
                 #Glass Transparent 50%
                 mirvTranslator.objTranslation(sorted_item_list[ticker:Sorter.obj_GLASS_TRANSPARENT_50_+ticker], ticker, vLog, stop_me, start_index, end_index, end_index_check, save_interval, save_interval_check, listLength, low_performance, position_only, 2, 24, 4)
                 ticker += Sorter.obj_GLASS_TRANSPARENT_50_
-            ## Missiles 25
+            ## Missiles 27
             elif str({object['itemId']}).find("1175500974") == True:
                 #Missile Launcher Turret
                 mirvTranslator.objTranslation(sorted_item_list[ticker:Sorter.obj_MISSILE_LAUNCHER_TURRET+ticker], ticker, vLog, stop_me, start_index, end_index, end_index_check, save_interval, save_interval_check, listLength, low_performance, position_only, 2, 25, 0)
@@ -974,24 +978,24 @@ def process_objects(item_list, path, stop_me, vLog, start_index, end_index, end_
                 #Missile Rack
                 mirvTranslator.objTranslation(sorted_item_list[ticker:Sorter.obj_MISSILE_RACK+ticker], ticker, vLog, stop_me, start_index, end_index, end_index_check, save_interval, save_interval_check, listLength, low_performance, position_only, 2, 25, 1)
                 ticker += Sorter.obj_MISSILE_RACK
-            ## Missiles MP 26
-            ## Panels 27
+            ## Missiles MP 28
+            ## Panels 29
             elif str({object['itemId']}).find("1412353944") == True:
                 #Skeletal Panel
                 mirvTranslator.objTranslation(sorted_item_list[ticker:Sorter.obj_SKELETAL_PANEL+ticker], ticker, vLog, stop_me, start_index, end_index, end_index_check, save_interval, save_interval_check, listLength, low_performance, position_only, 2, 27, 1)
                 ticker += Sorter.obj_SKELETAL_PANEL
-            ## Pipes 28
-            ## Railings 29
-            ## Railings MP 30
-            ## Rubble 31
+            ## Pipes 30
+            ## Railings 31
+            ## Railings MP 32
+            ## Rubble 33
             elif str({object['itemId']}).find("-1254749247") == True:
                 #UNSC Rubble Pile Small
                 mirvTranslator.objTranslation(sorted_item_list[ticker:Sorter.obj_UNSC_RUBBLE_PILE_SMALL+ticker], ticker, vLog, stop_me, start_index, end_index, end_index_check, save_interval, save_interval_check, listLength, low_performance, position_only, 2, 31, 3)
                 ticker += Sorter.obj_UNSC_RUBBLE_PILE_SMALL
-            ## Sandbags 32
-            ## Sandbags MP 33
-            ## Signs 34
-            ## Supports 35
+            ## Sandbags 34
+            ## Sandbags MP 35
+            ## Signs 36
+            ## Supports 37
             elif str({object['itemId']}).find("388597365") == True:
                 #Angled Boomerang
                 mirvTranslator.objTranslation(sorted_item_list[ticker:Sorter.obj_ANGLED_BOOMERANG+ticker], ticker, vLog, stop_me, start_index, end_index, end_index_check, save_interval, save_interval_check, listLength, low_performance, position_only, 2, 35, 0)
@@ -1046,8 +1050,8 @@ def process_objects(item_list, path, stop_me, vLog, start_index, end_index, end_
                 #Y Beam Support
                 mirvTranslator.objTranslation(sorted_item_list[ticker:Sorter.obj_Y_BEAM_SUPPORT+ticker], ticker, vLog, stop_me, start_index, end_index, end_index_check, save_interval, save_interval_check, listLength, low_performance, position_only, 2, 35, 23)
                 ticker += Sorter.obj_Y_BEAM_SUPPORT
-            ## Tools MP 36
-            ## UNSC 37
+            ## Tools MP 38
+            ## UNSC 39
             elif str({object['itemId']}).find("933791967") == True:
                 #Concrete Block E
                 mirvTranslator.objTranslation(sorted_item_list[ticker:Sorter.obj_CONCRETE_BLOCK_E+ticker], ticker, vLog, stop_me, start_index, end_index, end_index_check, save_interval, save_interval_check, listLength, low_performance, position_only, 2, 37, 17)
@@ -1102,18 +1106,18 @@ def process_objects(item_list, path, stop_me, vLog, start_index, end_index, end_
                 #Wreckage Hull Support Beam B
                 mirvTranslator.objTranslation(sorted_item_list[ticker:Sorter.obj_WRECKAGE_HULL_SUPPORT_BEAM_B+ticker], ticker, vLog, stop_me, start_index, end_index, end_index_check, save_interval, save_interval_check, listLength, low_performance, position_only, 2, 37, 102)
                 ticker += Sorter.obj_WRECKAGE_HULL_SUPPORT_BEAM_B
-            ## UNSC MP 38
+            ## UNSC MP 40
             elif str({object['itemId']}).find("1806717236") == True:
                 #Concrete Block A MP
                 mirvTranslator.objTranslation(sorted_item_list[ticker:Sorter.obj_CONCRETE_BLOCK_A_MP+ticker], ticker, vLog, stop_me, start_index, end_index, end_index_check, save_interval, save_interval_check, listLength, low_performance, position_only, 2, 38, 4)
                 ticker += Sorter.obj_CONCRETE_BLOCK_A_MP
-            ## Vehicles 39
-            ## Vehicles MP 40
+            ## Vehicles 41
+            ## Vehicles MP 42
             elif str({object['itemId']}).find("-1771771675") == True:
                 #Tanker Truck MP
                 mirvTranslator.objTranslation(sorted_item_list[ticker:Sorter.obj_TANKER_TRUCK_MP+ticker], ticker, vLog, stop_me, start_index, end_index, end_index_check, save_interval, save_interval_check, listLength, low_performance, position_only, 2, 40, 1)
                 ticker += Sorter.obj_TANKER_TRUCK_MP
-            ## Wires 41
+            ## Wires 43
             elif str({object['itemId']}).find("1573061490") == True:
                 #Cable
                 mirvTranslator.objTranslation(sorted_item_list[ticker:Sorter.obj_CABLE+ticker], ticker, vLog, stop_me, start_index, end_index, end_index_check, save_interval, save_interval_check, listLength, low_performance, position_only, 2, 41, 0)
@@ -1153,14 +1157,15 @@ def process_objects(item_list, path, stop_me, vLog, start_index, end_index, end_
                 #UNSC Hanging Wires E
                 mirvTranslator.objTranslation(sorted_item_list[ticker:Sorter.obj_UNSC_HANGING_WIRES_E+ticker], ticker, vLog, stop_me, start_index, end_index, end_index_check, save_interval, save_interval_check, listLength, low_performance, position_only, 2, 41, 7)
                 ticker += Sorter.obj_UNSC_HANGING_WIRES_E
-            ## Wires MP 42
-            ## Workstations 43
-            ## Workstations MP 44
+            ## Wires MP 44
+            ## Workstations 45
+            ## Workstations MP 46
 
             # Biomes 3
-            ## Bushes 1
-            ## Flora 2
-            ## Rocks - Alpine 3
+            ## Bushes MP 1
+            ## Flora MP 2
+            ## Ice and Snow 3
+            ## Rocks - Alpine 4
             elif str({object['itemId']}).find("-223934709") == True:
                 #Alpine Boulder
                 mirvTranslator.objTranslation(sorted_item_list[ticker:Sorter.obj_ALPINE_BOULDER+ticker], ticker, vLog, stop_me, start_index, end_index, end_index_check, save_interval, save_interval_check, listLength, low_performance, position_only, 3, 3, 0)
@@ -1305,7 +1310,7 @@ def process_objects(item_list, path, stop_me, vLog, start_index, end_index, end_
                 #Alpine Stalactites F
                 mirvTranslator.objTranslation(sorted_item_list[ticker:Sorter.obj_ALPINE_STALACTITES_F+ticker], ticker, vLog, stop_me, start_index, end_index, end_index_check, save_interval, save_interval_check, listLength, low_performance, position_only, 3, 3, 28)
                 ticker += Sorter.obj_ALPINE_STALACTITES_F
-            ## Rocks - Burnt Forest 4
+            ## Rocks - Burnt Forest 5
             elif str({object['itemId']}).find("-2048057069") == True:
                 #Burnt Forest Boulder
                 mirvTranslator.objTranslation(sorted_item_list[ticker:Sorter.obj_BURNT_FOREST_BOULDER+ticker], ticker, vLog, stop_me, start_index, end_index, end_index_check, save_interval, save_interval_check, listLength, low_performance, position_only, 3, 4, 0)
@@ -1450,7 +1455,7 @@ def process_objects(item_list, path, stop_me, vLog, start_index, end_index, end_
                 #Burnt Forest Stalactites F
                 mirvTranslator.objTranslation(sorted_item_list[ticker:Sorter.obj_BURNT_FOREST_STALACTITES_F+ticker], ticker, vLog, stop_me, start_index, end_index, end_index_check, save_interval, save_interval_check, listLength, low_performance, position_only, 3, 4, 28)
                 ticker += Sorter.obj_BURNT_FOREST_STALACTITES_F
-            ## Rocks - Desert 5
+            ## Rocks - Desert 6
             elif str({object['itemId']}).find("-453665744") == True:
                 #Desert Boulder
                 mirvTranslator.objTranslation(sorted_item_list[ticker:Sorter.obj_DESERT_BOULDER+ticker], ticker, vLog, stop_me, start_index, end_index, end_index_check, save_interval, save_interval_check, listLength, low_performance, position_only, 3, 5, 0)
@@ -1595,7 +1600,7 @@ def process_objects(item_list, path, stop_me, vLog, start_index, end_index, end_
                 #Desert Stalactites F
                 mirvTranslator.objTranslation(sorted_item_list[ticker:Sorter.obj_DESERT_STALACTITES_F+ticker], ticker, vLog, stop_me, start_index, end_index, end_index_check, save_interval, save_interval_check, listLength, low_performance, position_only, 3, 5, 28)
                 ticker += Sorter.obj_DESERT_STALACTITES_F
-            ## Rocks - Glacier 6
+            ## Rocks - Glacier 7
             elif str({object['itemId']}).find("-280090707") == True:
                 #Glacier Boulder
                 mirvTranslator.objTranslation(sorted_item_list[ticker:Sorter.obj_GLACIER_BOULDER+ticker], ticker, vLog, stop_me, start_index, end_index, end_index_check, save_interval, save_interval_check, listLength, low_performance, position_only, 3, 6, 0)
@@ -1740,37 +1745,37 @@ def process_objects(item_list, path, stop_me, vLog, start_index, end_index, end_
                 #Glacier Stalactites F
                 mirvTranslator.objTranslation(sorted_item_list[ticker:Sorter.obj_GLACIER_STALACTITES_F+ticker], ticker, vLog, stop_me, start_index, end_index, end_index_check, save_interval, save_interval_check, listLength, low_performance, position_only, 3, 6, 28)
                 ticker += Sorter.obj_GLACIER_STALACTITES_F
-            ## Rocks - Misc 7
+            ## Rocks - Misc 8
             elif str({object['itemId']}).find("-319001155") == True:
                 #Eroded Terrain Column A
-                mirvTranslator.objTranslation(sorted_item_list[ticker:Sorter.obj_ERODED_TERRAIN_COLUMN_A+ticker], ticker, vLog, stop_me, start_index, end_index, end_index_check, save_interval, save_interval_check, listLength, low_performance, position_only, 3, 7, 0)
+                mirvTranslator.objTranslation(sorted_item_list[ticker:Sorter.obj_ERODED_TERRAIN_COLUMN_A+ticker], ticker, vLog, stop_me, start_index, end_index, end_index_check, save_interval, save_interval_check, listLength, low_performance, position_only, 3, 8, 0)
                 ticker += Sorter.obj_ERODED_TERRAIN_COLUMN_A
                 
             elif str({object['itemId']}).find("-319095573") == True:
                 #Eroded Terrain Column B
-                mirvTranslator.objTranslation(sorted_item_list[ticker:Sorter.obj_ERODED_TERRAIN_COLUMN_B+ticker], ticker, vLog, stop_me, start_index, end_index, end_index_check, save_interval, save_interval_check, listLength, low_performance, position_only, 3, 7, 1)
+                mirvTranslator.objTranslation(sorted_item_list[ticker:Sorter.obj_ERODED_TERRAIN_COLUMN_B+ticker], ticker, vLog, stop_me, start_index, end_index, end_index_check, save_interval, save_interval_check, listLength, low_performance, position_only, 3, 8, 1)
                 ticker += Sorter.obj_ERODED_TERRAIN_COLUMN_B
 
             elif str({object['itemId']}).find("-1835432896") == True:
                 #Eroded Terrain D
-                mirvTranslator.objTranslation(sorted_item_list[ticker:Sorter.obj_ERODED_TERRAIN_D+ticker], ticker, vLog, stop_me, start_index, end_index, end_index_check, save_interval, save_interval_check, listLength, low_performance, position_only, 3, 7, 2)
+                mirvTranslator.objTranslation(sorted_item_list[ticker:Sorter.obj_ERODED_TERRAIN_D+ticker], ticker, vLog, stop_me, start_index, end_index, end_index_check, save_interval, save_interval_check, listLength, low_performance, position_only, 3, 8, 2)
                 ticker += Sorter.obj_ERODED_TERRAIN_D
 
             elif str({object['itemId']}).find("1605936690") == True:
                 #Eroded Terrain E
-                mirvTranslator.objTranslation(sorted_item_list[ticker:Sorter.obj_ERODED_TERRAIN_E+ticker], ticker, vLog, stop_me, start_index, end_index, end_index_check, save_interval, save_interval_check, listLength, low_performance, position_only, 3, 7, 3)
+                mirvTranslator.objTranslation(sorted_item_list[ticker:Sorter.obj_ERODED_TERRAIN_E+ticker], ticker, vLog, stop_me, start_index, end_index, end_index_check, save_interval, save_interval_check, listLength, low_performance, position_only, 3, 8, 3)
                 ticker += Sorter.obj_ERODED_TERRAIN_E
 
             elif str({object['itemId']}).find("-1531765676") == True:
                 #Terrain Hex Granite A
-                mirvTranslator.objTranslation(sorted_item_list[ticker:Sorter.obj_TERRAIN_HEX_GRANITE_A+ticker], ticker, vLog, stop_me, start_index, end_index, end_index_check, save_interval, save_interval_check, listLength, low_performance, position_only, 3, 7, 4)
+                mirvTranslator.objTranslation(sorted_item_list[ticker:Sorter.obj_TERRAIN_HEX_GRANITE_A+ticker], ticker, vLog, stop_me, start_index, end_index, end_index_check, save_interval, save_interval_check, listLength, low_performance, position_only, 3, 8, 5)
                 ticker += Sorter.obj_TERRAIN_HEX_GRANITE_A
 
             elif str({object['itemId']}).find("1660588673") == True:
                 #Terrain Hex Granite C
-                mirvTranslator.objTranslation(sorted_item_list[ticker:Sorter.obj_TERRAIN_HEX_GRANITE_C+ticker], ticker, vLog, stop_me, start_index, end_index, end_index_check, save_interval, save_interval_check, listLength, low_performance, position_only, 3, 7, 5)
+                mirvTranslator.objTranslation(sorted_item_list[ticker:Sorter.obj_TERRAIN_HEX_GRANITE_C+ticker], ticker, vLog, stop_me, start_index, end_index, end_index_check, save_interval, save_interval_check, listLength, low_performance, position_only, 3, 8, 6)
                 ticker += Sorter.obj_TERRAIN_HEX_GRANITE_C
-            ## Rocks - Space 8
+            ## Rocks - Space 9
             elif str({object['itemId']}).find("947954639") == True:
                 #Space Boulder
                 mirvTranslator.objTranslation(sorted_item_list[ticker:Sorter.obj_SPACE_BOULDER+ticker], ticker, vLog, stop_me, start_index, end_index, end_index_check, save_interval, save_interval_check, listLength, low_performance, position_only, 3, 8, 0)
@@ -1915,7 +1920,7 @@ def process_objects(item_list, path, stop_me, vLog, start_index, end_index, end_
                 #Space Stalactites F
                 mirvTranslator.objTranslation(sorted_item_list[ticker:Sorter.obj_SPACE_STALACTITES_F+ticker], ticker, vLog, stop_me, start_index, end_index, end_index_check, save_interval, save_interval_check, listLength, low_performance, position_only, 3, 8, 28)
                 ticker += Sorter.obj_SPACE_STALACTITES_F
-            ## Rocks - Tidal 9
+            ## Rocks - Tidal 10
             elif str({object['itemId']}).find("1208611533") == True:
                 #Tidal Boulder
                 mirvTranslator.objTranslation(sorted_item_list[ticker:Sorter.obj_TIDAL_BOULDER+ticker], ticker, vLog, stop_me, start_index, end_index, end_index_check, save_interval, save_interval_check, listLength, low_performance, position_only, 3, 9, 0)
@@ -2060,7 +2065,7 @@ def process_objects(item_list, path, stop_me, vLog, start_index, end_index, end_
                 #Tidal Stalactites F
                 mirvTranslator.objTranslation(sorted_item_list[ticker:Sorter.obj_TIDAL_STALACTITES_F+ticker], ticker, vLog, stop_me, start_index, end_index, end_index_check, save_interval, save_interval_check, listLength, low_performance, position_only, 3, 9, 28)
                 ticker += Sorter.obj_TIDAL_STALACTITES_F
-            ## Rocks - Wetlands 10
+            ## Rocks - Wetlands 11
             elif str({object['itemId']}).find("-416461967") == True:
                 #Wetlands Boulder
                 mirvTranslator.objTranslation(sorted_item_list[ticker:Sorter.obj_WETLANDS_BOULDER+ticker], ticker, vLog, stop_me, start_index, end_index, end_index_check, save_interval, save_interval_check, listLength, low_performance, position_only, 3, 10, 0)
@@ -2205,158 +2210,238 @@ def process_objects(item_list, path, stop_me, vLog, start_index, end_index, end_
                 #Wetlands Stalactites F
                 mirvTranslator.objTranslation(sorted_item_list[ticker:Sorter.obj_WETLANDS_STALACTITES_F+ticker], ticker, vLog, stop_me, start_index, end_index, end_index_check, save_interval, save_interval_check, listLength, low_performance, position_only, 3, 10, 28)
                 ticker += Sorter.obj_WETLANDS_STALACTITES_F
-            ## Stumps 11
-            ## Terrain 12
+            ## Stumps MP 12
+            ## Terrain 13
             elif str({object['itemId']}).find("-870851252") == True:
                 #Bank Full
-                mirvTranslator.objTranslation(sorted_item_list[ticker:Sorter.obj_BANK_FULL+ticker], ticker, vLog, stop_me, start_index, end_index, end_index_check, save_interval, save_interval_check, listLength, low_performance, position_only, 3, 12, 0)
+                mirvTranslator.objTranslation(sorted_item_list[ticker:Sorter.obj_BANK_FULL+ticker], ticker, vLog, stop_me, start_index, end_index, end_index_check, save_interval, save_interval_check, listLength, low_performance, position_only, 3, 13, 0)
                 ticker += Sorter.obj_BANK_FULL
 
             elif str({object['itemId']}).find("-454569693") == True:
                 #Bank Full TI
-                mirvTranslator.objTranslationNoObjectMode(sorted_item_list[ticker:Sorter.obj_BANK_FULL_TI+ticker], ticker, vLog, stop_me, start_index, end_index, end_index_check, save_interval, save_interval_check, listLength, low_performance, position_only, 3, 12, 1)
+                mirvTranslator.objTranslationNoObjectMode(sorted_item_list[ticker:Sorter.obj_BANK_FULL_TI+ticker], ticker, vLog, stop_me, start_index, end_index, end_index_check, save_interval, save_interval_check, listLength, low_performance, position_only, 3, 13, 1)
                 ticker += Sorter.obj_BANK_FULL_TI
 
             elif str({object['itemId']}).find("-683994261") == True:
                 #Bank Half
-                mirvTranslator.objTranslation(sorted_item_list[ticker:Sorter.obj_BANK_HALF+ticker], ticker, vLog, stop_me, start_index, end_index, end_index_check, save_interval, save_interval_check, listLength, low_performance, position_only, 3, 12, 2)
+                mirvTranslator.objTranslation(sorted_item_list[ticker:Sorter.obj_BANK_HALF+ticker], ticker, vLog, stop_me, start_index, end_index, end_index_check, save_interval, save_interval_check, listLength, low_performance, position_only, 3, 13, 2)
                 ticker += Sorter.obj_BANK_HALF
 
             elif str({object['itemId']}).find("-251228686") == True:
                 #Bank Half TI
-                mirvTranslator.objTranslationNoObjectMode(sorted_item_list[ticker:Sorter.obj_BANK_HALF_TI+ticker], ticker, vLog, stop_me, start_index, end_index, end_index_check, save_interval, save_interval_check, listLength, low_performance, position_only, 3, 12, 3)
+                mirvTranslator.objTranslationNoObjectMode(sorted_item_list[ticker:Sorter.obj_BANK_HALF_TI+ticker], ticker, vLog, stop_me, start_index, end_index, end_index_check, save_interval, save_interval_check, listLength, low_performance, position_only, 3, 13, 3)
                 ticker += Sorter.obj_BANK_HALF_TI
 
             elif str({object['itemId']}).find("-963974273") == True:
                 #Bowl Hill
-                mirvTranslator.objTranslation(sorted_item_list[ticker:Sorter.obj_BOWL_HILL+ticker], ticker, vLog, stop_me, start_index, end_index, end_index_check, save_interval, save_interval_check, listLength, low_performance, position_only, 3, 12, 4)
+                mirvTranslator.objTranslation(sorted_item_list[ticker:Sorter.obj_BOWL_HILL+ticker], ticker, vLog, stop_me, start_index, end_index, end_index_check, save_interval, save_interval_check, listLength, low_performance, position_only, 3, 13, 4)
                 ticker += Sorter.obj_BOWL_HILL
 
             elif str({object['itemId']}).find("-539718920") == True:
                 #Bowl Hill TI
-                mirvTranslator.objTranslationNoObjectMode(sorted_item_list[ticker:Sorter.obj_BOWL_HILL_TI+ticker], ticker, vLog, stop_me, start_index, end_index, end_index_check, save_interval, save_interval_check, listLength, low_performance, position_only, 3, 12, 5)
+                mirvTranslator.objTranslationNoObjectMode(sorted_item_list[ticker:Sorter.obj_BOWL_HILL_TI+ticker], ticker, vLog, stop_me, start_index, end_index, end_index_check, save_interval, save_interval_check, listLength, low_performance, position_only, 3, 13, 5)
                 ticker += Sorter.obj_BOWL_HILL_TI
 
             elif str({object['itemId']}).find("631526139") == True:
                 #Ramp
-                mirvTranslator.objTranslation(sorted_item_list[ticker:Sorter.obj_RAMP+ticker], ticker, vLog, stop_me, start_index, end_index, end_index_check, save_interval, save_interval_check, listLength, low_performance, position_only, 3, 12, 6)
+                mirvTranslator.objTranslation(sorted_item_list[ticker:Sorter.obj_RAMP+ticker], ticker, vLog, stop_me, start_index, end_index, end_index_check, save_interval, save_interval_check, listLength, low_performance, position_only, 3, 13, 6)
                 ticker += Sorter.obj_RAMP
 
             elif str({object['itemId']}).find("520558844") == True:
                 #Ramp TI
-                mirvTranslator.objTranslationNoObjectMode(sorted_item_list[ticker:Sorter.obj_RAMP_TI+ticker], ticker, vLog, stop_me, start_index, end_index, end_index_check, save_interval, save_interval_check, listLength, low_performance, position_only, 3, 12, 7)
+                mirvTranslator.objTranslationNoObjectMode(sorted_item_list[ticker:Sorter.obj_RAMP_TI+ticker], ticker, vLog, stop_me, start_index, end_index, end_index_check, save_interval, save_interval_check, listLength, low_performance, position_only, 3, 13, 7)
                 ticker += Sorter.obj_RAMP_TI
                 
             elif str({object['itemId']}).find("-320436500") == True:
                 #Ramp Corner Exterior
-                mirvTranslator.objTranslation(sorted_item_list[ticker:Sorter.obj_RAMP_CORNER_EXTERIOR+ticker], ticker, vLog, stop_me, start_index, end_index, end_index_check, save_interval, save_interval_check, listLength, low_performance, position_only, 3, 12, 8)
+                mirvTranslator.objTranslation(sorted_item_list[ticker:Sorter.obj_RAMP_CORNER_EXTERIOR+ticker], ticker, vLog, stop_me, start_index, end_index, end_index_check, save_interval, save_interval_check, listLength, low_performance, position_only, 3, 13, 8)
                 ticker += Sorter.obj_RAMP_CORNER_EXTERIOR
 
             elif str({object['itemId']}).find("-515338164") == True:
                 #Ramp Corner Exterior TI
-                mirvTranslator.objTranslationNoObjectMode(sorted_item_list[ticker:Sorter.obj_RAMP_CORNER_EXTERIOR_TI+ticker], ticker, vLog, stop_me, start_index, end_index, end_index_check, save_interval, save_interval_check, listLength, low_performance, position_only, 3, 12, 9)
+                mirvTranslator.objTranslationNoObjectMode(sorted_item_list[ticker:Sorter.obj_RAMP_CORNER_EXTERIOR_TI+ticker], ticker, vLog, stop_me, start_index, end_index, end_index_check, save_interval, save_interval_check, listLength, low_performance, position_only, 3, 13, 9)
                 ticker += Sorter.obj_RAMP_CORNER_EXTERIOR_TI
 
             elif str({object['itemId']}).find("-2071552351") == True:
                 #Ramp Corner Interior
-                mirvTranslator.objTranslation(sorted_item_list[ticker:Sorter.obj_RAMP_CORNER_INTERIOR+ticker], ticker, vLog, stop_me, start_index, end_index, end_index_check, save_interval, save_interval_check, listLength, low_performance, position_only, 3, 12, 10)
+                mirvTranslator.objTranslation(sorted_item_list[ticker:Sorter.obj_RAMP_CORNER_INTERIOR+ticker], ticker, vLog, stop_me, start_index, end_index, end_index_check, save_interval, save_interval_check, listLength, low_performance, position_only, 3, 13, 10)
                 ticker += Sorter.obj_RAMP_CORNER_INTERIOR
 
             elif str({object['itemId']}).find("126867099") == True:
                 #Ramp Corner Interior TI
-                mirvTranslator.objTranslationNoObjectMode(sorted_item_list[ticker:Sorter.obj_RAMP_CORNER_INTERIOR_TI+ticker], ticker, vLog, stop_me, start_index, end_index, end_index_check, save_interval, save_interval_check, listLength, low_performance, position_only, 3, 12, 11)
+                mirvTranslator.objTranslationNoObjectMode(sorted_item_list[ticker:Sorter.obj_RAMP_CORNER_INTERIOR_TI+ticker], ticker, vLog, stop_me, start_index, end_index, end_index_check, save_interval, save_interval_check, listLength, low_performance, position_only, 3, 13, 11)
                 ticker += Sorter.obj_RAMP_CORNER_INTERIOR_TI
 
             elif str({object['itemId']}).find("1530590479") == True:
                 #Ramp Transition
-                mirvTranslator.objTranslation(sorted_item_list[ticker:Sorter.obj_RAMP_TRANSITION+ticker], ticker, vLog, stop_me, start_index, end_index, end_index_check, save_interval, save_interval_check, listLength, low_performance, position_only, 3, 12, 12)
+                mirvTranslator.objTranslation(sorted_item_list[ticker:Sorter.obj_RAMP_TRANSITION+ticker], ticker, vLog, stop_me, start_index, end_index, end_index_check, save_interval, save_interval_check, listLength, low_performance, position_only, 3, 13, 12)
                 ticker += Sorter.obj_RAMP_TRANSITION
 
             elif str({object['itemId']}).find("2137117489") == True:
                 #Ramp Transition TI
-                mirvTranslator.objTranslationNoObjectMode(sorted_item_list[ticker:Sorter.obj_RAMP_TRANSITION_TI+ticker], ticker, vLog, stop_me, start_index, end_index, end_index_check, save_interval, save_interval_check, listLength, low_performance, position_only, 3, 12, 13)
+                mirvTranslator.objTranslationNoObjectMode(sorted_item_list[ticker:Sorter.obj_RAMP_TRANSITION_TI+ticker], ticker, vLog, stop_me, start_index, end_index, end_index_check, save_interval, save_interval_check, listLength, low_performance, position_only, 3, 13, 13)
                 ticker += Sorter.obj_RAMP_TRANSITION_TI
 
             elif str({object['itemId']}).find("-1207862562") == True:
                 #Slope Helper 20
-                mirvTranslator.objTranslation(sorted_item_list[ticker:Sorter.obj_SLOPE_HELPER_20+ticker], ticker, vLog, stop_me, start_index, end_index, end_index_check, save_interval, save_interval_check, listLength, low_performance, position_only, 3, 12, 14)
+                mirvTranslator.objTranslation(sorted_item_list[ticker:Sorter.obj_SLOPE_HELPER_20+ticker], ticker, vLog, stop_me, start_index, end_index, end_index_check, save_interval, save_interval_check, listLength, low_performance, position_only, 3, 13, 14)
                 ticker += Sorter.obj_SLOPE_HELPER_20
 
             elif str({object['itemId']}).find("1988437591") == True:
                 #Slope Helper 20 TI
-                mirvTranslator.objTranslation(sorted_item_list[ticker:Sorter.obj_SLOPE_HELPER_20_TI+ticker], ticker, vLog, stop_me, start_index, end_index, end_index_check, save_interval, save_interval_check, listLength, low_performance, position_only, 3, 12, 15)
+                mirvTranslator.objTranslation(sorted_item_list[ticker:Sorter.obj_SLOPE_HELPER_20_TI+ticker], ticker, vLog, stop_me, start_index, end_index, end_index_check, save_interval, save_interval_check, listLength, low_performance, position_only, 3, 13, 15)
                 ticker += Sorter.obj_SLOPE_HELPER_20_TI
 
             elif str({object['itemId']}).find("-863495419") == True:
                 #Slope Helper 40
-                mirvTranslator.objTranslation(sorted_item_list[ticker:Sorter.obj_SLOPE_HELPER_40+ticker], ticker, vLog, stop_me, start_index, end_index, end_index_check, save_interval, save_interval_check, listLength, low_performance, position_only, 3, 12, 16)
+                mirvTranslator.objTranslation(sorted_item_list[ticker:Sorter.obj_SLOPE_HELPER_40+ticker], ticker, vLog, stop_me, start_index, end_index, end_index_check, save_interval, save_interval_check, listLength, low_performance, position_only, 3, 13, 16)
                 ticker += Sorter.obj_SLOPE_HELPER_40
 
             elif str({object['itemId']}).find("469262902") == True:
                 #Slope Helper 40 TI
-                mirvTranslator.objTranslationNoObjectMode(sorted_item_list[ticker:Sorter.obj_SLOPE_HELPER_40_TI+ticker], ticker, vLog, stop_me, start_index, end_index, end_index_check, save_interval, save_interval_check, listLength, low_performance, position_only, 3, 12, 17)
+                mirvTranslator.objTranslationNoObjectMode(sorted_item_list[ticker:Sorter.obj_SLOPE_HELPER_40_TI+ticker], ticker, vLog, stop_me, start_index, end_index, end_index_check, save_interval, save_interval_check, listLength, low_performance, position_only, 3, 13, 17)
                 ticker += Sorter.obj_SLOPE_HELPER_40_TI
 
             elif str({object['itemId']}).find("820488105") == True:
                 #Slope Helper 60
-                mirvTranslator.objTranslation(sorted_item_list[ticker:Sorter.obj_SLOPE_HELPER_60+ticker], ticker, vLog, stop_me, start_index, end_index, end_index_check, save_interval, save_interval_check, listLength, low_performance, position_only, 3, 12, 18)
+                mirvTranslator.objTranslation(sorted_item_list[ticker:Sorter.obj_SLOPE_HELPER_60+ticker], ticker, vLog, stop_me, start_index, end_index, end_index_check, save_interval, save_interval_check, listLength, low_performance, position_only, 3, 13, 18)
                 ticker += Sorter.obj_SLOPE_HELPER_60
 
             elif str({object['itemId']}).find("118005238") == True:
                 #Slope Helper 60 TI
-                mirvTranslator.objTranslationNoObjectMode(sorted_item_list[ticker:Sorter.obj_SLOPE_HELPER_60_TI+ticker], ticker, vLog, stop_me, start_index, end_index, end_index_check, save_interval, save_interval_check, listLength, low_performance, position_only, 3, 12, 19)
+                mirvTranslator.objTranslationNoObjectMode(sorted_item_list[ticker:Sorter.obj_SLOPE_HELPER_60_TI+ticker], ticker, vLog, stop_me, start_index, end_index, end_index_check, save_interval, save_interval_check, listLength, low_performance, position_only, 3, 13, 19)
                 ticker += Sorter.obj_SLOPE_HELPER_60_TI
 
             elif str({object['itemId']}).find("-1549263449") == True:
                 #Sphere Terrain
-                mirvTranslator.objTranslation(sorted_item_list[ticker:Sorter.obj_SPHERE_TERRAIN+ticker], ticker, vLog, stop_me, start_index, end_index, end_index_check, save_interval, save_interval_check, listLength, low_performance, position_only, 3, 12, 20)
+                mirvTranslator.objTranslation(sorted_item_list[ticker:Sorter.obj_SPHERE_TERRAIN+ticker], ticker, vLog, stop_me, start_index, end_index, end_index_check, save_interval, save_interval_check, listLength, low_performance, position_only, 3, 13, 20)
                 ticker += Sorter.obj_SPHERE_TERRAIN
 
             elif str({object['itemId']}).find("488175425") == True:
                 #Sphere Terrain TI
-                mirvTranslator.objTranslationNoObjectMode(sorted_item_list[ticker:Sorter.obj_SPHERE_TERRAIN_TI+ticker], ticker, vLog, stop_me, start_index, end_index, end_index_check, save_interval, save_interval_check, listLength, low_performance, position_only, 3, 12, 21)
+                mirvTranslator.objTranslationNoObjectMode(sorted_item_list[ticker:Sorter.obj_SPHERE_TERRAIN_TI+ticker], ticker, vLog, stop_me, start_index, end_index, end_index_check, save_interval, save_interval_check, listLength, low_performance, position_only, 3, 13, 21)
                 ticker += Sorter.obj_SPHERE_TERRAIN_TI
 
             elif str({object['itemId']}).find("2047061831") == True:
                 #Terrace Terrain
-                mirvTranslator.objTranslation(sorted_item_list[ticker:Sorter.obj_TERRACE_TERRAIN+ticker], ticker, vLog, stop_me, start_index, end_index, end_index_check, save_interval, save_interval_check, listLength, low_performance, position_only, 3, 12, 22)
+                mirvTranslator.objTranslation(sorted_item_list[ticker:Sorter.obj_TERRACE_TERRAIN+ticker], ticker, vLog, stop_me, start_index, end_index, end_index_check, save_interval, save_interval_check, listLength, low_performance, position_only, 3, 13, 22)
                 ticker += Sorter.obj_TERRACE_TERRAIN
 
             elif str({object['itemId']}).find("-662742038") == True:
                 #Terrace Terrain TI
-                mirvTranslator.objTranslationNoObjectMode(sorted_item_list[ticker:Sorter.obj_TERRACE_TERRAIN_TI+ticker], ticker, vLog, stop_me, start_index, end_index, end_index_check, save_interval, save_interval_check, listLength, low_performance, position_only, 3, 12, 23)
+                mirvTranslator.objTranslationNoObjectMode(sorted_item_list[ticker:Sorter.obj_TERRACE_TERRAIN_TI+ticker], ticker, vLog, stop_me, start_index, end_index, end_index_check, save_interval, save_interval_check, listLength, low_performance, position_only, 3, 13, 23)
                 ticker += Sorter.obj_TERRACE_TERRAIN_TI
 
             elif str({object['itemId']}).find("1133511843") == True:
                 #Terrain Flat
-                mirvTranslator.objTranslation(sorted_item_list[ticker:Sorter.obj_TERRAIN_FLAT+ticker], ticker, vLog, stop_me, start_index, end_index, end_index_check, save_interval, save_interval_check, listLength, low_performance, position_only, 3, 12, 24)
+                mirvTranslator.objTranslation(sorted_item_list[ticker:Sorter.obj_TERRAIN_FLAT+ticker], ticker, vLog, stop_me, start_index, end_index, end_index_check, save_interval, save_interval_check, listLength, low_performance, position_only, 3, 13, 24)
                 ticker += Sorter.obj_TERRAIN_FLAT
 
             elif str({object['itemId']}).find("-1477909429") == True:
                 #Terrain Flat TI
-                mirvTranslator.objTranslationNoObjectMode(sorted_item_list[ticker:Sorter.obj_TERRAIN_FLAT_TI+ticker], ticker, vLog, stop_me, start_index, end_index, end_index_check, save_interval, save_interval_check, listLength, low_performance, position_only, 3, 12, 25)
+                mirvTranslator.objTranslationNoObjectMode(sorted_item_list[ticker:Sorter.obj_TERRAIN_FLAT_TI+ticker], ticker, vLog, stop_me, start_index, end_index, end_index_check, save_interval, save_interval_check, listLength, low_performance, position_only, 3, 13, 25)
                 ticker += Sorter.obj_TERRAIN_FLAT_TI
 
             elif str({object['itemId']}).find("1574763282") == True:
                 #Terrain Rugged
-                mirvTranslator.objTranslation(sorted_item_list[ticker:Sorter.obj_TERRAIN_RUGGED+ticker], ticker, vLog, stop_me, start_index, end_index, end_index_check, save_interval, save_interval_check, listLength, low_performance, position_only, 3, 12, 26)
+                mirvTranslator.objTranslation(sorted_item_list[ticker:Sorter.obj_TERRAIN_RUGGED+ticker], ticker, vLog, stop_me, start_index, end_index, end_index_check, save_interval, save_interval_check, listLength, low_performance, position_only, 3, 13, 26)
                 ticker += Sorter.obj_TERRAIN_RUGGED
 
             elif str({object['itemId']}).find("-32087135") == True:
                 #Terrain Rugged TI
-                mirvTranslator.objTranslationNoObjectMode(sorted_item_list[ticker:Sorter.obj_TERRAIN_RUGGED_TI+ticker], ticker, vLog, stop_me, start_index, end_index, end_index_check, save_interval, save_interval_check, listLength, low_performance, position_only, 3, 12, 27)
+                mirvTranslator.objTranslationNoObjectMode(sorted_item_list[ticker:Sorter.obj_TERRAIN_RUGGED_TI+ticker], ticker, vLog, stop_me, start_index, end_index, end_index_check, save_interval, save_interval_check, listLength, low_performance, position_only, 3, 13, 27)
                 ticker += Sorter.obj_TERRAIN_RUGGED_TI
 
             elif str({object['itemId']}).find("590769305") == True:
                 #Trench Terrain
-                mirvTranslator.objTranslation(sorted_item_list[ticker:Sorter.obj_TRENCH_TERRAIN+ticker], ticker, vLog, stop_me, start_index, end_index, end_index_check, save_interval, save_interval_check, listLength, low_performance, position_only, 3, 12, 28)
+                mirvTranslator.objTranslation(sorted_item_list[ticker:Sorter.obj_TRENCH_TERRAIN+ticker], ticker, vLog, stop_me, start_index, end_index, end_index_check, save_interval, save_interval_check, listLength, low_performance, position_only, 3, 13, 28)
                 ticker += Sorter.obj_TRENCH_TERRAIN
 
             elif str({object['itemId']}).find("855143119") == True:
                 #Trench Terrain TI
-                mirvTranslator.objTranslationNoObjectMode(sorted_item_list[ticker:Sorter.obj_TRENCH_TERRAIN_TI+ticker], ticker, vLog, stop_me, start_index, end_index, end_index_check, save_interval, save_interval_check, listLength, low_performance, position_only, 3, 12, 29)
+                mirvTranslator.objTranslationNoObjectMode(sorted_item_list[ticker:Sorter.obj_TRENCH_TERRAIN_TI+ticker], ticker, vLog, stop_me, start_index, end_index, end_index_check, save_interval, save_interval_check, listLength, low_performance, position_only, 3, 13, 29)
                 ticker += Sorter.obj_TRENCH_TERRAIN_TI
-            ## Trees 13
+            ## Trees - Logs MP 14
+            elif str({object['itemId']}).find("586555322") == True:
+                #Fallen Tree A
+                mirvTranslator.objTranslation(sorted_item_list[ticker:Sorter.obj_FALLEN_TREE_A+ticker], ticker, vLog, stop_me, start_index, end_index, end_index_check, save_interval, save_interval_check, listLength, low_performance, position_only, 3, 14, 0)
+                ticker += Sorter.obj_FALLEN_TREE_A
+
+            elif str({object['itemId']}).find("841874352") == True:
+                #Fallen Tree B
+                mirvTranslator.objTranslation(sorted_item_list[ticker:Sorter.obj_FALLEN_TREE_B+ticker], ticker, vLog, stop_me, start_index, end_index, end_index_check, save_interval, save_interval_check, listLength, low_performance, position_only, 3, 14, 1)
+                ticker += Sorter.obj_FALLEN_TREE_B
+
+            elif str({object['itemId']}).find("886051836") == True:
+                #Fallen Tree C
+                mirvTranslator.objTranslation(sorted_item_list[ticker:Sorter.obj_FALLEN_TREE_C+ticker], ticker, vLog, stop_me, start_index, end_index, end_index_check, save_interval, save_interval_check, listLength, low_performance, position_only, 3, 14, 2)
+                ticker += Sorter.obj_FALLEN_TREE_C
+
+            elif str({object['itemId']}).find("898691168") == True:
+                #Fallen Tree D
+                mirvTranslator.objTranslation(sorted_item_list[ticker:Sorter.obj_FALLEN_TREE_D+ticker], ticker, vLog, stop_me, start_index, end_index, end_index_check, save_interval, save_interval_check, listLength, low_performance, position_only, 3, 14, 3)
+                ticker += Sorter.obj_FALLEN_TREE_D
+
+            elif str({object['itemId']}).find("2007348554") == True:
+                #Fallen Tree E
+                mirvTranslator.objTranslation(sorted_item_list[ticker:Sorter.obj_FALLEN_TREE_E+ticker], ticker, vLog, stop_me, start_index, end_index, end_index_check, save_interval, save_interval_check, listLength, low_performance, position_only, 3, 14, 4)
+                ticker += Sorter.obj_FALLEN_TREE_E
+
+            elif str({object['itemId']}).find("1836622048") == True:
+                #Fallen Tree w/ Roots
+                mirvTranslator.objTranslation(sorted_item_list[ticker:Sorter.obj_FALLEN_TREE_W_ROOTS+ticker], ticker, vLog, stop_me, start_index, end_index, end_index_check, save_interval, save_interval_check, listLength, low_performance, position_only, 3, 14, 5)
+                ticker += Sorter.obj_FALLEN_TREE_W_ROOTS
+
+            elif str({object['itemId']}).find("-1509539713") == True:
+                #Snagged Log A
+                mirvTranslator.objTranslation(sorted_item_list[ticker:Sorter.obj_SNAGGED_LOG_A+ticker], ticker, vLog, stop_me, start_index, end_index, end_index_check, save_interval, save_interval_check, listLength, low_performance, position_only, 3, 14, 6)
+                ticker += Sorter.obj_SNAGGED_LOG_A
+
+            elif str({object['itemId']}).find("-425303348") == True:
+                #Snagged Log B
+                mirvTranslator.objTranslation(sorted_item_list[ticker:Sorter.obj_SNAGGED_LOG_B+ticker], ticker, vLog, stop_me, start_index, end_index, end_index_check, save_interval, save_interval_check, listLength, low_performance, position_only, 3, 14, 7)
+                ticker += Sorter.obj_SNAGGED_LOG_B
+
+            elif str({object['itemId']}).find("-2089225903") == True:
+                #Snagged Log C
+                mirvTranslator.objTranslation(sorted_item_list[ticker:Sorter.obj_SNAGGED_LOG_C+ticker], ticker, vLog, stop_me, start_index, end_index, end_index_check, save_interval, save_interval_check, listLength, low_performance, position_only, 3, 14, 8)
+                ticker += Sorter.obj_SNAGGED_LOG_C
+
+            elif str({object['itemId']}).find("-2099489993") == True:
+                #Snagged Log D
+                mirvTranslator.objTranslation(sorted_item_list[ticker:Sorter.obj_SNAGGED_LOG_D+ticker], ticker, vLog, stop_me, start_index, end_index, end_index_check, save_interval, save_interval_check, listLength, low_performance, position_only, 3, 14, 9)
+                ticker += Sorter.obj_SNAGGED_LOG_D
+            ## Trees - Roots MP 15
+            elif str({object['itemId']}).find("-1963622591") == True:
+                #Root Cluster
+                mirvTranslator.objTranslation(sorted_item_list[ticker:Sorter.obj_ROOT_CLUSTER+ticker], ticker, vLog, stop_me, start_index, end_index, end_index_check, save_interval, save_interval_check, listLength, low_performance, position_only, 3, 15, 0)
+                ticker += Sorter.obj_ROOT_CLUSTER
+
+            elif str({object['itemId']}).find("1986307023") == True:
+                #Roots A
+                mirvTranslator.objTranslation(sorted_item_list[ticker:Sorter.obj_ROOTS_A+ticker], ticker, vLog, stop_me, start_index, end_index, end_index_check, save_interval, save_interval_check, listLength, low_performance, position_only, 3, 15, 1)
+                ticker += Sorter.obj_ROOTS_A
+
+            elif str({object['itemId']}).find("789136891") == True:
+                #Roots B
+                mirvTranslator.objTranslation(sorted_item_list[ticker:Sorter.obj_ROOTS_B+ticker], ticker, vLog, stop_me, start_index, end_index, end_index_check, save_interval, save_interval_check, listLength, low_performance, position_only, 3, 15, 2)
+                ticker += Sorter.obj_ROOTS_B
+
+            elif str({object['itemId']}).find("-158806131") == True:
+                #Roots C
+                mirvTranslator.objTranslation(sorted_item_list[ticker:Sorter.obj_ROOTS_C+ticker], ticker, vLog, stop_me, start_index, end_index, end_index_check, save_interval, save_interval_check, listLength, low_performance, position_only, 3, 15, 3)
+                ticker += Sorter.obj_ROOTS_C
+
+            elif str({object['itemId']}).find("427128330") == True:
+                #Roots Hanging A
+                mirvTranslator.objTranslation(sorted_item_list[ticker:Sorter.obj_ROOTS_HANGING_A+ticker], ticker, vLog, stop_me, start_index, end_index, end_index_check, save_interval, save_interval_check, listLength, low_performance, position_only, 3, 15, 4)
+                ticker += Sorter.obj_ROOTS_HANGING_A
+
+            elif str({object['itemId']}).find("-547831186") == True:
+                #Roots Hanging B
+                mirvTranslator.objTranslation(sorted_item_list[ticker:Sorter.obj_ROOTS_HANGING_B+ticker], ticker, vLog, stop_me, start_index, end_index, end_index_check, save_interval, save_interval_check, listLength, low_performance, position_only, 3, 15, 5)
+                ticker += Sorter.obj_ROOTS_HANGING_B
+            ## Trees MP 16
             elif str({object['itemId']}).find("357637473") == True:
                 #Alpine Highlands Fir Medium B
                 mirvTranslator.objTranslation(sorted_item_list[ticker:Sorter.obj_ALPINE_HIGHLANDS_FIR_MEDIUM_B+ticker], ticker, vLog, stop_me, start_index, end_index, end_index_check, save_interval, save_interval_check, listLength, low_performance, position_only, 3, 13, 0)
@@ -2521,7 +2606,7 @@ def process_objects(item_list, path, stop_me, vLog, start_index, end_index, end_
                 #Sub Alpine Fir Small A
                 mirvTranslator.objTranslation(sorted_item_list[ticker:Sorter.obj_SUB_ALPINE_FIR_SMALL_A+ticker], ticker, vLog, stop_me, start_index, end_index, end_index_check, save_interval, save_interval_check, listLength, low_performance, position_only, 3, 13, 32)
                 ticker += Sorter.obj_SUB_ALPINE_FIR_SMALL_A
-
+ 
             elif str({object['itemId']}).find("-1062039679") == True:
                 #Sub Alpine Fir Small B
                 mirvTranslator.objTranslation(sorted_item_list[ticker:Sorter.obj_SUB_ALPINE_FIR_SMALL_B+ticker], ticker, vLog, stop_me, start_index, end_index, end_index_check, save_interval, save_interval_check, listLength, low_performance, position_only, 3, 13, 33)
@@ -2531,87 +2616,7 @@ def process_objects(item_list, path, stop_me, vLog, start_index, end_index, end_
                 #Sub Alpine Fir Small C
                 mirvTranslator.objTranslation(sorted_item_list[ticker:Sorter.obj_SUB_ALPINE_FIR_SMALL_C+ticker], ticker, vLog, stop_me, start_index, end_index, end_index_check, save_interval, save_interval_check, listLength, low_performance, position_only, 3, 13, 34)
                 ticker += Sorter.obj_SUB_ALPINE_FIR_SMALL_C
-            ## Trees - Log 14
-            elif str({object['itemId']}).find("586555322") == True:
-                #Fallen Tree A
-                mirvTranslator.objTranslation(sorted_item_list[ticker:Sorter.obj_FALLEN_TREE_A+ticker], ticker, vLog, stop_me, start_index, end_index, end_index_check, save_interval, save_interval_check, listLength, low_performance, position_only, 3, 14, 0)
-                ticker += Sorter.obj_FALLEN_TREE_A
-
-            elif str({object['itemId']}).find("841874352") == True:
-                #Fallen Tree B
-                mirvTranslator.objTranslation(sorted_item_list[ticker:Sorter.obj_FALLEN_TREE_B+ticker], ticker, vLog, stop_me, start_index, end_index, end_index_check, save_interval, save_interval_check, listLength, low_performance, position_only, 3, 14, 1)
-                ticker += Sorter.obj_FALLEN_TREE_B
-
-            elif str({object['itemId']}).find("886051836") == True:
-                #Fallen Tree C
-                mirvTranslator.objTranslation(sorted_item_list[ticker:Sorter.obj_FALLEN_TREE_C+ticker], ticker, vLog, stop_me, start_index, end_index, end_index_check, save_interval, save_interval_check, listLength, low_performance, position_only, 3, 14, 2)
-                ticker += Sorter.obj_FALLEN_TREE_C
-
-            elif str({object['itemId']}).find("898691168") == True:
-                #Fallen Tree D
-                mirvTranslator.objTranslation(sorted_item_list[ticker:Sorter.obj_FALLEN_TREE_D+ticker], ticker, vLog, stop_me, start_index, end_index, end_index_check, save_interval, save_interval_check, listLength, low_performance, position_only, 3, 14, 3)
-                ticker += Sorter.obj_FALLEN_TREE_D
-
-            elif str({object['itemId']}).find("2007348554") == True:
-                #Fallen Tree E
-                mirvTranslator.objTranslation(sorted_item_list[ticker:Sorter.obj_FALLEN_TREE_E+ticker], ticker, vLog, stop_me, start_index, end_index, end_index_check, save_interval, save_interval_check, listLength, low_performance, position_only, 3, 14, 4)
-                ticker += Sorter.obj_FALLEN_TREE_E
-
-            elif str({object['itemId']}).find("1836622048") == True:
-                #Fallen Tree w/ Roots
-                mirvTranslator.objTranslation(sorted_item_list[ticker:Sorter.obj_FALLEN_TREE_W_ROOTS+ticker], ticker, vLog, stop_me, start_index, end_index, end_index_check, save_interval, save_interval_check, listLength, low_performance, position_only, 3, 14, 5)
-                ticker += Sorter.obj_FALLEN_TREE_W_ROOTS
-
-            elif str({object['itemId']}).find("-1509539713") == True:
-                #Snagged Log A
-                mirvTranslator.objTranslation(sorted_item_list[ticker:Sorter.obj_SNAGGED_LOG_A+ticker], ticker, vLog, stop_me, start_index, end_index, end_index_check, save_interval, save_interval_check, listLength, low_performance, position_only, 3, 14, 6)
-                ticker += Sorter.obj_SNAGGED_LOG_A
-
-            elif str({object['itemId']}).find("-425303348") == True:
-                #Snagged Log B
-                mirvTranslator.objTranslation(sorted_item_list[ticker:Sorter.obj_SNAGGED_LOG_B+ticker], ticker, vLog, stop_me, start_index, end_index, end_index_check, save_interval, save_interval_check, listLength, low_performance, position_only, 3, 14, 7)
-                ticker += Sorter.obj_SNAGGED_LOG_B
-
-            elif str({object['itemId']}).find("-2089225903") == True:
-                #Snagged Log C
-                mirvTranslator.objTranslation(sorted_item_list[ticker:Sorter.obj_SNAGGED_LOG_C+ticker], ticker, vLog, stop_me, start_index, end_index, end_index_check, save_interval, save_interval_check, listLength, low_performance, position_only, 3, 14, 8)
-                ticker += Sorter.obj_SNAGGED_LOG_C
-
-            elif str({object['itemId']}).find("-2099489993") == True:
-                #Snagged Log D
-                mirvTranslator.objTranslation(sorted_item_list[ticker:Sorter.obj_SNAGGED_LOG_D+ticker], ticker, vLog, stop_me, start_index, end_index, end_index_check, save_interval, save_interval_check, listLength, low_performance, position_only, 3, 14, 9)
-                ticker += Sorter.obj_SNAGGED_LOG_D
-            ## Trees - Roots 15
-            elif str({object['itemId']}).find("-1963622591") == True:
-                #Root Cluster
-                mirvTranslator.objTranslation(sorted_item_list[ticker:Sorter.obj_ROOT_CLUSTER+ticker], ticker, vLog, stop_me, start_index, end_index, end_index_check, save_interval, save_interval_check, listLength, low_performance, position_only, 3, 15, 0)
-                ticker += Sorter.obj_ROOT_CLUSTER
-
-            elif str({object['itemId']}).find("1986307023") == True:
-                #Roots A
-                mirvTranslator.objTranslation(sorted_item_list[ticker:Sorter.obj_ROOTS_A+ticker], ticker, vLog, stop_me, start_index, end_index, end_index_check, save_interval, save_interval_check, listLength, low_performance, position_only, 3, 15, 1)
-                ticker += Sorter.obj_ROOTS_A
-
-            elif str({object['itemId']}).find("789136891") == True:
-                #Roots B
-                mirvTranslator.objTranslation(sorted_item_list[ticker:Sorter.obj_ROOTS_B+ticker], ticker, vLog, stop_me, start_index, end_index, end_index_check, save_interval, save_interval_check, listLength, low_performance, position_only, 3, 15, 2)
-                ticker += Sorter.obj_ROOTS_B
-
-            elif str({object['itemId']}).find("-158806131") == True:
-                #Roots C
-                mirvTranslator.objTranslation(sorted_item_list[ticker:Sorter.obj_ROOTS_C+ticker], ticker, vLog, stop_me, start_index, end_index, end_index_check, save_interval, save_interval_check, listLength, low_performance, position_only, 3, 15, 3)
-                ticker += Sorter.obj_ROOTS_C
-
-            elif str({object['itemId']}).find("427128330") == True:
-                #Roots Hanging A
-                mirvTranslator.objTranslation(sorted_item_list[ticker:Sorter.obj_ROOTS_HANGING_A+ticker], ticker, vLog, stop_me, start_index, end_index, end_index_check, save_interval, save_interval_check, listLength, low_performance, position_only, 3, 15, 4)
-                ticker += Sorter.obj_ROOTS_HANGING_A
-
-            elif str({object['itemId']}).find("-547831186") == True:
-                #Roots Hanging B
-                mirvTranslator.objTranslation(sorted_item_list[ticker:Sorter.obj_ROOTS_HANGING_B+ticker], ticker, vLog, stop_me, start_index, end_index, end_index_check, save_interval, save_interval_check, listLength, low_performance, position_only, 3, 15, 5)
-                ticker += Sorter.obj_ROOTS_HANGING_B
-            ## Water 16
+            ## Water 17
             elif str({object['itemId']}).find("-414884733") == True:
                 #Water Plane
                 mirvTranslator.objTranslation(sorted_item_list[ticker:Sorter.obj_WATER_PLANE+ticker], ticker, vLog, stop_me, start_index, end_index, end_index_check, save_interval, save_interval_check, listLength, low_performance, position_only, 3, 16, 0)
@@ -2812,30 +2817,64 @@ def process_objects(item_list, path, stop_me, vLog, start_index, end_index, end_
             ## Sparks 12
 
             # Gameplay 7
-            ## Audio 1
-            ## Equipment 2
-            ## Game Modes 3
-            ## Launchers / Lifts 4
-            ## Match Flow 5
-            ## Nav Mesh 6
-            ## Player Spawning 7
-            ## Sandbox 8
-            ## Scripting 9
-            ## Teleporters 10
-            ## Vehicles 11 
-            ## Vehicles - Damaged 12
+            ## AI 1
+            ## Audio 2
+            ## Equipment 3
+            ## Game Modes 4
+            ## Launchers / Lifts 5
+            ## Match Flow 6
+            elif str({object['itemId']}).find("1980827929") == True:
+                #Map Intro Camera
+                mirvTranslator.objTranslationNoScale(sorted_item_list[ticker:Sorter.obj_MAP_INTRO_CAMERA+ticker], ticker, vLog, stop_me, start_index, end_index, end_index_check, save_interval, save_interval_check, listLength, low_performance, position_only, 7, 6, 0)
+                ticker += Sorter.obj_MAP_INTRO_CAMERA
+
+            elif str({object['itemId']}).find("1006238451") == True:
+                #Team Intro Arrow Front
+                mirvTranslator.objTranslationNoScale(sorted_item_list[ticker:Sorter.obj_TEAM_INTRO_ARROW_FRONT+ticker], ticker, vLog, stop_me, start_index, end_index, end_index_check, save_interval, save_interval_check, listLength, low_performance, position_only, 7, 6, 1)
+                ticker += Sorter.obj_TEAM_INTRO_ARROW_FRONT
+
+            elif str({object['itemId']}).find("-173177076") == True:
+                #Team Intro Line Left
+                mirvTranslator.objTranslationNoScale(sorted_item_list[ticker:Sorter.obj_TEAM_INTRO_LINE_LEFT+ticker], ticker, vLog, stop_me, start_index, end_index, end_index_check, save_interval, save_interval_check, listLength, low_performance, position_only, 7, 6, 2)
+                ticker += Sorter.obj_TEAM_INTRO_LINE_LEFT
+
+            elif str({object['itemId']}).find("1747684183") == True:
+                #Team Intro Line Right
+                mirvTranslator.objTranslationNoScale(sorted_item_list[ticker:Sorter.obj_TEAM_INTRO_LINE_RIGHT+ticker], ticker, vLog, stop_me, start_index, end_index, end_index_check, save_interval, save_interval_check, listLength, low_performance, position_only, 7, 6, 3)
+                ticker += Sorter.obj_TEAM_INTRO_LINE_RIGHT
+
+            elif str({object['itemId']}).find("298581842") == True:
+                #Winning Team Outro
+                mirvTranslator.objTranslationNoScale(sorted_item_list[ticker:Sorter.obj_WINNING_TEAM_OUTRO+ticker], ticker, vLog, stop_me, start_index, end_index, end_index_check, save_interval, save_interval_check, listLength, low_performance, position_only, 7, 6, 4)
+                ticker += Sorter.obj_WINNING_TEAM_OUTRO
+            ## Nav Mesh 7
+            ## Player Spawning 8
+            elif str({object['itemId']}).find("-361555940") == True:
+                #Initial Spawn
+                mirvTranslator.objTranslationStartsFixedNoScale(sorted_item_list[ticker:Sorter.obj_INITIAL_SPAWN+ticker], ticker, vLog, stop_me, start_index, end_index, end_index_check, save_interval, save_interval_check, listLength, low_performance, position_only, 7, 8, 1)
+                ticker += Sorter.obj_INITIAL_SPAWN
+
+            elif str({object['itemId']}).find("-1533673853") == True:
+                #Respawn Point
+                mirvTranslator.objTranslationStartsFixedNoScale(sorted_item_list[ticker:Sorter.obj_RESPAWN_POINT+ticker], ticker, vLog, stop_me, start_index, end_index, end_index_check, save_interval, save_interval_check, listLength, low_performance, position_only, 7, 8, 2)
+                ticker += Sorter.obj_RESPAWN_POINT
+            ## Sandbox 9
+            ## Scripting 10
+            ## Teleporters 11
+            ## Vehicles 12 
+            ## Vehicles - Damaged 13
             elif str({object['itemId']}).find("-1410050408") == True:
                 #Ghost - Damaged
-                mirvTranslator.objTranslation(sorted_item_list[ticker:Sorter.obj_GHOST_DAMAGED+ticker], ticker, vLog, stop_me, start_index, end_index, end_index_check, save_interval, save_interval_check, listLength, low_performance, position_only, 7, 12, 0)
+                mirvTranslator.objTranslation(sorted_item_list[ticker:Sorter.obj_GHOST_DAMAGED+ticker], ticker, vLog, stop_me, start_index, end_index, end_index_check, save_interval, save_interval_check, listLength, low_performance, position_only, 7, 13, 0)
                 ticker += Sorter.obj_GHOST_DAMAGED
 
             elif str({object['itemId']}).find("641016943") == True:
                 #Warthog - Damaged
-                mirvTranslator.objTranslation(sorted_item_list[ticker:Sorter.obj_WARTHOG_DAMAGED+ticker], ticker, vLog, stop_me, start_index, end_index, end_index_check, save_interval, save_interval_check, listLength, low_performance, position_only, 7, 12, 1)
+                mirvTranslator.objTranslation(sorted_item_list[ticker:Sorter.obj_WARTHOG_DAMAGED+ticker], ticker, vLog, stop_me, start_index, end_index, end_index_check, save_interval, save_interval_check, listLength, low_performance, position_only, 7, 13, 1)
                 ticker += Sorter.obj_WARTHOG_DAMAGED
-            ## Volumes 13 
-            ## Weapon Spawners 14
-            ## Weapons 15
+            ## Volumes 14 
+            ## Weapon Spawners 15
+            ## Weapons 16
 
             # Halo Design Set 8
             ## Columns 1
@@ -3808,171 +3847,171 @@ def process_objects(item_list, path, stop_me, vLog, start_index, end_index, end_
                 #Work Light w/o Light MP
                 mirvTranslator.objTranslation(sorted_item_list[ticker:Sorter.obj_WORK_LIGHT_W_O_LIGHT_MP+ticker], ticker, vLog, stop_me, start_index, end_index, end_index_check, save_interval, save_interval_check, listLength, low_performance, position_only, 9, 9, 37)
                 ticker += Sorter.obj_WORK_LIGHT_W_O_LIGHT_MP
-            # Primitive 10
+            # Primitives 10
             ## Blocks 1
             elif str({object['itemId']}).find("-340615357") == True:
                 #Forerunner Block
-                mirvTranslator.objTranslation(sorted_item_list[ticker:Sorter.obj_FORERUNNER_BLOCK+ticker], ticker, vLog, stop_me, start_index, end_index, end_index_check, save_interval, save_interval_check, listLength, low_performance, position_only, 10, 1, 0)
+                mirvTranslator.objTranslation(sorted_item_list[ticker:Sorter.obj_FORERUNNER_BLOCK+ticker], ticker, vLog, stop_me, start_index, end_index, end_index_check, save_interval, save_interval_check, listLength, low_performance, position_only, 10, 1, 1)
                 ticker += Sorter.obj_FORERUNNER_BLOCK
 
             elif str({object['itemId']}).find("1759788903") == True:
                 #Primitive Block
-                mirvTranslator.objTranslation(sorted_item_list[ticker:Sorter.obj_PRIMITIVE_BLOCK+ticker], ticker, vLog, stop_me, start_index, end_index, end_index_check, save_interval, save_interval_check, listLength, low_performance, position_only, 10, 1, 1)
+                mirvTranslator.objTranslation(sorted_item_list[ticker:Sorter.obj_PRIMITIVE_BLOCK+ticker], ticker, vLog, stop_me, start_index, end_index, end_index_check, save_interval, save_interval_check, listLength, low_performance, position_only, 10, 1, 2)
                 ticker += Sorter.obj_PRIMITIVE_BLOCK
 
             elif str({object['itemId']}).find("-1076429309") == True:
                 #UNSC Block
-                mirvTranslator.objTranslation(sorted_item_list[ticker:Sorter.obj_UNSC_BLOCK+ticker], ticker, vLog, stop_me, start_index, end_index, end_index_check, save_interval, save_interval_check, listLength, low_performance, position_only, 10, 1, 2)
+                mirvTranslator.objTranslation(sorted_item_list[ticker:Sorter.obj_UNSC_BLOCK+ticker], ticker, vLog, stop_me, start_index, end_index, end_index_check, save_interval, save_interval_check, listLength, low_performance, position_only, 10, 1, 3)
                 ticker += Sorter.obj_UNSC_BLOCK
             ## Cones 2
             elif str({object['itemId']}).find("53527778") == True:
                 #Forerunner Cone
-                mirvTranslator.objTranslation(sorted_item_list[ticker:Sorter.obj_FORERUNNER_CONE+ticker], ticker, vLog, stop_me, start_index, end_index, end_index_check, save_interval, save_interval_check, listLength, low_performance, position_only, 10, 2, 0)
+                mirvTranslator.objTranslation(sorted_item_list[ticker:Sorter.obj_FORERUNNER_CONE+ticker], ticker, vLog, stop_me, start_index, end_index, end_index_check, save_interval, save_interval_check, listLength, low_performance, position_only, 10, 2, 1)
                 ticker += Sorter.obj_FORERUNNER_CONE
 
             elif str({object['itemId']}).find("-234187719") == True:
                 #Primitive Cone
-                mirvTranslator.objTranslation(sorted_item_list[ticker:Sorter.obj_PRIMITIVE_CONE+ticker], ticker, vLog, stop_me, start_index, end_index, end_index_check, save_interval, save_interval_check, listLength, low_performance, position_only, 10, 2, 1)
+                mirvTranslator.objTranslation(sorted_item_list[ticker:Sorter.obj_PRIMITIVE_CONE+ticker], ticker, vLog, stop_me, start_index, end_index, end_index_check, save_interval, save_interval_check, listLength, low_performance, position_only, 10, 2, 2)
                 ticker += Sorter.obj_PRIMITIVE_CONE
 
             elif str({object['itemId']}).find("1354722998") == True:
                 #UNSC Cone
-                mirvTranslator.objTranslation(sorted_item_list[ticker:Sorter.obj_UNSC_CONE+ticker], ticker, vLog, stop_me, start_index, end_index, end_index_check, save_interval, save_interval_check, listLength, low_performance, position_only, 10, 2, 2)
+                mirvTranslator.objTranslation(sorted_item_list[ticker:Sorter.obj_UNSC_CONE+ticker], ticker, vLog, stop_me, start_index, end_index, end_index_check, save_interval, save_interval_check, listLength, low_performance, position_only, 10, 2, 3)
                 ticker += Sorter.obj_UNSC_CONE
             ## Cylinders 3
             elif str({object['itemId']}).find("-945116642") == True:
                 #Forerunner Cylinder
-                mirvTranslator.objTranslation(sorted_item_list[ticker:Sorter.obj_FORERUNNER_CYLINDER+ticker], ticker, vLog, stop_me, start_index, end_index, end_index_check, save_interval, save_interval_check, listLength, low_performance, position_only, 10, 3, 0)
+                mirvTranslator.objTranslation(sorted_item_list[ticker:Sorter.obj_FORERUNNER_CYLINDER+ticker], ticker, vLog, stop_me, start_index, end_index, end_index_check, save_interval, save_interval_check, listLength, low_performance, position_only, 10, 3, 1)
                 ticker += Sorter.obj_FORERUNNER_CYLINDER
 
             elif str({object['itemId']}).find("728515706") == True:
                 #Primitive Cylinder
-                mirvTranslator.objTranslation(sorted_item_list[ticker:Sorter.obj_PRIMITIVE_CYLINDER+ticker], ticker, vLog, stop_me, start_index, end_index, end_index_check, save_interval, save_interval_check, listLength, low_performance, position_only, 10, 3, 1)
+                mirvTranslator.objTranslation(sorted_item_list[ticker:Sorter.obj_PRIMITIVE_CYLINDER+ticker], ticker, vLog, stop_me, start_index, end_index, end_index_check, save_interval, save_interval_check, listLength, low_performance, position_only, 10, 3, 2)
                 ticker += Sorter.obj_PRIMITIVE_CYLINDER
 
             elif str({object['itemId']}).find("1720205523") == True:
                 #UNSC Cylinder
-                mirvTranslator.objTranslation(sorted_item_list[ticker:Sorter.obj_UNSC_CYLINDER+ticker], ticker, vLog, stop_me, start_index, end_index, end_index_check, save_interval, save_interval_check, listLength, low_performance, position_only, 10, 3, 2)
+                mirvTranslator.objTranslation(sorted_item_list[ticker:Sorter.obj_UNSC_CYLINDER+ticker], ticker, vLog, stop_me, start_index, end_index, end_index_check, save_interval, save_interval_check, listLength, low_performance, position_only, 10, 3, 3)
                 ticker += Sorter.obj_UNSC_CYLINDER
             ## Pyramids 4
             elif str({object['itemId']}).find("-764178783") == True:
                 #Forerunner Pyramid
-                mirvTranslator.objTranslation(sorted_item_list[ticker:Sorter.obj_FORERUNNER_PYRAMID+ticker], ticker, vLog, stop_me, start_index, end_index, end_index_check, save_interval, save_interval_check, listLength, low_performance, position_only, 10, 4, 0)
+                mirvTranslator.objTranslation(sorted_item_list[ticker:Sorter.obj_FORERUNNER_PYRAMID+ticker], ticker, vLog, stop_me, start_index, end_index, end_index_check, save_interval, save_interval_check, listLength, low_performance, position_only, 10, 4, 1)
                 ticker += Sorter.obj_FORERUNNER_PYRAMID
 
             elif str({object['itemId']}).find("1189747031") == True:
                 #Primitive Pyramid
-                mirvTranslator.objTranslation(sorted_item_list[ticker:Sorter.obj_PRIMITIVE_PYRAMID+ticker], ticker, vLog, stop_me, start_index, end_index, end_index_check, save_interval, save_interval_check, listLength, low_performance, position_only, 10, 4, 1)
+                mirvTranslator.objTranslation(sorted_item_list[ticker:Sorter.obj_PRIMITIVE_PYRAMID+ticker], ticker, vLog, stop_me, start_index, end_index, end_index_check, save_interval, save_interval_check, listLength, low_performance, position_only, 10, 4, 2)
                 ticker += Sorter.obj_PRIMITIVE_PYRAMID
 
             elif str({object['itemId']}).find("-1822179569") == True:
                 #UNSC Pyramid
-                mirvTranslator.objTranslation(sorted_item_list[ticker:Sorter.obj_UNSC_PYRAMID+ticker], ticker, vLog, stop_me, start_index, end_index, end_index_check, save_interval, save_interval_check, listLength, low_performance, position_only, 10, 4, 2)
+                mirvTranslator.objTranslation(sorted_item_list[ticker:Sorter.obj_UNSC_PYRAMID+ticker], ticker, vLog, stop_me, start_index, end_index, end_index_check, save_interval, save_interval_check, listLength, low_performance, position_only, 10, 4, 3)
                 ticker += Sorter.obj_UNSC_PYRAMID
             ## Rings 5
             elif str({object['itemId']}).find("-968540348") == True:
                 #Forerunner Ring Eighth
-                mirvTranslator.objTranslation(sorted_item_list[ticker:Sorter.obj_FORERUNNER_RING_EIGHTH+ticker], ticker, vLog, stop_me, start_index, end_index, end_index_check, save_interval, save_interval_check, listLength, low_performance, position_only, 10, 5, 0)
+                mirvTranslator.objTranslation(sorted_item_list[ticker:Sorter.obj_FORERUNNER_RING_EIGHTH+ticker], ticker, vLog, stop_me, start_index, end_index, end_index_check, save_interval, save_interval_check, listLength, low_performance, position_only, 10, 5, 4)
                 ticker += Sorter.obj_FORERUNNER_RING_EIGHTH
                 
             elif str({object['itemId']}).find("513213980") == True:
                 #Forerunner Ring Full
-                mirvTranslator.objTranslation(sorted_item_list[ticker:Sorter.obj_FORERUNNER_RING_FULL+ticker], ticker, vLog, stop_me, start_index, end_index, end_index_check, save_interval, save_interval_check, listLength, low_performance, position_only, 10, 5, 1)
+                mirvTranslator.objTranslation(sorted_item_list[ticker:Sorter.obj_FORERUNNER_RING_FULL+ticker], ticker, vLog, stop_me, start_index, end_index, end_index_check, save_interval, save_interval_check, listLength, low_performance, position_only, 10, 5, 5)
                 ticker += Sorter.obj_FORERUNNER_RING_FULL
                 
             elif str({object['itemId']}).find("-1811390435") == True:
                 #Forerunner Ring Half
-                mirvTranslator.objTranslation(sorted_item_list[ticker:Sorter.obj_FORERUNNER_RING_HALF+ticker], ticker, vLog, stop_me, start_index, end_index, end_index_check, save_interval, save_interval_check, listLength, low_performance, position_only, 10, 5, 2)
+                mirvTranslator.objTranslation(sorted_item_list[ticker:Sorter.obj_FORERUNNER_RING_HALF+ticker], ticker, vLog, stop_me, start_index, end_index, end_index_check, save_interval, save_interval_check, listLength, low_performance, position_only, 10, 5, 6)
                 ticker += Sorter.obj_FORERUNNER_RING_HALF
                 
             elif str({object['itemId']}).find("137154715") == True:
                 #Forerunner Ring Quarter
-                mirvTranslator.objTranslation(sorted_item_list[ticker:Sorter.obj_FORERUNNER_RING_QUARTER+ticker], ticker, vLog, stop_me, start_index, end_index, end_index_check, save_interval, save_interval_check, listLength, low_performance, position_only, 10, 5, 3)
+                mirvTranslator.objTranslation(sorted_item_list[ticker:Sorter.obj_FORERUNNER_RING_QUARTER+ticker], ticker, vLog, stop_me, start_index, end_index, end_index_check, save_interval, save_interval_check, listLength, low_performance, position_only, 10, 5, 7)
                 ticker += Sorter.obj_FORERUNNER_RING_QUARTER
 
             elif str({object['itemId']}).find("-1706009392") == True:
                 #Primitive Ring Eighth
-                mirvTranslator.objTranslation(sorted_item_list[ticker:Sorter.obj_PRIMITIVE_RING_EIGHTH+ticker], ticker, vLog, stop_me, start_index, end_index, end_index_check, save_interval, save_interval_check, listLength, low_performance, position_only, 10, 5, 4)
+                mirvTranslator.objTranslation(sorted_item_list[ticker:Sorter.obj_PRIMITIVE_RING_EIGHTH+ticker], ticker, vLog, stop_me, start_index, end_index, end_index_check, save_interval, save_interval_check, listLength, low_performance, position_only, 10, 5, 8)
                 ticker += Sorter.obj_PRIMITIVE_RING_EIGHTH
 
             elif str({object['itemId']}).find("-1190828000") == True:
                 #Primitive Ring Full
-                mirvTranslator.objTranslation(sorted_item_list[ticker:Sorter.obj_PRIMITIVE_RING_FULL+ticker], ticker, vLog, stop_me, start_index, end_index, end_index_check, save_interval, save_interval_check, listLength, low_performance, position_only, 10, 5, 5)
+                mirvTranslator.objTranslation(sorted_item_list[ticker:Sorter.obj_PRIMITIVE_RING_FULL+ticker], ticker, vLog, stop_me, start_index, end_index, end_index_check, save_interval, save_interval_check, listLength, low_performance, position_only, 10, 5, 9)
                 ticker += Sorter.obj_PRIMITIVE_RING_FULL
 
             elif str({object['itemId']}).find("-1298054065") == True:
                 #Primitive Ring Half
-                mirvTranslator.objTranslation(sorted_item_list[ticker:Sorter.obj_PRIMITIVE_RING_HALF+ticker], ticker, vLog, stop_me, start_index, end_index, end_index_check, save_interval, save_interval_check, listLength, low_performance, position_only, 10, 5, 6)
+                mirvTranslator.objTranslation(sorted_item_list[ticker:Sorter.obj_PRIMITIVE_RING_HALF+ticker], ticker, vLog, stop_me, start_index, end_index, end_index_check, save_interval, save_interval_check, listLength, low_performance, position_only, 10, 5, 10)
                 ticker += Sorter.obj_PRIMITIVE_RING_HALF
 
             elif str({object['itemId']}).find("1875914002") == True:
                 #Primitive Ring Quarter
-                mirvTranslator.objTranslation(sorted_item_list[ticker:Sorter.obj_PRIMITIVE_RING_QUARTER+ticker], ticker, vLog, stop_me, start_index, end_index, end_index_check, save_interval, save_interval_check, listLength, low_performance, position_only, 10, 5, 7)
+                mirvTranslator.objTranslation(sorted_item_list[ticker:Sorter.obj_PRIMITIVE_RING_QUARTER+ticker], ticker, vLog, stop_me, start_index, end_index, end_index_check, save_interval, save_interval_check, listLength, low_performance, position_only, 10, 5, 11)
                 ticker += Sorter.obj_PRIMITIVE_RING_QUARTER
 
             elif str({object['itemId']}).find("-658815076") == True:
                 #UNSC Ring Eighth
-                mirvTranslator.objTranslation(sorted_item_list[ticker:Sorter.obj_UNSC_RING_EIGHTH+ticker], ticker, vLog, stop_me, start_index, end_index, end_index_check, save_interval, save_interval_check, listLength, low_performance, position_only, 10, 5, 8)
+                mirvTranslator.objTranslation(sorted_item_list[ticker:Sorter.obj_UNSC_RING_EIGHTH+ticker], ticker, vLog, stop_me, start_index, end_index, end_index_check, save_interval, save_interval_check, listLength, low_performance, position_only, 10, 5, 12)
                 ticker += Sorter.obj_UNSC_RING_EIGHTH
                 
             elif str({object['itemId']}).find("-906033151") == True:
                 #UNSC Ring Full
-                mirvTranslator.objTranslation(sorted_item_list[ticker:Sorter.obj_UNSC_RING_FULL+ticker], ticker, vLog, stop_me, start_index, end_index, end_index_check, save_interval, save_interval_check, listLength, low_performance, position_only, 10, 5, 9)
+                mirvTranslator.objTranslation(sorted_item_list[ticker:Sorter.obj_UNSC_RING_FULL+ticker], ticker, vLog, stop_me, start_index, end_index, end_index_check, save_interval, save_interval_check, listLength, low_performance, position_only, 10, 5, 13)
                 ticker += Sorter.obj_UNSC_RING_FULL
                 
             elif str({object['itemId']}).find("-1913644661") == True:
                 #UNSC Ring Half
-                mirvTranslator.objTranslation(sorted_item_list[ticker:Sorter.obj_UNSC_RING_HALF+ticker], ticker, vLog, stop_me, start_index, end_index, end_index_check, save_interval, save_interval_check, listLength, low_performance, position_only, 10, 5, 10)
+                mirvTranslator.objTranslation(sorted_item_list[ticker:Sorter.obj_UNSC_RING_HALF+ticker], ticker, vLog, stop_me, start_index, end_index, end_index_check, save_interval, save_interval_check, listLength, low_performance, position_only, 10, 5, 14)
                 ticker += Sorter.obj_UNSC_RING_HALF
                 
             elif str({object['itemId']}).find("") == True:
                 #UNSC Ring Quarter
-                mirvTranslator.objTranslation(sorted_item_list[ticker:Sorter.obj_UNSC_RING_QUARTER+ticker], ticker, vLog, stop_me, start_index, end_index, end_index_check, save_interval, save_interval_check, listLength, low_performance, position_only, 10, 5, 11)
+                mirvTranslator.objTranslation(sorted_item_list[ticker:Sorter.obj_UNSC_RING_QUARTER+ticker], ticker, vLog, stop_me, start_index, end_index, end_index_check, save_interval, save_interval_check, listLength, low_performance, position_only, 10, 5, 15)
                 ticker += Sorter.obj_UNSC_RING_QUARTER
             ## Spheres 6
             elif str({object['itemId']}).find("398294344") == True:
                 #Forerunner Sphere
-                mirvTranslator.objTranslation(sorted_item_list[ticker:Sorter.obj_FORERUNNER_SPHERE+ticker], ticker, vLog, stop_me, start_index, end_index, end_index_check, save_interval, save_interval_check, listLength, low_performance, position_only, 10, 6, 0)
+                mirvTranslator.objTranslation(sorted_item_list[ticker:Sorter.obj_FORERUNNER_SPHERE+ticker], ticker, vLog, stop_me, start_index, end_index, end_index_check, save_interval, save_interval_check, listLength, low_performance, position_only, 10, 6, 1)
                 ticker += Sorter.obj_FORERUNNER_SPHERE
 
             elif str({object['itemId']}).find("1150182783") == True:
                 #Primitive Sphere
-                mirvTranslator.objTranslation(sorted_item_list[ticker:Sorter.obj_PRIMITIVE_SPHERE+ticker], ticker, vLog, stop_me, start_index, end_index, end_index_check, save_interval, save_interval_check, listLength, low_performance, position_only, 10, 6, 1)
+                mirvTranslator.objTranslation(sorted_item_list[ticker:Sorter.obj_PRIMITIVE_SPHERE+ticker], ticker, vLog, stop_me, start_index, end_index, end_index_check, save_interval, save_interval_check, listLength, low_performance, position_only, 10, 6, 2)
                 ticker += Sorter.obj_PRIMITIVE_SPHERE
 
             elif str({object['itemId']}).find("-1121425050") == True:
                 #UNSC Sphere
-                mirvTranslator.objTranslation(sorted_item_list[ticker:Sorter.obj_UNSC_SPHERE+ticker], ticker, vLog, stop_me, start_index, end_index, end_index_check, save_interval, save_interval_check, listLength, low_performance, position_only, 10, 6, 2)
+                mirvTranslator.objTranslation(sorted_item_list[ticker:Sorter.obj_UNSC_SPHERE+ticker], ticker, vLog, stop_me, start_index, end_index, end_index_check, save_interval, save_interval_check, listLength, low_performance, position_only, 10, 6, 3)
                 ticker += Sorter.obj_UNSC_SPHERE
             ## Trapezoids 7
             elif str({object['itemId']}).find("-1143152298") == True:
                 #Forerunner Trapezoid
-                mirvTranslator.objTranslation(sorted_item_list[ticker:Sorter.obj_FORERUNNER_TRAPEZOID+ticker], ticker, vLog, stop_me, start_index, end_index, end_index_check, save_interval, save_interval_check, listLength, low_performance, position_only, 10, 7, 0)
+                mirvTranslator.objTranslation(sorted_item_list[ticker:Sorter.obj_FORERUNNER_TRAPEZOID+ticker], ticker, vLog, stop_me, start_index, end_index, end_index_check, save_interval, save_interval_check, listLength, low_performance, position_only, 10, 7, 1)
                 ticker += Sorter.obj_FORERUNNER_TRAPEZOID
 
             elif str({object['itemId']}).find("1100028612") == True:
                 #Primitive Trapezoid
-                mirvTranslator.objTranslation(sorted_item_list[ticker:Sorter.obj_PRIMITIVE_TRAPEZOID+ticker], ticker, vLog, stop_me, start_index, end_index, end_index_check, save_interval, save_interval_check, listLength, low_performance, position_only, 10, 7, 1)
+                mirvTranslator.objTranslation(sorted_item_list[ticker:Sorter.obj_PRIMITIVE_TRAPEZOID+ticker], ticker, vLog, stop_me, start_index, end_index, end_index_check, save_interval, save_interval_check, listLength, low_performance, position_only, 10, 7, 2)
                 ticker += Sorter.obj_PRIMITIVE_TRAPEZOID
 
             elif str({object['itemId']}).find("-966446051") == True:
                 #UNSC Trapezoid
-                mirvTranslator.objTranslation(sorted_item_list[ticker:Sorter.obj_UNSC_TRAPEZOID+ticker], ticker, vLog, stop_me, start_index, end_index, end_index_check, save_interval, save_interval_check, listLength, low_performance, position_only, 10, 7, 2)
+                mirvTranslator.objTranslation(sorted_item_list[ticker:Sorter.obj_UNSC_TRAPEZOID+ticker], ticker, vLog, stop_me, start_index, end_index, end_index_check, save_interval, save_interval_check, listLength, low_performance, position_only, 10, 7, 3)
                 ticker += Sorter.obj_UNSC_TRAPEZOID
             ## Triangles 8
             elif str({object['itemId']}).find("-809878135") == True:
                 #Forerunner Triangle
-                mirvTranslator.objTranslation(sorted_item_list[ticker:Sorter.obj_FORERUNNER_TRIANGLE+ticker], ticker, vLog, stop_me, start_index, end_index, end_index_check, save_interval, save_interval_check, listLength, low_performance, position_only, 10, 8, 0)
+                mirvTranslator.objTranslation(sorted_item_list[ticker:Sorter.obj_FORERUNNER_TRIANGLE+ticker], ticker, vLog, stop_me, start_index, end_index, end_index_check, save_interval, save_interval_check, listLength, low_performance, position_only, 10, 8, 1)
                 ticker += Sorter.obj_FORERUNNER_TRIANGLE
 
             elif str({object['itemId']}).find("-1185205223") == True:
                 #Primitive Triangle
-                mirvTranslator.objTranslation(sorted_item_list[ticker:Sorter.obj_PRIMITIVE_TRIANGLE+ticker], ticker, vLog, stop_me, start_index, end_index, end_index_check, save_interval, save_interval_check, listLength, low_performance, position_only, 10, 8, 1)
+                mirvTranslator.objTranslation(sorted_item_list[ticker:Sorter.obj_PRIMITIVE_TRIANGLE+ticker], ticker, vLog, stop_me, start_index, end_index, end_index_check, save_interval, save_interval_check, listLength, low_performance, position_only, 10, 8, 2)
                 ticker += Sorter.obj_PRIMITIVE_TRIANGLE
 
             elif str({object['itemId']}).find("-400055490") == True:
                 #UNSC Triangle
-                mirvTranslator.objTranslation(sorted_item_list[ticker:Sorter.obj_UNSC_TRIANGLE+ticker], ticker, vLog, stop_me, start_index, end_index, end_index_check, save_interval, save_interval_check, listLength, low_performance, position_only, 10, 8, 2)
+                mirvTranslator.objTranslation(sorted_item_list[ticker:Sorter.obj_UNSC_TRIANGLE+ticker], ticker, vLog, stop_me, start_index, end_index, end_index_check, save_interval, save_interval_check, listLength, low_performance, position_only, 10, 8, 3)
                 ticker += Sorter.obj_UNSC_TRIANGLE
 
             # Props 11

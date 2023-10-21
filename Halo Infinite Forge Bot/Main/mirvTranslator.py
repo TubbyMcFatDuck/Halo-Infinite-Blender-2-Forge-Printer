@@ -6,6 +6,8 @@ import time
 import Sorter
 import keyboard
 
+pydirectinput.FAILSAFE = False
+
 def paste(vLog):
     if vLog == True:
         print("vLOG: mirvTranslator.py: Entering paste() function.")
@@ -248,20 +250,22 @@ def setRotationAxis(low_performance, vLog):
         pydirectinput.press(['space'])
         pydirectinput.press(['down'],presses=3)
         pydirectinput.press(['space'])
-        pydirectinput.press(['down'],presses=3)
+        pydirectinput.press(['down'],presses=5)
         pydirectinput.press(['space'])
         if vLog == True:
             print("vLOG: mirvTranslator.py: Calling onetwozero() function.")
             sys.stdout.flush()
         onetwozero(low_performance, vLog)
         pydirectinput.keyDown('space')
+        pydirectinput.keyDown('shift')
         time.sleep(0.3)
+        pydirectinput.keyUp('shift')
         pydirectinput.keyUp('space')
         if vLog == True:
             print("vLOG: mirvTranslator.py: Calling goToObjBrowser() function.")
             sys.stdout.flush()
         goToObjBrowser(low_performance, vLog)
-        pydirectinput.press(['up'],presses=3)
+        pydirectinput.press(['up'],presses=5)
         pydirectinput.press(['escape'])
         pydirectinput.press(['up'],presses=3)
         pydirectinput.press(['space'])
@@ -516,7 +520,7 @@ def giveProperties(object, low_performance, position_only, vLog):
 
             #Scale X
             time.sleep(low_performance)
-            pydirectinput.press(['down'],presses= 3)
+            pydirectinput.press(['down'],presses= 4)
             pydirectinput.press(['space']) 
             pyperclip.copy(str(object['scaleX']))
             paste(vLog)
@@ -796,7 +800,7 @@ def givePropertiesNoScale(object, low_performance, position_only, vLog):
 
         #Position X
         time.sleep(low_performance)
-        pydirectinput.press(['down'],presses= 5)
+        pydirectinput.press(['down'],presses= 6)
         pydirectinput.press(['space']) 
         object['positionX'] = float(object['positionX']) + xBump
         pyperclip.copy(str(object['positionX']))
@@ -857,6 +861,257 @@ def givePropertiesNoScale(object, low_performance, position_only, vLog):
                 sys.stdout.flush()
             break
 
+def objTranslationStartsFixedNoScale(objects, ticker, vLog, stop_me, start_index, end_index, end_index_check, save_interval, save_interval_check, listLength, low_performance, position_only, s1, s2, s3):
+    
+    if vLog == True:
+        print("vLOG: mirvTranslator.py: Entering objTranslationStartsFixedNoScale() function.")
+        sys.stdout.flush()
+
+    while True:
+        if vLog == True:
+            print("vLOG: mirvTranslator.py: Emergency stopkey in objTranslationStartsFixedNoScale() activated.")
+            sys.stdout.flush()
+        if keyboard.is_pressed("f"):
+            print("EMERGENCY STOPKEY PRESSED -- TERMINATING BOT PROCESS")
+            sys.exit(0)
+        print("Object(s) starts with Fixed physics and has No Scale Menu!")
+        subTick = ticker
+        pydirectinput.PAUSE = low_performance
+        if vLog == True:
+            print("vLOG: mirvTranslator.py: Calling moveToObject() function.")
+            sys.stdout.flush()
+        moveToObject(s1,s2,s3, low_performance, vLog)
+
+        for object in objects:
+            if vLog == True:
+                print("vLOG: mirvTranslator.py: Processing Object: {} / {}".format(subTick + start_index, listLength + start_index))
+                print("vLOG: mirvTranslator.py: Calling resetRotation() function.")
+                sys.stdout.flush()
+            resetRotation(low_performance, position_only, vLog)
+            if vLog == True:
+                print("vLOG: mirvTranslator.py: Calling goToProperties() function.")
+                sys.stdout.flush()
+            time.sleep(0.1)
+            goToProperties(low_performance, vLog)
+            if vLog == True:
+                print("vLOG: mirvTranslator.py: Calling givePropertiesStartsFixedNoScale() function.")
+                sys.stdout.flush()
+            time.sleep(0.1)
+            givePropertiesStartsFixedNoScale(object, low_performance, position_only, vLog)
+            time.sleep(0.1)
+            pydirectinput.press('z')
+
+            if vLog == True:
+                print("vLOG: mirvTranslator.py: Checking if End Index Check is True...")
+                print("vLOG: mirvTranslator.py: Pre-check value = {}".format(vLog))
+                sys.stdout.flush()
+            if end_index_check == True:
+                if vLog == True:
+                    print("vLOG: mirvTranslator.py: End Index Check was True.")
+                    sys.stdout.flush()
+                if subTick == (end_index - start_index - 1):
+                    print("End Index Reached! Saving and ending bot process.")
+                    print("Objects processed: {} / {}".format(subTick + start_index + 1, listLength + start_index))
+                    print("Saving map...")
+                    sys.stdout.flush()
+                    if vLog == True:
+                        print("vLOG: mirvTranslator.py: Calling save() function.")
+                        sys.stdout.flush()
+                    save(low_performance, vLog)
+                    if vLog == True:
+                        print("vLOG: mirvTranslator.py: Calling goToObjBrowser() function.")
+                        sys.stdout.flush()
+                    goToObjBrowser(low_performance, vLog)
+                    if vLog == True:
+                        print("vLOG: mirvTranslator.py: Calling revMoveToObject() function.")
+                        sys.stdout.flush()
+                    revMoveToObject(s3,s2,s1, low_performance, vLog)
+                    print("Please check objects for placement, rotation, and scaling accuracy.")
+                    sys.exit(0)
+            
+
+            if vLog == True:
+                print("vLOG: mirvTranslator.py: Checking if subTick has reached stop_me threshold...")
+                sys.stdout.flush()
+            if subTick == 499 or subTick == 999 or subTick == 1499 or subTick == 1999 or subTick == 2499 or subTick == 2999 or subTick == 3499 or subTick == 3999 or subTick == 4499 or subTick == 4999:
+                if vLog == True:
+                    print("vLOG: mirvtranslator.py: subTick reached stop_me threshold!")
+                    sys.stdout.flush()
+                if stop_me == '1':
+                    print("Recommended object limit exceeded! Halo Infinite crash is likely...")
+                    sys.stdout.flush()
+                elif stop_me == '2':
+                    if vLog == True:
+                        print("vLOG: mirvTranslator.py: Calling objectOverflowCheck() function.")
+                        sys.stdout.flush()
+                    objectOverflowCheck(subTick, low_performance, listLength, start_index, vLog)
+                elif stop_me == '3':
+                    print("Recommended object limit reached!")
+                    print("Stopped bot process, objects processed: {} / {}".format(subTick + start_index, listLength + start_index))
+                    print("Saving map...")
+                    sys.stdout.flush()
+                    if vLog == True:
+                        print("vLOG: mirvTranslator.py: Calling save() function.")
+                        sys.stdout.flush()
+                    save(low_performance, vLog)
+                    print("Please check objects for placement, rotation, and scaling accuracy.")
+                    sys.exit(0)
+                else:
+                    print("Stop_me was not 1, 2, or 3.")
+
+            if vLog == True:
+                print("vLOG: mirvTranslator.py: Checking if save_interval_check is True & subTick is not 0...")
+                print("vLOG: mirvTranslator.py: subTick: {}".format(subTick))
+                sys.stdout.flush()
+            if save_interval_check == True and subTick != 0:
+                if vLog == True:
+                    print("vLOG: mirvTranslator.py: save_interval_check was True.")
+                    sys.stdout.flush()
+                if ((subTick+1) % save_interval) == 0:
+                    if vLog == True:
+                        print("vLOG: mirvTranslator.py: Calling goToObjBrowser() function.")
+                        sys.stdout.flush()
+                    goToObjBrowser(low_performance, vLog)
+                    if vLog == True:
+                        print("vLOG: mirvTranslator.py: Calling revMoveToObject() function.")
+                        sys.stdout.flush()
+                    revMoveToObject(s3,s2,s1, low_performance, vLog)
+                    print("Saving map...")
+                    sys.stdout.flush()
+                    if vLog == True:
+                        print("vLOG: mirvTranslator.py: Calling save() function.")
+                        sys.stdout.flush()
+                    save(low_performance, vLog)
+                    if vLog == True:
+                        print("vLOG: mirvTranslator.py: Calling goToObjBrowser() function.")
+                        sys.stdout.flush()
+                    goToObjBrowser(low_performance, vLog)
+                    if vLog == True:
+                        print("vLOG: mirvTranslator.py: Calling moveToObjectNoSpawn() function.")
+                        sys.stdout.flush()
+                    moveToObjectNoSpawn(s1,s2,s3, low_performance, vLog)
+
+            if objects.index(object) != (len(objects)-1):
+                time.sleep(0.1)
+                if vLog == True:
+                    print("vLOG: mirvTranslator.py: Calling replicateObject() function.")
+                    sys.stdout.flush()
+                replicateObject(low_performance, vLog)
+                time.sleep(0.1)
+
+            subTick += 1
+        
+            print("Objects processed: {} / {}".format(subTick + start_index, listLength + start_index))
+            sys.stdout.flush()
+        
+        print("Returning Home...")
+        sys.stdout.flush()
+        time.sleep(0.15)
+        if vLog == True:
+            print("vLOG: mirvTranslator.py: Calling goToObjBrowser() function.")
+            sys.stdout.flush()
+        goToObjBrowser(low_performance, vLog)
+        if vLog == True:
+            print("vLOG: mirvTranslator.py: Calling revMoveToObject() function.")
+            sys.stdout.flush()
+        revMoveToObject(s3,s2,s1, low_performance, vLog)
+        sys.stdout.flush()
+        if vLog == True:
+            print("vLOG: mirvTranslator.py: Exiting objTranslationStartsFixedNoScale() function.")
+            sys.stdout.flush()
+        break
+
+def givePropertiesStartsFixedNoScale(object, low_performance, position_only, vLog):
+    #clipboard = ""
+
+    if vLog == True:
+        print("vLOG: mirvTranslator.py: Entering givePropertiesStartsFixedNoScale() function.")
+        sys.stdout.flush() 
+    
+    while True:
+        if keyboard.is_pressed("f"):
+            print("EMERGENCY STOPKEY PRESSED -- TERMINATING BOT PROCESS")
+            sys.exit(0)
+        xBump = int(sys.argv[7])
+        yBump = int(sys.argv[8])
+        zBump = int(sys.argv[9])
+        
+        pydirectinput.PAUSE = low_performance
+        time.sleep(low_performance + 0.05)
+    
+    #Correcting Physics type...
+        pydirectinput.press(['down'],presses= 3)
+        pydirectinput.press(['space'])
+        pydirectinput.press(['down'],presses= 3)
+        pydirectinput.press(['space'])
+        pydirectinput.press(['down'],presses= 3)
+
+    #Position Manipulation
+        print("Processing Position of object: {}".format({object['objectName']}))
+        sys.stdout.flush()
+
+        #Position X
+        time.sleep(low_performance)
+        pydirectinput.press(['space']) 
+        object['positionX'] = float(object['positionX']) + xBump
+        pyperclip.copy(str(object['positionX']))
+        paste(vLog)
+        time.sleep(0.055)
+        pydirectinput.press(['enter']) 
+
+        #Position Y
+        pydirectinput.press(['down'])
+        pydirectinput.press(['space'])
+        object['positionY'] = float(object['positionY']) + yBump
+        pyperclip.copy(str(object['positionY']))
+        paste(vLog)
+        time.sleep(0.055)
+        pydirectinput.press(['enter']) 
+
+        #Position Z
+        pydirectinput.press(['down'])
+        pydirectinput.press(['space'])
+        object['positionZ'] = float(object['positionZ']) + zBump
+        pyperclip.copy(str(object['positionZ']))
+        paste(vLog)
+        time.sleep(0.055)
+        pydirectinput.press(['enter'])
+
+        if position_only == False:
+        #Rotation Manipulation
+            print("Processing Rotation of object: {}".format({object['objectName']}))
+            sys.stdout.flush()
+
+            #Rotation X
+            time.sleep(low_performance)
+            pydirectinput.press(['down'],presses=4)
+            pydirectinput.press(['space']) 
+            pyperclip.copy(str(object['rotationX']))
+            paste(vLog)
+            time.sleep(0.055)
+            pydirectinput.press(['enter']) 
+
+            #Rotation Z
+            pydirectinput.press(['up'],presses=2)
+            pydirectinput.press(['space'])  
+            pyperclip.copy(str(object['rotationZ']))
+            paste(vLog)
+            time.sleep(0.055)
+            pydirectinput.press(['enter'])
+
+            #Rotation Y
+            pydirectinput.press(['down'])
+            pydirectinput.press(['space']) 
+            pyperclip.copy(str(object['rotationY']))
+            paste(vLog)
+            time.sleep(0.055)
+            pydirectinput.press(['enter'])
+            sys.stdout.flush()
+        if vLog == True:
+            print("vLOG: mirvTranslator.py: Exiting giveProperties() function.")
+            sys.stdout.flush()
+        break
+
 def objTranslationStartsDynamicAndFixed(objects, ticker, vLog, stop_me, start_index, end_index, end_index_check, save_interval, save_interval_check, listLength, low_performance, position_only, s1, s2, s3):
     
     if vLog == True:
@@ -898,10 +1153,10 @@ def objTranslationStartsDynamicAndFixed(objects, ticker, vLog, stop_me, start_in
             givePropertiesStartsDynamicAndFixed(object, low_performance, position_only, vLog)
             time.sleep(0.1)
             pydirectinput.press('z')
-            pydirectinput.press(['down'])
-            pydirectinput.press(['space'])
+            #pydirectinput.press(['down'])
+            #pydirectinput.press(['space'])
             time.sleep(0.055)
-            pydirectinput.press(['enter'])
+            #pydirectinput.press(['enter'])
            
            
             if vLog == True:
@@ -1043,7 +1298,7 @@ def givePropertiesStartsDynamicAndFixed(object, low_performance, position_only, 
         pydirectinput.PAUSE = low_performance
         time.sleep(low_performance + 0.05)
 
-        pydirectinput.press(['down'],presses= 2)
+        pydirectinput.press(['down'],presses= 3)
         pydirectinput.press(['space'])
         time.sleep(0.075)
         pydirectinput.press(['down'])
@@ -1052,7 +1307,7 @@ def givePropertiesStartsDynamicAndFixed(object, low_performance, position_only, 
         pydirectinput.press(['down'],presses= 4)
         pydirectinput.press(['space'])
         time.sleep(0.075)
-        pydirectinput.press(['down'])
+        pydirectinput.press(['down'],presses= 2)
         pydirectinput.press(['space'])
         time.sleep(0.075)
         pydirectinput.press(['up'],presses=3)
@@ -1344,7 +1599,7 @@ def givePropertiesNoObjectMode(object, low_performance, position_only, vLog):
 
             #Scale X
             time.sleep(low_performance)
-            pydirectinput.press(['down'],presses= 2)
+            pydirectinput.press(['down'],presses= 3)
             pydirectinput.press(['space']) 
             pyperclip.copy(str(object['scaleX']))
             paste(vLog)
