@@ -6,7 +6,6 @@ import time
 import Sorter
 import keyboard
 
-pydirectinput.FAILSAFE = False
 
 def paste(vLog):
     if vLog == True:

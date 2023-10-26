@@ -7,7 +7,6 @@ import pyautogui
 import time
 import webbrowser
 import re
-import Keymanager
 import math
 from PyQt5.QtWidgets import QMessageBox, QColorDialog, QApplication,QMainWindow, QSlider, QLabel,QCheckBox, QToolTip, QPushButton, QFileDialog, QTextEdit, QTextBrowser, QSpinBox, QLineEdit, QMenu, QAction, QScrollArea, QProgressBar
 from PyQt5.QtCore import Qt, QThread, pyqtSignal, pyqtSlot, QTimer, QCoreApplication
@@ -20,7 +19,7 @@ import configparser
 #This is the Repo Information and this codes current version, This is used for version checking and not inclusive of all code contributors.
 repo_owner = "TubbyMcFatDuck"
 repo_name = "Halo-Infinite-Blender-2-Forge"
-current_version = "1.0.0"
+current_version = "1.0.1"
 
 #This is used for dev mode functionality - TURNS OFF WINDOW MONITOR STOP ACTION
 devMode = False
@@ -42,6 +41,7 @@ runtimeCount = 0
 UGCData = []
 UGCDataIndex = 0
 UGCLink = ""
+previousObjCounter = None
 
 # Used for Ini File
 config = configparser.RawConfigParser()
@@ -106,7 +106,6 @@ class mainUI (QMainWindow):
         super(mainUI, self).__init__()
         loadUi("Main/Gui.ui",self)
         self.setWindowTitle("HIFB {}".format(current_version))
-    
         # Run check_latest_version on the first run
         self.first_run = True
         QTimer.singleShot(0, self.run_check_latest_version)
@@ -196,7 +195,7 @@ class mainUI (QMainWindow):
             #UGC Label
         self.UGCLabel = self.findChild(QLabel, "ugcLabel")
         self.UGCButton = self.findChild(QPushButton, "ugcButton")
-
+        
         #Connect our Widgets to functions
             #UGC Button
         self.UGCButton.clicked.connect(self.UGCLabel_mousePressEvent)
@@ -264,16 +263,15 @@ class mainUI (QMainWindow):
             self.link_url = item['linkurl']
             UGCLink = self.link_url
 
-            print(image_url, self.link_url)
-            print(UGCDataIndex)
-            print(len(ugcList))
             try:
+                print('Updating UGC Display ' + str(UGCDataIndex + 1) + ' of ' + str(len(ugcList)))
                 response = urllib.request.urlopen(image_url)
                 image_data = response.read()
                 pixmap = QtGui.QPixmap()
                 pixmap.loadFromData(image_data)
                 self.UGCLabel.setPixmap(pixmap)
                 self.UGCLabel.setScaledContents(True)
+                
 
             except urllib.error.HTTPError as e:
                 print(f"Failed to download image. Error code: {e.code}")
@@ -281,7 +279,6 @@ class mainUI (QMainWindow):
                 print(f"Failed to download image. Reason: {e.reason}")
 
             UGCDataIndex += 1
-            print (UGCDataIndex)
         else:
             print("ugcList key does not exist in UGCData dictionary")
                 
@@ -337,7 +334,7 @@ class mainUI (QMainWindow):
                 with urllib.request.urlopen(request) as response:
                     UGCData = json.loads(response.read())
                     random.shuffle(UGCData['ugcList'])
-                    print(UGCData)
+                    print('UGC Data retrieved from GitHub')
 
                     # Use the data as needed
             except urllib.error.URLError as e:
@@ -374,31 +371,30 @@ class mainUI (QMainWindow):
 
         # Initialize styles with an empty string
         styles = ""
-
-        try:
-            # Get the styles for the selected theme
-            styles = config.get(theme, 'stylesheet').strip('|"""')
-            print('1Theme is:',styles)
-        except (configparser.NoSectionError, configparser.NoOptionError):
-            # Handle the case when the specified theme or stylesheet is not found
-            print("Invalid theme or stylesheet1")
-            pass
+        if theme != "DefaultTheme":
+            try:
+                # Get the styles for the selected theme
+                styles = config.get(theme, 'stylesheet').strip('|"""')
+                print('Theme is:',styles)
+            except (configparser.NoSectionError, configparser.NoOptionError):
+                # Handle the case when the specified theme or stylesheet is not found
+                print("Invalid theme or stylesheet1")
+                pass
 
         # If the styles are a reference to another section
         if theme == "DefaultTheme":
             try:
                 # Get the referenced theme for the default theme
                 referenced_theme = config.get(theme, 'DefaultTheme').strip('|"""')
-                print('2Theme is:',styles)
             except (configparser.NoOptionError, configparser.NoSectionError):
                 # Handle the case when the referenced theme is not found
-                print("Invalid referenced theme2")
+                print("Invalid referenced")
                 pass
             else:
                 # Get the styles for the referenced theme
                 try:
                     styles = config.get(referenced_theme, 'stylesheet').strip('|"""')
-                    print('3Theme is:',styles)
+                    print('Theme is:',referenced_theme)
                 except (configparser.NoSectionError, configparser.NoOptionError):
                     # Handle the case when the styles for the referenced theme are not found
                     print("Invalid referenced theme styles3")
@@ -621,10 +617,9 @@ class mainUI (QMainWindow):
         colOffset = False
         self.startButton.hide()
         self.stopButton.show()
-
+        self.focus_Halo()
         self.collectionProgressLabel.setText("Printing Collection:")
         path = self.file_path
-        Keymanager.focus_Halo()
         stop_flag = bool(self.stop_flag)
         position_only = self.position_only_var
         low_performance = self.low_performance_var
@@ -745,6 +740,8 @@ class mainUI (QMainWindow):
         global runtimeCount
         global totalCount
         global colCounter
+        global previousObjCounter
+        global collection_counts
 
         if colCounter < len(collection_counts):
             collections = list(collection_counts.keys())
@@ -753,8 +750,6 @@ class mainUI (QMainWindow):
             print("No collection found for the given index")
 
         newobjCounter = objCounter + int(self.start_index_var)
-
-        previousObjCounter = None  # Store the previous value of objCounter
 
         # Check if the value of objCounter has changed
         if objCounter != previousObjCounter:
@@ -765,7 +760,9 @@ class mainUI (QMainWindow):
             else:
                 self.objectsProgressLabel.setText("Objects Processed: {} / {}".format(newobjCounter, totalCount))
                 self.totalProgressBar.setValue(newobjCounter)
-            
+        else:
+            print("No change in objCounter")
+            pass
         # Update the collectionProgressLabel
         self.collectionProgressLabel.setText("Printing Collection: {}".format(collection))
  
@@ -976,6 +973,19 @@ class mainUI (QMainWindow):
             if updatedValue == 0:
                 updatedValue = 999
             self.totalProgressBar.setMaximum(updatedValue)
+
+    def focus_Halo(self):# Get the list of all open windows
+        windows = pyautogui.getAllWindows()  
+        # Find the Halo Infinite window by searching for its title
+        halo_window = None
+        for window in windows:
+            if window.title == "Halo Infinite":
+                halo_window = window
+                break
+
+        # Focus on the Halo Infinite window
+        if halo_window:
+            pyautogui.click(halo_window.left + 10, halo_window.top + 10)
 
 
 if __name__ == '__main__':

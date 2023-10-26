@@ -7,7 +7,6 @@ import Sorter
 import mirvTranslator
 import keyboard
 
-pydirectinput.FAILSAFE = False
 
 ##### Execution of Object Processing Functions Start
 
