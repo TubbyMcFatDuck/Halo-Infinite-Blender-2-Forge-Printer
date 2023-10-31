@@ -180,7 +180,7 @@ color: rgb(255, 255, 255);</string>
            <item alignment="Qt::AlignHCenter">
             <widget class="QLabel" name="objectCountLabel">
              <property name="text">
-              <string>Objects found in DCjson file:XXX</string>
+              <string>Objects Found in DCjson File:XXX</string>
              </property>
             </widget>
            </item>
@@ -893,7 +893,7 @@ color: rgb(0, 0, 0);</string>
          <item>
           <widget class="QLabel" name="label">
            <property name="text">
-            <string>This Map Was Made With The HIFB</string>
+            <string>This Map Was Made With B2FP!</string>
            </property>
            <property name="textFormat">
             <enum>Qt::AutoText</enum>

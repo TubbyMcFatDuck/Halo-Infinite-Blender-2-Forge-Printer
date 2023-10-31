@@ -106,7 +106,7 @@ class mainUI (QMainWindow):
     def __init__(self):
         super(mainUI, self).__init__()
         loadUi("Main/Gui.ui",self)
-        self.setWindowTitle("HIFB {}".format(current_version))
+        self.setWindowTitle("B2FB {}".format(current_version))
         # Run check_latest_version on the first run
         self.first_run = True
         QTimer.singleShot(0, self.run_check_latest_version)
