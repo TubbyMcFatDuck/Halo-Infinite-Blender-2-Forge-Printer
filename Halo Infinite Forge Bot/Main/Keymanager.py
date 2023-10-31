@@ -7,6 +7,23 @@ import Sorter
 import mirvTranslator
 import keyboard
 
+################################
+# Documentation for this .py file will be notated with commented out code that looks like this, as well as 
+# having ## DOCU in front of any comments. If you are here and have not read the README.md, read that first.
+#
+# This Documentation will be an explanation of the code and all of the processes to a beginner such that you should not
+# *need* to know how to code to understand what is going on. It may not cover 101% of what goes on in these files because
+# not only would that be overkill, it would be redundant for alot of the code. If you already know Python, you're ahead.
+# 
+# If you are trying to understand the entire project top to bottom, here is the recommended order for you to read the
+# files and their documentation (if you just want to understand this file, ignore this recommendation):
+#
+# Gui.py -> Bot.py -> Sorter.py -> Keymanager.py -> mirvTranslator.py
+# 
+# Do note that technically, Keymanager is ran before Sorter, but Sorter is called right at the beginning of Keymanager, and
+# for reasons you will see later, cannot run without Sorter.
+#
+################################
 
 ##### Execution of Object Processing Functions Start
 
@@ -2666,15 +2683,15 @@ def process_objects(item_list, path, stop_me, vLog, start_index, end_index, end_
                 mirvTranslator.objTranslationNoScale(sorted_item_list[ticker:Sorter.obj_TEAM_BLOCKER_16X32X8+ticker], ticker, vLog, stop_me, start_index, end_index, end_index_check, save_interval, save_interval_check, listLength, low_performance, position_only, 4, 4, 7)
                 ticker += Sorter.obj_TEAM_BLOCKER_16X32X8
 
-            elif str({object['itemId']}).find("1184897444") == True:
-                #Team Blocker 16x4x4
-                mirvTranslator.objTranslationNoScale(sorted_item_list[ticker:Sorter.obj_TEAM_BLOCKER_16X4X4+ticker], ticker, vLog, stop_me, start_index, end_index, end_index_check, save_interval, save_interval_check, listLength, low_performance, position_only, 4, 4, 8)
-                ticker += Sorter.obj_TEAM_BLOCKER_16X4X4
-
             elif str({object['itemId']}).find("-1116440378") == True:
                 #Team Blocker 16x4x4 A
-                mirvTranslator.objTranslationNoScale(sorted_item_list[ticker:Sorter.obj_TEAM_BLOCKER_16X4X4_A+ticker], ticker, vLog, stop_me, start_index, end_index, end_index_check, save_interval, save_interval_check, listLength, low_performance, position_only, 4, 4, 9)
+                mirvTranslator.objTranslationNoScale(sorted_item_list[ticker:Sorter.obj_TEAM_BLOCKER_16X4X4_A+ticker], ticker, vLog, stop_me, start_index, end_index, end_index_check, save_interval, save_interval_check, listLength, low_performance, position_only, 4, 4, 8)
                 ticker += Sorter.obj_TEAM_BLOCKER_16X4X4_A
+
+            elif str({object['itemId']}).find("1184897444") == True:
+                #Team Blocker 16x4x4
+                mirvTranslator.objTranslationNoScale(sorted_item_list[ticker:Sorter.obj_TEAM_BLOCKER_16X4X4+ticker], ticker, vLog, stop_me, start_index, end_index, end_index_check, save_interval, save_interval_check, listLength, low_performance, position_only, 4, 4, 9)
+                ticker += Sorter.obj_TEAM_BLOCKER_16X4X4
 
             elif str({object['itemId']}).find("-1664225091") == True:
                 #Team Blocker 1x1x1
@@ -2696,15 +2713,15 @@ def process_objects(item_list, path, stop_me, vLog, start_index, end_index, end_
                 mirvTranslator.objTranslationNoScale(sorted_item_list[ticker:Sorter.obj_TEAM_BLOCKER_256X32X128+ticker], ticker, vLog, stop_me, start_index, end_index, end_index_check, save_interval, save_interval_check, listLength, low_performance, position_only, 4, 4, 13)
                 ticker += Sorter.obj_TEAM_BLOCKER_256X32X128
 
-            elif str({object['itemId']}).find("-1420481844") == True:
-                #Team Blocker 256x64x64
-                mirvTranslator.objTranslationNoScale(sorted_item_list[ticker:Sorter.obj_TEAM_BLOCKER_256X64X64+ticker], ticker, vLog, stop_me, start_index, end_index, end_index_check, save_interval, save_interval_check, listLength, low_performance, position_only, 4, 4, 14)
-                ticker += Sorter.obj_TEAM_BLOCKER_256X64X64
-
             elif str({object['itemId']}).find("177237589") == True:
                 #Team Blocker 256x64x64 A
-                mirvTranslator.objTranslationNoScale(sorted_item_list[ticker:Sorter.obj_TEAM_BLOCKER_256X64X64_A+ticker], ticker, vLog, stop_me, start_index, end_index, end_index_check, save_interval, save_interval_check, listLength, low_performance, position_only, 4, 4, 15)
+                mirvTranslator.objTranslationNoScale(sorted_item_list[ticker:Sorter.obj_TEAM_BLOCKER_256X64X64_A+ticker], ticker, vLog, stop_me, start_index, end_index, end_index_check, save_interval, save_interval_check, listLength, low_performance, position_only, 4, 4, 14)
                 ticker += Sorter.obj_TEAM_BLOCKER_256X64X64_A
+
+            elif str({object['itemId']}).find("-1420481844") == True:
+                #Team Blocker 256x64x64
+                mirvTranslator.objTranslationNoScale(sorted_item_list[ticker:Sorter.obj_TEAM_BLOCKER_256X64X64+ticker], ticker, vLog, stop_me, start_index, end_index, end_index_check, save_interval, save_interval_check, listLength, low_performance, position_only, 4, 4, 15)
+                ticker += Sorter.obj_TEAM_BLOCKER_256X64X64
 
             elif str({object['itemId']}).find("1316554231") == True:
                 #Team Blocker 2x2x2
@@ -2726,30 +2743,30 @@ def process_objects(item_list, path, stop_me, vLog, start_index, end_index, end_
                 mirvTranslator.objTranslationNoScale(sorted_item_list[ticker:Sorter.obj_TEAM_BLOCKER_32X32X32+ticker], ticker, vLog, stop_me, start_index, end_index, end_index_check, save_interval, save_interval_check, listLength, low_performance, position_only, 4, 4, 19)
                 ticker += Sorter.obj_TEAM_BLOCKER_32X32X32
 
-            elif str({object['itemId']}).find("1337005876") == True:
-                #Team Blocker 32x8x8
-                mirvTranslator.objTranslationNoScale(sorted_item_list[ticker:Sorter.obj_TEAM_BLOCKER_32X8X8+ticker], ticker, vLog, stop_me, start_index, end_index, end_index_check, save_interval, save_interval_check, listLength, low_performance, position_only, 4, 4, 20)
-                ticker += Sorter.obj_TEAM_BLOCKER_32X8X8
-
             elif str({object['itemId']}).find("-68300803") == True:
                 #Team Blocker 32x8x8 A
-                mirvTranslator.objTranslationNoScale(sorted_item_list[ticker:Sorter.obj_TEAM_BLOCKER_32X8X8_A+ticker], ticker, vLog, stop_me, start_index, end_index, end_index_check, save_interval, save_interval_check, listLength, low_performance, position_only, 4, 4, 21)
+                mirvTranslator.objTranslationNoScale(sorted_item_list[ticker:Sorter.obj_TEAM_BLOCKER_32X8X8_A+ticker], ticker, vLog, stop_me, start_index, end_index, end_index_check, save_interval, save_interval_check, listLength, low_performance, position_only, 4, 4, 20)
                 ticker += Sorter.obj_TEAM_BLOCKER_32X8X8_A
+
+            elif str({object['itemId']}).find("1337005876") == True:
+                #Team Blocker 32x8x8
+                mirvTranslator.objTranslationNoScale(sorted_item_list[ticker:Sorter.obj_TEAM_BLOCKER_32X8X8+ticker], ticker, vLog, stop_me, start_index, end_index, end_index_check, save_interval, save_interval_check, listLength, low_performance, position_only, 4, 4, 21)
+                ticker += Sorter.obj_TEAM_BLOCKER_32X8X8
 
             elif str({object['itemId']}).find("1735640563") == True:
                 #Team Blocker 4x4x4
                 mirvTranslator.objTranslationNoScale(sorted_item_list[ticker:Sorter.obj_TEAM_BLOCKER_4X4X4+ticker], ticker, vLog, stop_me, start_index, end_index, end_index_check, save_interval, save_interval_check, listLength, low_performance, position_only, 4, 4, 22)
                 ticker += Sorter.obj_TEAM_BLOCKER_4X4X4
 
-            elif str({object['itemId']}).find("1032218150") == True:
-                #Team Blocker 64x16x16
-                mirvTranslator.objTranslationNoScale(sorted_item_list[ticker:Sorter.obj_TEAM_BLOCKER_64X16X16+ticker], ticker, vLog, stop_me, start_index, end_index, end_index_check, save_interval, save_interval_check, listLength, low_performance, position_only, 4, 4, 23)
-                ticker += Sorter.obj_TEAM_BLOCKER_64X16X16
-
             elif str({object['itemId']}).find("812349883") == True:
                 #Team Blocker 64x16x16 A
-                mirvTranslator.objTranslationNoScale(sorted_item_list[ticker:Sorter.obj_TEAM_BLOCKER_64X16X16_A+ticker], ticker, vLog, stop_me, start_index, end_index, end_index_check, save_interval, save_interval_check, listLength, low_performance, position_only, 4, 4, 24)
+                mirvTranslator.objTranslationNoScale(sorted_item_list[ticker:Sorter.obj_TEAM_BLOCKER_64X16X16_A+ticker], ticker, vLog, stop_me, start_index, end_index, end_index_check, save_interval, save_interval_check, listLength, low_performance, position_only, 4, 4, 23)
                 ticker += Sorter.obj_TEAM_BLOCKER_64X16X16_A
+
+            elif str({object['itemId']}).find("1032218150") == True:
+                #Team Blocker 64x16x16
+                mirvTranslator.objTranslationNoScale(sorted_item_list[ticker:Sorter.obj_TEAM_BLOCKER_64X16X16+ticker], ticker, vLog, stop_me, start_index, end_index, end_index_check, save_interval, save_interval_check, listLength, low_performance, position_only, 4, 4, 24)
+                ticker += Sorter.obj_TEAM_BLOCKER_64X16X16
 
             elif str({object['itemId']}).find("672283073") == True:
                 #Team Blocker 64x2x32
@@ -2766,15 +2783,15 @@ def process_objects(item_list, path, stop_me, vLog, start_index, end_index, end_
                 mirvTranslator.objTranslationNoScale(sorted_item_list[ticker:Sorter.obj_TEAM_BLOCKER_64X64X64+ticker], ticker, vLog, stop_me, start_index, end_index, end_index_check, save_interval, save_interval_check, listLength, low_performance, position_only, 4, 4, 27)
                 ticker += Sorter.obj_TEAM_BLOCKER_64X64X64
 
-            elif str({object['itemId']}).find("-1210852217") == True:
-                #Team Blocker 8x2x2
-                mirvTranslator.objTranslationNoScale(sorted_item_list[ticker:Sorter.obj_TEAM_BLOCKER_8X2X2+ticker], ticker, vLog, stop_me, start_index, end_index, end_index_check, save_interval, save_interval_check, listLength, low_performance, position_only, 4, 4, 28)
-                ticker += Sorter.obj_TEAM_BLOCKER_8X2X2
-
             elif str({object['itemId']}).find("668419691") == True:
                 #Team Blocker 8x2x2 A
-                mirvTranslator.objTranslationNoScale(sorted_item_list[ticker:Sorter.obj_TEAM_BLOCKER_8X2X2_A+ticker], ticker, vLog, stop_me, start_index, end_index, end_index_check, save_interval, save_interval_check, listLength, low_performance, position_only, 4, 4, 29)
+                mirvTranslator.objTranslationNoScale(sorted_item_list[ticker:Sorter.obj_TEAM_BLOCKER_8X2X2_A+ticker], ticker, vLog, stop_me, start_index, end_index, end_index_check, save_interval, save_interval_check, listLength, low_performance, position_only, 4, 4, 28)
                 ticker += Sorter.obj_TEAM_BLOCKER_8X2X2_A
+
+            elif str({object['itemId']}).find("-1210852217") == True:
+                #Team Blocker 8x2x2
+                mirvTranslator.objTranslationNoScale(sorted_item_list[ticker:Sorter.obj_TEAM_BLOCKER_8X2X2+ticker], ticker, vLog, stop_me, start_index, end_index, end_index_check, save_interval, save_interval_check, listLength, low_performance, position_only, 4, 4, 29)
+                ticker += Sorter.obj_TEAM_BLOCKER_8X2X2
 
             elif str({object['itemId']}).find("-1302862255") == True:
                 #Team Blocker 8x2x4

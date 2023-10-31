@@ -19,7 +19,7 @@ import configparser
 #This is the Repo Information and this codes current version, This is used for version checking and not inclusive of all code contributors.
 repo_owner = "TubbyMcFatDuck"
 repo_name = "Halo-Infinite-Blender-2-Forge"
-current_version = "1.0.1"
+current_version = "1.0.2"
 
 #This is used for dev mode functionality - TURNS OFF WINDOW MONITOR STOP ACTION
 devMode = False
@@ -42,6 +42,7 @@ UGCData = []
 UGCDataIndex = 0
 UGCLink = ""
 previousObjCounter = None
+
 
 # Used for Ini File
 config = configparser.RawConfigParser()
@@ -195,7 +196,9 @@ class mainUI (QMainWindow):
             #UGC Label
         self.UGCLabel = self.findChild(QLabel, "ugcLabel")
         self.UGCButton = self.findChild(QPushButton, "ugcButton")
-        
+        self.UGCTF = self.findChild(QCheckBox, "UGCTF")
+
+
         #Connect our Widgets to functions
             #UGC Button
         self.UGCButton.clicked.connect(self.UGCLabel_mousePressEvent)
@@ -253,7 +256,7 @@ class mainUI (QMainWindow):
         global UGCLink
 
         # Check if 'ugcList' key exists in UGCData dictionary
-        if 'ugcList' in UGCData:
+        if 'ugcList' in UGCData and self.UGCTF.isChecked():
             ugcList = UGCData['ugcList']
             if not ugcList or UGCDataIndex >= len(ugcList):
                 UGCDataIndex = 0  # Go back to the first index
@@ -280,7 +283,7 @@ class mainUI (QMainWindow):
 
             UGCDataIndex += 1
         else:
-            print("ugcList key does not exist in UGCData dictionary")
+            print("UGC Scroller Is Disabled or UGC Data is not available.")
                 
     def UGCLabel_mousePressEvent(self):
             webbrowser.open(UGCLink)
@@ -317,7 +320,8 @@ class mainUI (QMainWindow):
                         if msg_box.clickedButton() == open_repo_button:
                             # Open the repository URL in a web browser
                             import webbrowser
-                            repo_url = f"https://github.com/{repo_owner}/{repo_name}"
+                            repo_url = f"https://github.com/{repo_owner}/{repo_name}/releases/latest"
+                            
                             webbrowser.open(repo_url)
 
                             # Close the application
@@ -869,7 +873,7 @@ class mainUI (QMainWindow):
                     layout.addWidget(checkbox)
                     checkbox.stateChanged.connect(self.checkbox_state_changed)
                     self.checkbox_states[checkbox] = False
-
+                layout.setAlignment(Qt.AlignTop)
                 # Print the collection names and their respective counts
                 print(collection_counts)
             except KeyError:

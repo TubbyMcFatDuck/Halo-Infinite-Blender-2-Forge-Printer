@@ -1,4 +1,4 @@
-*** BOT CODE VERSION 1.0.0 Halo Infinite: B2FP ***
+*** BOT CODE VERSION 1.0.2 Halo Infinite: B2FP ***
 
 
 ### HOW TO INSTALL BLENDER ADD ON
@@ -26,6 +26,8 @@ pip install PyQt5
 pip install pydirectinput
 
 pip install keyboard
+
+pip install pyperclip
 
 2. Launch B2FP.exe
 

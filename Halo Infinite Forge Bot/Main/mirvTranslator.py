@@ -542,7 +542,7 @@ def giveProperties(object, low_performance, position_only, vLog):
             time.sleep(0.055)
             pydirectinput.press(['enter'])
         else:
-            pydirectinput.press(['down'],presses= 5)
+            pydirectinput.press(['down'],presses= 6)
 
     #Position Manipulation
         print("Processing Position of object: {}".format({object['objectName']}))

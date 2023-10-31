@@ -154,7 +154,7 @@ color: rgb(255, 255, 255);</string>
               <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Select This To Stop The Current Print&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
              </property>
              <property name="text">
-              <string>Stop</string>
+              <string>Stop (Hotkey: F)</string>
              </property>
              <property name="checkable">
               <bool>false</bool>
@@ -543,7 +543,7 @@ color: rgb(0, 0, 0);</string>
            <property name="maximumSize">
             <size>
              <width>16777215</width>
-             <height>225</height>
+             <height>1200</height>
             </size>
            </property>
            <property name="focusPolicy">
@@ -596,7 +596,7 @@ color: rgb(0, 0, 0);</string>
              <string>Advanced Settings</string>
             </attribute>
             <layout class="QHBoxLayout" name="horizontalLayout_3">
-             <item>
+             <item alignment="Qt::AlignTop">
               <widget class="QWidget" name="normalSettingsGroup" native="true">
                <layout class="QVBoxLayout" name="verticalLayout_3">
                 <item>
@@ -640,6 +640,13 @@ color: rgb(0, 0, 0);</string>
                     </property>
                     <property name="text">
                      <string>Verbose Log</string>
+                    </property>
+                   </widget>
+                  </item>
+                  <item>
+                   <widget class="QCheckBox" name="UGCTF">
+                    <property name="text">
+                     <string>Enable UGC Scroller</string>
                     </property>
                    </widget>
                   </item>
@@ -738,6 +745,9 @@ color: rgb(0, 0, 0);</string>
             <layout class="QHBoxLayout" name="horizontalLayout_2">
              <item>
               <layout class="QVBoxLayout" name="collectionsGroup">
+               <property name="sizeConstraint">
+                <enum>QLayout::SetNoConstraint</enum>
+               </property>
                <item alignment="Qt::AlignTop">
                 <widget class="QCheckBox" name="printCollectionButton">
                  <property name="cursor">
@@ -762,6 +772,9 @@ color: rgb(0, 0, 0);</string>
                    <height>16777215</height>
                   </size>
                  </property>
+                 <property name="layoutDirection">
+                  <enum>Qt::LeftToRight</enum>
+                 </property>
                  <property name="verticalScrollBarPolicy">
                   <enum>Qt::ScrollBarAlwaysOn</enum>
                  </property>
@@ -775,7 +788,7 @@ color: rgb(0, 0, 0);</string>
                   <bool>true</bool>
                  </property>
                  <property name="alignment">
-                  <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
+                  <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignTop</set>
                  </property>
                  <widget class="QWidget" name="scrollAreaWidgetContents">
                   <property name="geometry">
@@ -783,7 +796,7 @@ color: rgb(0, 0, 0);</string>
                     <x>0</x>
                     <y>0</y>
                     <width>238</width>
-                    <height>144</height>
+                    <height>199</height>
                    </rect>
                   </property>
                   <property name="sizePolicy">
@@ -878,28 +891,6 @@ color: rgb(0, 0, 0);</string>
           </widget>
          </item>
          <item>
-          <widget class="QWidget" name="SpaceHolder" native="true">
-           <property name="sizePolicy">
-            <sizepolicy hsizetype="Preferred" vsizetype="MinimumExpanding">
-             <horstretch>0</horstretch>
-             <verstretch>0</verstretch>
-            </sizepolicy>
-           </property>
-           <property name="minimumSize">
-            <size>
-             <width>0</width>
-             <height>10</height>
-            </size>
-           </property>
-           <property name="maximumSize">
-            <size>
-             <width>16777215</width>
-             <height>50</height>
-            </size>
-           </property>
-          </widget>
-         </item>
-         <item>
           <widget class="QLabel" name="label">
            <property name="text">
             <string>This Map Was Made With The HIFB</string>
@@ -938,7 +929,7 @@ color: rgb(0, 0, 0);</string>
               </size>
              </property>
              <property name="mouseTracking">
-              <bool>false</bool>
+              <bool>true</bool>
              </property>
              <property name="frameShape">
               <enum>QFrame::WinPanel</enum>
@@ -950,10 +941,7 @@ color: rgb(0, 0, 0);</string>
               <number>2</number>
              </property>
              <property name="text">
-              <string/>
-             </property>
-             <property name="pixmap">
-              <pixmap>halo_bot_icon.ico</pixmap>
+              <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Enable UGC Scroller Above To See &lt;/p&gt;&lt;p&gt;Community Made Maps Using B2FP&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
              </property>
              <property name="scaledContents">
               <bool>true</bool>
