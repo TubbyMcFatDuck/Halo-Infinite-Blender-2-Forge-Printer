@@ -45,16 +45,24 @@ This folder contains the images found in this readme file
 
 ## Demo
 
-![printables].(/Images/BlockoutItems103123.jpg "blockout").
+<div align="center">
+    <img src="/Images/BlockoutItems103123.jpg" alt="Available Printables" title="Available Printables" width="400">
+</div>
 This set of objects will be what is included in the Asset Library pack
 
-![test](/Images/Blockout1.png "test")
+<div align="center">
+    <img src="/Images/Blockout1.png" alt="Blender Blockout" title="Blender Blockout" width="400">
+</div>
 Blockout of Boneyard In Blender By Okom1
 
-![](/Images/Blockout2.jpeg)
+<div align="center">
+    <img src="/Images/Blockout2.jpeg" alt="Printed Blockout" title="Printed Blockout" width="400">
+</div>
 Boneyard imported into Halo Infinite using B2FP
 
-![](/Images/Blockout3.jpeg)
+<div align="center">
+    <img src="/Images/Blockout3.jpeg" alt="WIP Blockout" title="WIP Blockout" width="400">
+</div>
 WIP arting by Okom1
 
 
