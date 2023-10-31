@@ -1,49 +1,58 @@
-*** BOT CODE VERSION 1.0.2 Halo Infinite: B2FP ***
+[![Version - 1.0.2](https://img.shields.io/badge/Version-1.0.2-critical)](https://)
 
+## Blender Add-On
 
-### HOW TO INSTALL BLENDER ADD ON
+To install the Blender Add-On
+
 1. Install Blender 3.5+
 2. In Blender, under "Edit" click "Preferences"
 3. Click "Add-Ons"
 4. Click "Install" and point at the 'Tubbys Blender Exporter.py'
 5. Click refresh then restart Blender
 
-#### HOW TO INSTALL THE ASSET LIBRARY
+## Blender Asset Library
+
+To install the Blender Asset Library
+
 1. In Blender, under "Edit" click "Preferences"
 2. Click "File Paths"
 3. Scroll down to Asset Libraries, Add a new Asset Library by clicking the "+"
 4. Unzip the Forge For Infinite Asset Pack
 4. Select the Forge For Infinite Asset Pack folder
+## Blender to Forge Printer Bot
 
-#### HOW TO INSTALL Halo Infinite:B2FP
+To install the Halo Infinite: B2FP Bot
+
 1. Install Python 3.4+
-2. Install the necessary python packages
-Open the command line prompt and COPY & PASTE the following line:
-
+2. Install the necessary python packages, open your command line prompt and **copy & paste** the following line:
+```
 pip install pyautogui PyQt5 pydirectinput keyboard pyperclip
-
+```
 3. Launch B2FP.exe
+## Running Blender to Forge Printer Bot
 
+To run the Halo Infinite: B2FP Bot
 
-##### HOW TO RUN THE BOT IN-GAME
-Halo Infinite must be in ENGLISH (NA) and your keyboard settings must be in ENGLISH (NA)for the printer to function.
+*Halo Infinite must be in **English (NA)** and your keyboard settings must be in **English (NA)** for the printer to function.*
 
 1. Spawn any object
-2. Go to Object Properties (CTRL + 2)
-3. Ensure every folder is expanded. (Press TAB to expand/collapse all property categories.)
+2. Go to Object Properties *(CTRL + 2)*
+3. Ensure every folder is expanded. *(Press TAB to expand/collapse all property categories.)*
 4. Use your arrow keys to hover over the "General" category at the very top of the list.
-5. Without deselecting "General", go back to Object Properties (CTRL + 1)
-6. Make sure all object folders and subfolders are collapsed. (Hover over "Recents")
+5. Without deselecting "General", go back to Object Properties *(CTRL + 1)*
+6. Make sure all object folders and subfolders are collapsed. *(Hover over "Recents")*
 7. Configure your settings/collections in the B2FP window.
 8. Hit Start.
-9. DO NOT touch anything, move anything, or type anything while the Bot is processing. (The Bot should stop when Infinite is not the focused window, but chaos *can* happen)
-10. If, for any reason, you need to stop the Bot IMMEDIATELY, HOLD F.
-11. Otherwise, move your cursor over to "Stop" and Left-Click to stop the Bot Process when you want it to stop (May Need to press twice).
+9. DO NOT touch anything, move anything, or type anything while the Bot is processing. *(The Bot should stop when Infinite is not the focused window, but chaos *can* happen)*
+10. If, for any reason, you need to stop the Bot **immediately**, *HOLD **F***.
+..10. Otherwise, move your cursor over to "Stop" and Left-Click to stop the Bot Process when you want it to stop (May Need to press twice).
+## Testing
 
 You can test the bot to make sure it is working properly on your machine without needing to make your own Blender file or Export your current project by using the DemoPrint.DCjson file provided in the Bot Download.
 
-##### EASY BOT SETUP GUIDE
-Here is our recommendation for your layout to use the bot.
+## Usage/Examples
+
+### Recommended Settings
 
 1. Turn off Borderless Fullscreen.
 2. Set the Window size to the smallest size you can.
@@ -54,7 +63,7 @@ Here is our recommendation for your layout to use the bot.
 7. DO NOT overlap the windows. This can result in errors.
 8. Run your bot!
 
-NOTE: There are many factors that can negatively impact your ability to print at a fast speed with no errors. Consider the following:
+**Note**: There are many factors that can negatively impact your ability to print at a fast speed with no errors. Consider the following:
 • Disable V-Sync
 • Set a stable minimum FPS and maximum FPS of no more than eg. 100-120
 • Look up at the sky when printing your map.
@@ -64,6 +73,4 @@ If your Bot is making misinputs, slow down your print speed. Your Network Connec
 
 If your Bot is making errors, enable the Verbose Log option in the UI and try to replicate the issue. Video recordings + Verbose Logs of errors are the most useful way to address issues. Try tuning your Print Speed slider to go slower if you run the game under 100fps.
 
-Head over to the Guides and Tips section in our discord for advice: https://discord.gg/YPRX9besSD
-
-DO NOT attempt to print a DCjson OR a Collection that contains only 1 object.
+**DO NOT attempt to print a DCjson OR a Collection that contains only 1 object.**
