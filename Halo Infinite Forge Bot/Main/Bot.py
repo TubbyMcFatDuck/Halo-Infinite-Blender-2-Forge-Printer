@@ -5,6 +5,8 @@ import mirvTranslator
 
 ################################
 #
+# Written by: Uber/bpsherwo
+#
 # Documentation for this .py file will be notated with commented out code that looks like this, as well as 
 # having ## DOC in front of any comments. If you are here and have not read the README.md, read that first.
 #
@@ -40,7 +42,7 @@ objectList = []
 listofLists = []
 
 position_only = True if sys.argv[3].lower() == 'true' else False ## DOC - toggles whether to only print position and ignore rotation and scale.
-low_performance = float(sys.argv[4]) ## DOC - we call this Low Perforance down here, but this is actually "Print Speed" on the UI.
+low_performance = float(sys.argv[4]) ## DOC - we call this Low Perforance down here, but this is actually "Print Speed" on the UI. This value is, in seconds, the amount of time between keypresses. 0.012 seconds, and 0.024 seconds, and 0.030 seconds, are all just delays between keypresses to give your game more time to register and execute that keypress.
 start_index = sys.argv[5] ## DOC - grabbing which index to start iterating from
 stop_me = sys.argv[6] ## DOC - only matters if you load a DCjson over 500 objects, value comes back as 1, 2, and 3 in from left to right on the UI popup.
 end_index = int(sys.argv[10]) ## DOC - grabbing which index to stop iteration
@@ -70,6 +72,9 @@ except ValueError:
     if vLog == True:
         print("vLOG: Bot.py: Start Index: Failed.")
         sys.stdout.flush()
+
+if save_interval == 0:
+    save_interval = 9999999
 
 ## DOC - Arguably one of the most important lines in the project, process_execute is the driver function that sends what we'll 
 # call a "package" of objects to Keymanager for placement in-game. An important thing to note to provide context to why this whole 
@@ -116,7 +121,7 @@ if vLog == True:
     print("vLOG: Bot.py: End metadata print.")
     sys.stdout.flush()
 
-print("BOT CODE VERSION: v1.0.0") 
+print("BOT CODE VERSION: v1.0.2") 
 
 sys.stdout.flush()
 

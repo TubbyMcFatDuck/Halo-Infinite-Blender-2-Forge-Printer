@@ -8,8 +8,11 @@ import mirvTranslator
 import keyboard
 
 ################################
+#
+# Written by: Uber/bpsherwo
+#
 # Documentation for this .py file will be notated with commented out code that looks like this, as well as 
-# having ## DOCU in front of any comments. If you are here and have not read the README.md, read that first.
+# having ## DOC in front of any comments. If you are here and have not read the README.md, read that first.
 #
 # This Documentation will be an explanation of the code and all of the processes to a beginner such that you should not
 # *need* to know how to code to understand what is going on. It may not cover 101% of what goes on in these files because
@@ -25,6 +28,19 @@ import keyboard
 #
 ################################
 
+# Keymanager.py Foreword
+################################
+#
+# At a high level, this script takes the package sent from Bot.py and iterates through the entire list of objects inside that 
+# package, (factoring in Start & End Index), checks their ItemID, and if a match is found, sends that object to the appropriate 
+# mapping function. Not every object has the same menu layout, (ex. some objects have no Object Mode option, some objects only 
+# have 1-2 color regions instead of 3, some objects spawn Fixed instead of Phased, etc) so we must create unique mappings for 
+# that menu layout profile. Those unique mappings exist in mirvTranslator.py. All Keymanager.py does is send objects to the 
+# correct menu translation function. A fitting analogy would be, Keymanager.py is the train station, mirvTranslator.py is 
+# the train.
+#
+################################
+
 ##### Execution of Object Processing Functions Start
 
 key_count = 0
@@ -32,9 +48,9 @@ key_to_count = 'itemId'
 start_index = 0
 def process_objects(item_list, path, stop_me, vLog, start_index, end_index, end_index_check, save_interval, save_interval_check, position_only=None, low_performance=None):
     low_performance = low_performance
-    ticker = 0
-    Sorter.resetSorter()
-    sorted_item_list = Sorter.initSorter(item_list, start_index, vLog)
+    ticker = 0 ## DOC - "ticker" is the incrementing number that is passed around so that every function and script can be on the same page about which object they are all interacting with. The value at any time is the index of the object currently being printed.
+    Sorter.resetSorter() ## DOC - Sorter.resetSorter() flashes every variable in the Sorter.py script, so that object counts are not carried over from previous collections.
+    sorted_item_list = Sorter.initSorter(item_list, start_index, vLog) ## DOC - Sorter.initSorter takes the list of objects in the current package, sorts them, and counts them. Sorting them improves efficiency when printing, instead of going all the way back up to the Object Browser root just to get the same object, sorting them allows us to stay in that folder and greatly increase print speed.
     print("Starting at index: {}".format(ticker + start_index))
     if vLog == True:
         print("vLOG: Keymanager.py: Start Index: {}".format(start_index))
@@ -45,7 +61,7 @@ def process_objects(item_list, path, stop_me, vLog, start_index, end_index, end_
         print("vLOG: Keymanager.py: Position Only: {}".format(position_only))
         print("vLOG: Keymanager.py: Low Performance: {}".format(low_performance))
     listLength = len(sorted_item_list)
-    while ticker < len(sorted_item_list):
+    while ticker < len(sorted_item_list): ## DOC - beginning of the loop that translates all objects.
         if vLog == True:
             print("vLOG: Keymanager.py: Entering process_objects loop.")
             sys.stdout.flush()
@@ -56,7 +72,7 @@ def process_objects(item_list, path, stop_me, vLog, start_index, end_index, end_
             if keyboard.is_pressed("f"):
                 print("EMERGENCY STOPKEY PRESSED -- TERMINATING BOT PROCESS")
                 sys.exit(0)
-            object = sorted_item_list[ticker]
+            object = sorted_item_list[ticker] ## DOC - setting the "object" to the current "sorted_item_list" entry at the index of the value of "ticker"
             print("Processing objects: {} with itemIds: {}".format(object['objectName'], object['itemId']))
             # Recent 0
             # Prefabs 1
@@ -64,6 +80,51 @@ def process_objects(item_list, path, stop_me, vLog, start_index, end_index, end_
             ## Antennas 1
             ## Antennas MP 2
             ## Arena 3
+
+            # Object Mapping FULL Breakdown
+            ################################
+            #
+            # This breakdown will go over each line of what these mapping instructions do, as well as breakdown what a Forge 
+            # object looks like inside of an exported DCjson file. Basically, we ask if the current object's 'itemID' is equal 
+            # to a specific value. If the 'itemID' and the value match, the program will know what object it is dealing with 
+            # and where to send it.
+            #
+            # First, lets examine what an "object" is in the B2FP world. Every object in an exported DCjson will look similar to this:
+            #
+            # {
+            #   "collection": "Scene Collection",   <--- Name of the collection the object was in inside of Blender
+            #   "itemId": -319219211,   <--- The itemId for the object pulled from HIRT (Halo Infinite Research Tool)
+            #   "objectName": "Floor Half B",   <--- Name of that object in Blender, most will have .001 or .053 or something, just indicates that is the N+1th number of that object you have. So "Floor Half B.024" would be your 25th Floor Half B in your Blender file.
+            #   "positionX": -259.704,   <--- The Position X value
+            #   "positionY": 221.0,   <--- The Position Y value
+            #   "positionZ": 1004.0,   <--- The Position Z value
+            #   "rotationX": 0.0,   <--- The Rotation X value
+            #   "rotationY": -0.0,   <--- The Rotation Y value
+            #   "rotationZ": 0.0,   <--- The Rotation Z value
+            #   "scaleX": 8.0,   <--- The Scale X value
+            #   "scaleY": 8.0,   <--- The Scale Y value
+            #   "scaleZ": 4.0,   <--- The Scale Z value
+            #   "testList": []   <--- dummy data used for testing
+            # }
+            #
+            # A DCjson is essentially just a dictionary-esque JSON file. JSON objects are stored in a data structure known as a "key:value pair." An example of a key:value pair from the above example is {"itemId": -319219211}, where 'itemId' is the key, and '-319219211' is the value.
+            # Our files are named DCjson as opposed to just JSON to be distinct, and as an homage to the creator of the first Blender to Forge project, Derrik Creates. DC. It is otherwise just a JSON file wearing a wig and makeup. Disclaimer: None of Derrik Create's code is used.
+            #
+            # The FIRST line below is comparing the current object's itemID value against a predefined value to figure out what object it is. The long number is the itemId of a specific object. '-1546771230' is an Arena Corner Cover object, '-1705963242' is a Concrete Barrier Short object, etc.
+            # 
+            # The SECOND line below is just writing what the in-game name of the object is so that it is reverse searchable. Something wrong with the bot finding Arena Corner Cover objects? Open this file and CTRL + F and just search for it via the in-game name. Go from there.
+            # 
+            # The THIRD line below is calling the mirvTranslator.py file, getting the right mapping function, and sending all of your (in this case) Arena Corner Cover objects in the current package to get printed. The final 3 numbers are, in order, the number of downpresses to the object's folder (e.g. Halo Design Set), followed by the number of downpresses to the object's subfolder, (e.g. Floors), and finally the number of downpresses within that subfolder to get to the object (Floor Half B).
+            # 
+            # The FOURTH and FINAL line below is just iterating "ticker" up by the number of (in this case) Arena Corner Cover objects you had so the loop can progress.
+            #
+            # if str({object['itemId']}).find("-1546771230") == True:
+            #    #Arena Corner Cover
+            #    mirvTranslator.objTranslation(sorted_item_list[ticker:Sorter.obj_ARENA_CORNER_COVER+ticker], ticker, vLog, stop_me, start_index, end_index, end_index_check, save_interval, save_interval_check, listLength, low_performance, position_only, 2, 3, 2)
+            #    ticker += Sorter.obj_ARENA_CORNER_COVER
+            #
+            ################################
+
             if str({object['itemId']}).find("-1546771230") == True:
                 #Arena Corner Cover
                 mirvTranslator.objTranslation(sorted_item_list[ticker:Sorter.obj_ARENA_CORNER_COVER+ticker], ticker, vLog, stop_me, start_index, end_index, end_index_check, save_interval, save_interval_check, listLength, low_performance, position_only, 2, 3, 2)
@@ -2635,8 +2696,12 @@ def process_objects(item_list, path, stop_me, vLog, start_index, end_index, end_
             ## Water 17
             elif str({object['itemId']}).find("-414884733") == True:
                 #Water Plane
-                mirvTranslator.objTranslation(sorted_item_list[ticker:Sorter.obj_WATER_PLANE+ticker], ticker, vLog, stop_me, start_index, end_index, end_index_check, save_interval, save_interval_check, listLength, low_performance, position_only, 3, 16, 0)
+                mirvTranslator.objTranslationConfig8(sorted_item_list[ticker:Sorter.obj_WATER_PLANE+ticker], ticker, vLog, stop_me, start_index, end_index, end_index_check, save_interval, save_interval_check, listLength, low_performance, position_only, 3, 17, 0)
                 ticker += Sorter.obj_WATER_PLANE
+            elif str({object['itemId']}).find("-1990751545") == True:
+                #Water Plane Reactive
+                mirvTranslator.objTranslationConfig8(sorted_item_list[ticker:Sorter.obj_WATER_PLANE_REACTIVE+ticker], ticker, vLog, stop_me, start_index, end_index, end_index_check, save_interval, save_interval_check, listLength, low_performance, position_only, 3, 17, 1)
+                ticker += Sorter.obj_WATER_PLANE_REACTIVE
             
             # Blockers 4
             ## One Way Blockers 1
@@ -4524,7 +4589,7 @@ def process_objects(item_list, path, stop_me, vLog, start_index, end_index, end_
                     #mirvTranslator.objTranslation(sorted_item_list[ticker:+ticker], ticker, vLog, stop_me, start_index, end_index, end_index_check, save_interval, save_interval_check, listLength, low_performance, position_only, a, b, c)
                     #ticker += 
 
-            else:
+            else: ## DOC - this else clause will only fire if you have an object in your DCjson that this version of Keymanager.py does not recognize. (More specifically, could not find an itemID match.)
                 if vLog == True:
                     print("vLOG: Keymanager.py: Object had no written mapping in Keymanager:\n{}.\n".format(object))
                     sys.stdout.flush()
@@ -4533,6 +4598,8 @@ def process_objects(item_list, path, stop_me, vLog, start_index, end_index, end_
             sys.stdout.flush()
             time.sleep(low_performance + 0.05)
             break
+
+    ## DOC - End of a print (or if PBC is enabled, end of a collection)
     if vLog == True:
         print("vLOG: Keymanager.py: Print completed.")
         sys.stdout.flush()
@@ -4541,22 +4608,9 @@ def process_objects(item_list, path, stop_me, vLog, start_index, end_index, end_
     mirvTranslator.goToObjBrowser(low_performance, vLog)
     print("-" * 20)
     if sys.argv[15].lower() == 'true':
-        print("Collection Completed. Please check objects for placement, rotation, and scaling accuracy.")
+        print("Collection Completed. Please check objects for placement, rotation, and scaling accuracy.") # DO NOT EDIT THIS STRING
     else: 
-        print("Print Completed. Please check objects for placement, rotation, and scaling accuracy.")
+        print("Print Completed. Please check objects for placement, rotation, and scaling accuracy.") # DO NOT EDIT THIS STRING
     sys.stdout.flush()
 
 ##### Execution of Object Processing Functions End
-
-def focus_Halo():# Get the list of all open windows
-    windows = pyautogui.getAllWindows()  
-    # Find the Halo Infinite window by searching for its title
-    halo_window = None
-    for window in windows:
-        if window.title == "Halo Infinite":
-            halo_window = window
-            break
-
-    # Focus on the Halo Infinite window
-    if halo_window:
-        pyautogui.click(halo_window.left + 10, halo_window.top + 10)

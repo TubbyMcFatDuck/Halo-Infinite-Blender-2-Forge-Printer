@@ -6,6 +6,46 @@ key_to_count = 'itemId'
 low_performance=0.012
 start_index = 0
 
+################################
+#
+# Written by: Uber/bpsherwo
+#
+# Documentation for this .py file will be notated with commented out code that looks like this, as well as 
+# having ## DOC in front of any comments. If you are here and have not read the README.md, read that first.
+#
+# This Documentation will be an explanation of the code and all of the processes to a beginner such that you should not
+# *need* to know how to code to understand what is going on. It may not cover 101% of what goes on in these files because
+# not only would that be overkill, it would be redundant for alot of the code. If you already know Python, you're ahead.
+# 
+# If you are trying to understand the entire project top to bottom, here is the recommended order for you to read the
+# files and their documentation (if you just want to understand this file, ignore this recommendation):
+#
+# Gui.py -> Bot.py -> Sorter.py -> Keymanager.py -> mirvTranslator.py
+# 
+# Do note that technically, Keymanager is ran before Sorter, but Sorter is called right at the beginning of Keymanager, and
+# for reasons you will see later, cannot run without Sorter.
+#
+################################
+
+# Sorter.py Foreword
+################################
+#
+# At a high level, Sorter.py just counts how many of each object are in the package sent from Keymanager.py (Remember -- Keymanager.py 
+# gets the package from Bot.py) and sorts them by their itemID values. That is pretty much it. This file is very important however, 
+# because without it, the other functions would not know how many of each object are in each package, and further more they would 
+# all be shuffled, so print speed would greatly suffer with all of the extraneous menu navigation.
+#
+# Side note: Sorter has some technical debt that has built up over time. There is definitely a more efficient way to do what Sorter 
+# does, but often times development time was taken up working on the more 'fancy' or 'functional' features like more objects, more 
+# print options, etc. If you want to make a contribution and help Sorter suck less, be my guest.
+#
+################################
+
+
+## DOC - here we are declaring these variables at the root of the script (basically global scope) so that we can refer to these 
+# variables in other scripts just by typing Sorter.obj_ARENA_CORNER_COVER instead of having to pass hundreds (eventually thousands) 
+# of variables around between scripts and functions.
+
 ##### Item Count Index Start
 
 # Accents ---------------------------------- DONE FOR NOW
@@ -577,6 +617,7 @@ obj_ROOTS_HANGING_A = 0
 obj_ROOTS_HANGING_B = 0
 ## Water
 obj_WATER_PLANE = 0
+obj_WATER_PLANE_REACTIVE = 0
 
 # Blockers ---------------------------------- DONE FOR NOW
 ## One Way Blockers
@@ -1034,7 +1075,8 @@ obj_UNSC_WALL_WINDOW_STRAIGHT_B = 0
 obj_UNSC_WINDOW_WALL = 0
 
 ##### Item Count Dictionary Start
-
+## DOC - resetSorter is only invoked by Keymanager.py, which uses it to flash all of the values in this script back 
+# to 0 to avoid values carrying over from previous collections. Has no effect if PBC is disabled.
 def resetSorter():
     # Accents
     ## Antennas
@@ -1605,6 +1647,7 @@ def resetSorter():
     global obj_ROOTS_HANGING_B
     ## Water
     global obj_WATER_PLANE
+    global obj_WATER_PLANE_REACTIVE
 
     # Blockers
     ## One Way Blockers
@@ -2630,6 +2673,7 @@ def resetSorter():
     obj_ROOTS_HANGING_B = 0
     ## Water
     obj_WATER_PLANE = 0
+    obj_WATER_PLANE_REACTIVE = 0
 
     # Blockers ---------------------------------- DONE FOR NOW
     ## One Way Blockers
@@ -3087,7 +3131,7 @@ def resetSorter():
     obj_UNSC_WINDOW_WALL = 0
 
 
-
+## DOC - This function is only invoked in Keymanager.py, and it is used to enumerate all of the variables declared at the root.
 def initSorter(item_List, start_index, vLog):
     if vLog == True:
         print("vLOG: Sorter.py: Initating Sorter.")
@@ -3105,6 +3149,7 @@ def initSorter(item_List, start_index, vLog):
         #print("vLOG: Sorter.py: DCjson was assigned to item_list.")
         #sys.stdout.flush()
 
+## DOC - The following code block is what sorts the objects by their itemID.
     if len(item_List) <= 1:
         return item_List
     else:
@@ -3116,6 +3161,7 @@ def initSorter(item_List, start_index, vLog):
                 print("Object: {}".format(object['objectName']))
             sys.stdout.flush()
 
+## DOC - The following code deletes every object in the current package up to the index of start_index.
     if start_index != 0:
         if vLog == True:
             print("vLOG: Sorter.py: Start Index activated, list size before cut: {}.".format(len(sortedList)))
@@ -3694,6 +3740,7 @@ def initSorter(item_List, start_index, vLog):
     global obj_ROOTS_HANGING_B
     ## Water
     global obj_WATER_PLANE
+    global obj_WATER_PLANE_REACTIVE
 
     # Blockers
     ## One Way Blockers
@@ -5710,6 +5757,9 @@ def initSorter(item_List, start_index, vLog):
         if str({object['itemId']}).find("-414884733") == True:
             obj_WATER_PLANE += 1
 
+        if str({object['itemId']}).find("-1990751545") == True:
+            obj_WATER_PLANE_REACTIVE += 1
+
         # Blockers
         ## One Way Blockers
         ## Player Blockers
@@ -7042,4 +7092,5 @@ def initSorter(item_List, start_index, vLog):
     if vLog == True:
         print("vLOG: Sorter.py: Sorter resolved.")
         sys.stdout.flush()
+    ## DOC - after sorting all of the objects, and then deleting objects from the list up to start_index, return the new sorted list to Keymanager.py.
     return sortedList
