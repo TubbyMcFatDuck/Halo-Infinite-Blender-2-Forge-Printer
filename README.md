@@ -69,7 +69,7 @@ WIP arting by Okom1
 
 Because it is free software, you can contribute to make it better. New contributors are always welcome, whether you write code, create resources, report bugs, or suggest features.
 
-For support, join our [Discord Server](https://www.discord.gg/h2HwUDpAjw "Join The Discord")
+For support, join our [Discord Server](https://discord.gg/AzsYEfnxdK "Join The Discord")
 
 ## FAQ
 
