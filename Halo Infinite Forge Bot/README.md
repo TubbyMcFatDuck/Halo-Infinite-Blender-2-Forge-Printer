@@ -64,10 +64,10 @@ You can test the bot to make sure it is working properly on your machine without
 8. Run your bot!
 
 **Note**: There are many factors that can negatively impact your ability to print at a fast speed with no errors. Consider the following:
-• Disable V-Sync
-• Set a stable minimum FPS and maximum FPS of no more than eg. 100-120
-• Look up at the sky when printing your map.
-• Your connection to 343s Infinite servers will affect print speed
+- Disable V-Sync
+- Set a stable minimum FPS and maximum FPS of no more than eg. 100-120
+- Look up at the sky when printing your map.
+- Your connection to 343s Infinite servers will affect print speed
 
 If your Bot is making misinputs, slow down your print speed. Your Network Connection AND Network Stability can impact the consistency of the bot. Use the DemoPrint.DCjson to test and fine tune a good Print Speed for your bot on your specific machine. If you see yourself experiencing Packet Loss, Jitter, Latency Variation, or any other network condition, stop your print and wait for the issues to resolve.
 
