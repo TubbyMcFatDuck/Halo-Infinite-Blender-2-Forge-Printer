@@ -1,4 +1,3 @@
-
 # Halo Infinite: Blender to Forge Printer
 
 <div align="left">
@@ -15,6 +14,7 @@
 - Blender addon to build and export maps in Blender versions **3.3+**
 - UGC content scroller for maps built with B2FP
 - Multiple users capable of printing at the same time during a single Forge session
+
 ## Documentation
 
 This Github repository hosts the necessary files and programs to build maps in Blender, nd then export in Halo Infinite Forge automatically via Keystrokes. Printing is an automated process but ***the user is still required to build the map in Blender***.
@@ -39,7 +39,7 @@ This folder hosts all of the source code for the Blender Exporter Add-on in addi
 
 This folder contains test flow/block diagrams in draw.io - These are outdated and will be updated in future iterations
 
-## `Images Folder`
+### `Images Folder`
 
 This folder contains the images found in this readme file
 
@@ -49,7 +49,6 @@ This set of objects will be what is included in the Asset Library pack
 <div align="left">
     <img src="/Images/BlockoutItems103123.jpg" alt="Available Printables" title="Available Printables" width="800">
 </div>
-
 
 Blockout of Boneyard In Blender By Okom1
 <div align="left">
@@ -71,7 +70,6 @@ WIP arting by Okom1
 Because it is free software, you can contribute to make it better. New contributors are always welcome, whether you write code, create resources, report bugs, or suggest features.
 
 For support, join our [Discord Server](https://www.discord.gg/h2HwUDpAjw "Join The Discord")
-
 
 ## FAQ
 
@@ -109,14 +107,11 @@ Great! Please make a post in the discord suggestions channel, or discussions; an
 
 > Using Blender to build a Forge map is easier than using Blender for other tasks. There is no need to use subdividing, insetting, or many of the more complicated Blender utilities. You place objects down, give them scale, position, and rotation, and you're done. The amount of menus and options can be daunting, but you will rarely use many of them for this tool.
 
-
 ## Acknowledgements
 
 [Original Exporter](https://discord.gg/BHsynVdzfc "Original Exporter built by DerrikCreates ") built by DerrikCreates
 
 Halo Infinite © Microsoft Corporation. Halo Infinite Forge Bot was created under Microsoft's "[Game Content Usage Rules](https://www.xbox.com/en-us/developers/rules)" using assets from Halo Infinite, and it is not endorsed by or affiliated with Microsoft.
-
-
 
 ## License
 
