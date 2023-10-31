@@ -1,6 +1,6 @@
 ### Features
 
-- Includes 145 printable assets from Halo Infinite - (Complete Forge library planned)
+- Includes 163 printable assets from Halo Infinite - (Complete Forge library planned)
 - Blender addon to build and export maps in Blender versions 3.3+
 - UGC content scroller for maps built with B2FP
 - Custom UI color editor
