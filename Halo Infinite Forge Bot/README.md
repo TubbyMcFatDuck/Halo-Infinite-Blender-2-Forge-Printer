@@ -43,7 +43,7 @@ To run the Halo Infinite: B2FP Bot
 6. Make sure all object folders and subfolders are collapsed. *(Hover over "Recents")*
 7. Configure your settings/collections in the B2FP window.
 8. Hit Start.
-9. DO NOT touch anything, move anything, or type anything while the Bot is processing. *(The Bot should stop when Infinite is not the focused window, but chaos *can* happen)*
+9. **DO NOT** touch anything, move anything, or type anything while the Bot is processing. *(The Bot should stop when Infinite is not the focused window, but chaos **can** happen)*
 10. If, for any reason, you need to stop the Bot **immediately**, *HOLD **F***.
 ..10. Otherwise, move your cursor over to "Stop" and Left-Click to stop the Bot Process when you want it to stop (May Need to press twice).
 ## Testing
@@ -60,7 +60,7 @@ You can test the bot to make sure it is working properly on your machine without
 4. Move the Halo: Infinite window near, but not up against, the top-left corner of your screen.
 5. Launch B2FP.exe
 6. Move B2FP to the top-right of your window.
-7. DO NOT overlap the windows. This can result in errors.
+7. **DO NOT** overlap the windows. This can result in errors.
 8. Run your bot!
 
 **Note**: There are many factors that can negatively impact your ability to print at a fast speed with no errors. Consider the following:
