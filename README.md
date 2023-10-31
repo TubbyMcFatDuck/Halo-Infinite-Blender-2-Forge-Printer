@@ -1,7 +1,7 @@
 
 # Halo Infinite: Blender to Forge Printer
 
-<div align="center">
+<div align="left">
     <img src="https://raw.githubusercontent.com/TubbyMcFatDuck/Halo-Infinite-Blender-2-Forge-Printer/main/Images/FfB.png" alt="HI:B2FP" title="Halo Infinite: Blender 2 Forge Pronter" width="128">
 </div> This Blender toolset is like a supercharged version of Halo Infinite's Forge. It lets you create and design game elements in Blender, making it even easier and more user-friendly. Plus, it has this cool feature that lets you export data in a format called JSON, which can be easily imported into Forge with the provided bot. This means you can take your Blender creations and use them in the game with no hassle. What's even cooler is that you can team up with others on Forge projects, whether they're using Blender or Forge itself. It's like a teamwork dream come true for forge creators!
 
@@ -46,22 +46,22 @@ This folder contains the images found in this readme file
 ## Demo
 
 <div align="center">
-    <img src="/Images/BlockoutItems103123.jpg" alt="Available Printables" title="Available Printables" width="400">
+    <img src="/Images/BlockoutItems103123.jpg" alt="Available Printables" title="Available Printables" width="800">
 </div>
 This set of objects will be what is included in the Asset Library pack
 
 <div align="center">
-    <img src="/Images/Blockout1.png" alt="Blender Blockout" title="Blender Blockout" width="400">
+    <img src="/Images/Blockout1.png" alt="Blender Blockout" title="Blender Blockout" width="800">
 </div>
 Blockout of Boneyard In Blender By Okom1
 
 <div align="center">
-    <img src="/Images/Blockout2.jpeg" alt="Printed Blockout" title="Printed Blockout" width="400">
+    <img src="/Images/Blockout2.jpeg" alt="Printed Blockout" title="Printed Blockout" width="800">
 </div>
 Boneyard imported into Halo Infinite using B2FP
 
 <div align="center">
-    <img src="/Images/Blockout3.jpeg" alt="WIP Blockout" title="WIP Blockout" width="400">
+    <img src="/Images/Blockout3.jpeg" alt="WIP Blockout" title="WIP Blockout" width="800">
 </div>
 WIP arting by Okom1
 
