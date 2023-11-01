@@ -2,7 +2,9 @@
 
 <div align="left">
     <img src="https://raw.githubusercontent.com/TubbyMcFatDuck/Halo-Infinite-Blender-2-Forge-Printer/main/Images/FfB.png" alt="HI:B2FP" title="Halo Infinite: Blender 2 Forge Pronter" width="256">
-</div> This Blender toolset is like a supercharged version of Halo Infinite's Forge. It lets you create and design game elements in Blender, making it even easier and more user-friendly. Plus, it has this cool feature that lets you export data in a format called JSON, which can be easily imported into Forge with the provided bot. This means you can take your Blender creations and use them in the game with no hassle. What's even cooler is that you can team up with others on Forge projects, whether they're using Blender or Forge itself. It's like a teamwork dream come true for forge creators!
+</div> Welcome!
+
+This repository is a Blender tool/resource suite that will overhaul your workflow Halo Infinite's Forge. Build your map from the ground up in Blender's world-class 3D modeling environment, and export your map into a tool that will automatically recreate your Blender Forge map inside Halo Infinite's Forge. This opens up limitless possibilities for improving the Halo Infinite Forge (and by extension -- Custom Games) experience by leveraging Blender and the global Blender community of designers, artists, programmers, and addon developers. Build maps, prefabs, art pieces, backdrops, blockouts, and more. The printer works in a multiplayer setting as well, so you can still Forge with your friends or collaborators while you're printing your Blender map into Forge. The next evolution of Halo Infinite's Forge has arrived.
 
 ![](https://img.shields.io/github/stars/TubbyMcFatDuck/Halo-Infinite-Forge-Bot) ![](https://img.shields.io/github/forks/TubbyMcFatDuck/Halo-Infinite-Forge-Bot) ![](https://img.shields.io/github/tag/TubbyMcFatDuck/Halo-Infinite-Forge-Bot) ![](https://img.shields.io/github/release/TubbyMcFatDuck/Halo-Infinite-Forge-Bot) ![](https://img.shields.io/github/issues/TubbyMcFatDuck/Halo-Infinite-Forge-Bot)
 
@@ -17,9 +19,9 @@
 
 ## Documentation
 
-This Github repository hosts the necessary files and programs to build maps in Blender, nd then export in Halo Infinite Forge automatically via Keystrokes. Printing is an automated process but ***the user is still required to build the map in Blender***.
+This Github repository hosts the necessary files and programs to build maps in Blender, and then export into Halo Infinite's Forge automatically via Keystrokes. Printing is an automated process but ***the user is still required to build the map in Blender***.
 
-This tool allows for the use of Blenders tool set to enhance the map building and blockout process.
+This tool allows for the use of Blender's tool set to enhance the map building and blockout process.
 
 ### `Halo Infinite Forge Bot`
 
@@ -31,9 +33,7 @@ Current lower level modules are maintained by Bpsherwo
 
 ### `Forge-for-Blender-Tubby`
 
-This folder hosts all of the source code for the Blender Exporter Add-on in addition to 145 the printable assets.
-
-### `Non-Essential`
+This folder hosts all of the source code for the Blender Exporter Add-on in addition to the 163 printable assets.
 
 #### `Diagrams Test`
 
@@ -43,9 +43,13 @@ This folder contains test flow/block diagrams in draw.io - These are outdated an
 
 This folder contains the images found in this readme file
 
+### `Getting Started Guide`
+
+Here is a video guide on how to Install, Setup, and Run the B2FP, courtesy of Okom1: https://youtu.be/A4cyNZ35xEY
+
 ## Demo
 
-This set of objects will be what is included in the Asset Library pack
+This set of objects will be what is included in the Asset Library Essentials pack
 <div align="left">
     <img src="/Images/BlockoutItems103123.jpg" alt="Available Printables" title="Available Printables" width="800">
 </div>
@@ -67,9 +71,9 @@ WIP arting by Okom1
 
 ## Feedback, Contributing, and Support
 
-Because it is free software, you can contribute to make it better. New contributors are always welcome, whether you write code, create resources, report bugs, or suggest features.
+This project is Open Source, so you can contribute to make it better! New contributors are always welcome, whether you write code, create resources, report bugs, or suggest features.
 
-For support, join our [Discord Server](https://discord.gg/AzsYEfnxdK "Join The Discord")
+For support and more information about contributing, join our [Discord Server](https://discord.gg/AzsYEfnxdK "Join The Discord")
 
 ## FAQ
 
@@ -93,11 +97,11 @@ For support, join our [Discord Server](https://discord.gg/AzsYEfnxdK "Join The D
 
 #### I am have an idea for the Bot that could improve my workflow and possibly the workflow of other users of the Bot!
 
-Great! Please make a post in the discord suggestions channel, or discussions; and be as specific as you can!
+> Great! Please make a post in the discord suggestions channel, or discussions; and be as specific as you can!
 
 #### I want to be a Bot Tester. How can I do that?
 
-> Through discord, the Bot Tester role is opt-in.
+> Through discord, the Testing Team role is opt-in/opt-out.
 
 #### How do I know it is safe for my computer to run this software?
 
