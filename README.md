@@ -4,7 +4,7 @@
     <img src="https://raw.githubusercontent.com/TubbyMcFatDuck/Halo-Infinite-Blender-2-Forge-Printer/main/Images/FfB.png" alt="HI:B2FP" title="Halo Infinite: Blender 2 Forge Pronter" width="256">
 </div> Welcome!
 
-This repository is a Blender tool/resource suite that will overhaul your workflow Halo Infinite's Forge. Build your map from the ground up in Blender's world-class 3D modeling environment, and export your map into a tool that will automatically recreate your Blender Forge map inside Halo Infinite's Forge. This opens up limitless possibilities for improving the Halo Infinite Forge (and by extension -- Custom Games) experience by leveraging Blender and the global Blender community of designers, artists, programmers, and addon developers. Build maps, prefabs, art pieces, backdrops, blockouts, and more. The printer works in a multiplayer setting as well, so you can still Forge with your friends or collaborators while you're printing your Blender map into Forge. The next evolution of Halo Infinite's Forge has arrived.
+This repository is a Blender tool/resource suite that will overhaul your workflow Halo Infinite's Forge. Build your map from the ground up in Blender's world-class 3D modeling environment, and export your map into a file our tools uses that will automatically recreate your Blender Forge map inside Halo Infinite's Forge. This opens up limitless possibilities for improving the Halo Infinite Forge (and by extension -- Custom Games) experience by leveraging Blender and the global Blender community of designers, artists, programmers, and addon developers. Build maps, prefabs, art pieces, backdrops, blockouts, and more. The printer works in a multiplayer setting as well, so a player can be in a Forge session with their friends or collaborators while printing a Blender map into the game. The next evolution of Halo Infinite's Forge has arrived.
 
 ![](https://img.shields.io/github/stars/TubbyMcFatDuck/Halo-Infinite-Forge-Bot) ![](https://img.shields.io/github/forks/TubbyMcFatDuck/Halo-Infinite-Forge-Bot) ![](https://img.shields.io/github/tag/TubbyMcFatDuck/Halo-Infinite-Forge-Bot) ![](https://img.shields.io/github/release/TubbyMcFatDuck/Halo-Infinite-Forge-Bot) ![](https://img.shields.io/github/issues/TubbyMcFatDuck/Halo-Infinite-Forge-Bot)
 
@@ -79,7 +79,7 @@ For support and more information about contributing, join our [Discord Server](h
 
 #### How do I build a Halo Infinite Forge map in Blender?
 
-> The concept is simple: Download any version of Blender at or after 3.5, use the assets from our asset library to build whatever map you want, and then Export your .blend file with our custom Exporter plugin. You can then give the Bot the exported file from Blender, and let it print your map in Forge just as you built it in Blender!
+> The concept is simple: Download any version of Blender at or after 3.3, use the assets from our asset library to build whatever map you want, and then Export your .blend file with our custom Exporter plugin. You can then give the Bot the exported file from Blender, and let it print your map in Forge just as you built it in Blender!
 
 #### Do I have to credit the Bot or developers of the Bot for maps I make with the tool?
 
@@ -113,7 +113,7 @@ For support and more information about contributing, join our [Discord Server](h
 
 ## Acknowledgements
 
-[Original Exporter](https://discord.gg/BHsynVdzfc "Original Exporter built by DerrikCreates ") built by DerrikCreates
+Original Exporter built by [DerrikCreates](https://discord.gg/BHsynVdzfc "DerrikCreates Discord Server ")
 
 Halo Infinite © Microsoft Corporation. Halo Infinite Forge Bot was created under Microsoft's "[Game Content Usage Rules](https://www.xbox.com/en-us/developers/rules)" using assets from Halo Infinite, and it is not endorsed by or affiliated with Microsoft.
 
